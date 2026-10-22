@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101a16">
-  <title>Partille Goes... 2027 – Same rivalry. New battle.</title>
+  <title>Partille Goes... 2027 – Samma rivalitet. Ny kamp.</title>
 
   <style>
     :root {
@@ -16,6 +16,11 @@
       --gold: #e6c889;
       --border: rgba(255, 255, 255, .12);
       --sidebar: 245px;
+      --blue: #4d9de0;
+      --blue-dark: #102d47;
+      --red: #e85d5d;
+      --red-dark: #481b20;
+      --neutral: #7f9187;
     }
 
     * {
@@ -192,7 +197,7 @@
     }
 
     .section-inner {
-      max-width: 1000px;
+      max-width: 1100px;
     }
 
     h2 {
@@ -237,10 +242,6 @@
       color: var(--muted);
     }
 
-    .card p strong {
-      color: var(--text);
-    }
-
     .quote {
       margin: 35px 0 0;
       padding-left: 22px;
@@ -248,6 +249,99 @@
       font-size: clamp(20px, 3vw, 29px);
       font-weight: 700;
       line-height: 1.4;
+    }
+
+    .team-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 7px;
+    }
+
+    .team-card.blue {
+      background:
+        linear-gradient(145deg, rgba(16, 45, 71, .95), rgba(25, 39, 32, .98));
+      border-color: rgba(77, 157, 224, .65);
+    }
+
+    .team-card.blue::before {
+      background: var(--blue);
+    }
+
+    .team-card.blue h3 {
+      color: var(--blue);
+    }
+
+    .team-card.red {
+      background:
+        linear-gradient(145deg, rgba(72, 27, 32, .95), rgba(25, 39, 32, .98));
+      border-color: rgba(232, 93, 93, .65);
+    }
+
+    .team-card.red::before {
+      background: var(--red);
+    }
+
+    .team-card.red h3 {
+      color: var(--red);
+    }
+
+    .team-card.neutral {
+      grid-column: 1 / -1;
+      background:
+        linear-gradient(145deg, rgba(67, 84, 75, .65), rgba(25, 39, 32, .98));
+      border-color: rgba(180, 193, 184, .45);
+    }
+
+    .team-card.neutral::before {
+      background: var(--neutral);
+    }
+
+    .team-card.neutral h3 {
+      color: var(--muted);
+    }
+
+    .team-intro {
+      margin-bottom: 22px !important;
+    }
+
+    .player-list {
+      display: grid;
+      gap: 12px;
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .player {
+      padding: 15px 16px;
+      background: rgba(0, 0, 0, .2);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 9px;
+    }
+
+    .player-name {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 17px;
+    }
+
+    .player-details {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .player-details strong {
+      color: var(--text);
     }
 
     footer {
@@ -336,6 +430,10 @@
         grid-template-columns: 1fr;
       }
 
+      .team-card.neutral {
+        grid-column: auto;
+      }
+
       .golf-ball {
         width: 300px;
         height: 300px;
@@ -383,9 +481,6 @@
       <a href="#location">
         Location
       </a>
-      <a href="#players">
-        Players
-      </a>
       <a href="#teams">
         Teams
       </a>
@@ -398,11 +493,11 @@
     </nav>
 
     <div class="sidebar-note">
-      <strong>Two teams. One title.</strong>
-      Twelve players.<br>
-      Three days.<br>
-      Seventy-two holes.<br>
-      One battle.
+      <strong>Två lag. En titel.</strong>
+      Tolv spelare.<br>
+      Tre dagar.<br>
+      Sjuttiosex hål.<br>
+      En kamp.
     </div>
   </aside>
 
@@ -412,27 +507,26 @@
 
       <div class="hero-content">
         <div class="eyebrow">
-          After the success of 2026 · The sequel awaits
+          Efter succén 2026 · Uppföljaren väntar
         </div>
 
         <h1 id="hero-title">
-          Same rivalry.<br>
-          <span>New battle.</span>
+          Samma rivalitet.<br>
+          <span>Ny kamp.</span>
         </h1>
 
         <p class="lead">
-          We laughed. We fought. We held our breath over putts that
-          suddenly meant everything. Partille Goes Barsebäck became a
-          journey to remember – and now the next chapter awaits.
-          In 2027, the competition gets bigger, more players join the
-          battle and every shot can become decisive.
+          Vi skrattade. Vi kämpade. Vi höll andan över puttar som plötsligt
+          betydde allt. Partille Goes Barsebäck blev en resa att minnas –
+          och nu väntar nästa kapitel. År 2027 blir tävlingen större,
+          fler spelare ansluter till kampen och varje slag kan bli avgörande.
         </p>
       </div>
     </section>
 
     <section class="section" id="location" aria-labelledby="location-title">
       <div class="section-inner">
-        <div class="eyebrow">The venue</div>
+        <div class="eyebrow">Tävlingsplatsen</div>
 
         <h2 id="location-title">
           Location
@@ -440,70 +534,167 @@
 
         <div class="copy">
           <p>
-            Partille Goes... 2027 takes place at Barsebäck Golf & Country
-            Club. A classic setting where every shot, putt and match can
-            become decisive.
+            Partille Goes... 2027 arrangeras på Barsebäck Golf & Country Club.
+            En klassisk miljö där varje slag, putt och match kan bli avgörande.
           </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="players" aria-labelledby="players-title">
-      <div class="section-inner">
-        <div class="eyebrow">The competitors</div>
-
-        <h2 id="players-title">
-          Players
-        </h2>
-
-        <div class="copy">
-          <p>
-            The competition consists of twelve players who will fight
-            together for the title. Six players represent each team.
-          </p>
-        </div>
-
-        <div class="cards">
-          <article class="card">
-            <h3>12 players</h3>
-            <p>
-              More teammates, more matches and more opportunities to step
-              up when the team needs it most.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>One captain per team</h3>
-            <p>
-              Each team will have a captain responsible for team spirit,
-              tactics and the line-up for every match.
-            </p>
-          </article>
         </div>
       </div>
     </section>
 
     <section class="section" id="teams" aria-labelledby="teams-title">
       <div class="section-inner">
-        <div class="eyebrow">Two sides. One title.</div>
+        <div class="eyebrow">Två sidor. En titel.</div>
 
         <h2 id="teams-title">
           Teams
         </h2>
 
+        <div class="copy">
+          <p>
+            Tolv spelare gör upp över tre dagar. Fyra spelare representerar
+            varje lag från start, medan spelarna i kategorin To be announced
+            senare placeras i Team Blue eller Team Red.
+          </p>
+        </div>
+
         <div class="cards">
-          <article class="card">
-            <h3>Team 1</h3>
-            <p>
-              Team line-up and captain will be presented here.
+          <article class="card team-card blue">
+            <h3>Team Blue</h3>
+
+            <p class="team-intro">
+              Det blå laget står för lugn, precision och stark lagkänsla.
             </p>
+
+            <ul class="player-list">
+              <li class="player">
+                <span class="player-name">Daniel</span>
+                <span class="player-details">
+                  <strong>Styrka:</strong> Stabil från tee och mycket jämn.
+                  <br>
+                  <strong>Svaghet:</strong> Tar ibland för få risker.
+                </span>
+              </li>
+
+              <li class="player">
+                <span class="player-name">Kristoffersson</span>
+                <span class="player-details">
+                  <strong>Styrka:</strong> Vass puttare under press.
+                  <br>
+                  <strong>Svaghet:</strong> Kan bli otålig efter ett dåligt hål.
+                </span>
+              </li>
+
+              <li class="player">
+                <span class="player-name">Ahlstrand</span>
+                <span class="player-details">
+                  <strong>Styrka:</strong> Strategisk och skicklig på inspel.
+                  <br>
+                  <strong>Svaghet:</strong> Övertänker ibland enkla slag.
+                </span>
+              </li>
+
+              <li class="player">
+                <span class="player-name">Köhnke</span>
+                <span class="player-details">
+                  <strong>Styrka:</strong> Energisk lagspelare med starkt närspel.
+                  <br>
+                  <strong>Svaghet:</strong> Tempot kan bli ojämnt.
+                </span>
+              </li>
+            </ul>
           </article>
 
-          <article class="card">
-            <h3>Team 2</h3>
-            <p>
-              Team line-up and captain will be presented here.
+          <article class="card team-card red">
+            <h3>Team Red</h3>
+
+            <p class="team-intro">
+              Det röda laget spelar med passion, mod och offensiv energi.
             </p>
+
+            <ul class="player-list">
+              <li class="player">
+                <span class="player-name">Örjan</span>
+                <span class="player-details">
+                  <strong>Styrka:</strong> Modig och stark när matchen hårdnar.
+                  <br>
+                  <strong>Svaghet:</strong> Kan gå för aggressivt ibland.
+                </span>
+              </li>
+
+              <li class="player">
+                <span class="player-name">Carlsson</span>
+                <span class="player-details">
+                  <strong>Styrka:</strong> Pålitlig i långa järnslag.
+                  <br>
+                  <strong>Svaghet:</strong> Behöver hitta rytmen tidigt.
+                </span>
+              </li>
+
+              <li class="player">
+                <span class="player-name">Ingemar</span>
+                <span class="player-details">
+                  <strong>Styrka:</strong> Kreativ runt greenerna.
+                  <br>
+                  <strong>Svaghet:</strong> Tar ibland onödiga chansningar.
+                </span>
+              </li>
+
+              <li class="player">
+                <span class="player-name">Magnus</span>
+                <span class="player-details">
+                  <strong>Styrka:</strong> Naturlig ledare med starkt psyke.
+                  <br>
+                  <strong>Svaghet:</strong> Lägger ibland för stor press på sig själv.
+                </span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="card team-card neutral">
+            <h3>To be announced</h3>
+
+            <p class="team-intro">
+              Dessa spelare väntar på sin slutliga placering. Senare ansluter
+              de till Team Blue eller Team Red och kan bli avgörande för kampen.
+            </p>
+
+            <ul class="player-list">
+              <li class="player">
+                <span class="player-name">Marcus</span>
+                <span class="player-details">
+                  <strong>Styrka:</strong> Explosiv bollträff och stor potential.
+                  <br>
+                  <strong>Svaghet:</strong> Resultaten kan variera från dag till dag.
+                </span>
+              </li>
+
+              <li class="player">
+                <span class="player-name">Millsjö</span>
+                <span class="player-details">
+                  <strong>Styrka:</strong> Kall och metodisk i viktiga lägen.
+                  <br>
+                  <strong>Svaghet:</strong> Behöver ibland våga spela mer offensivt.
+                </span>
+              </li>
+
+              <li class="player">
+                <span class="player-name">Pelle</span>
+                <span class="player-details">
+                  <strong>Styrka:</strong> Positiv lagspelare med bra känsla.
+                  <br>
+                  <strong>Svaghet:</strong> Tappar ibland fokus efter motgångar.
+                </span>
+              </li>
+
+              <li class="player">
+                <span class="player-name">Harald</span>
+                <span class="player-details">
+                  <strong>Styrka:</strong> Stark taktiker och duktig på att läsa banan.
+                  <br>
+                  <strong>Svaghet:</strong> Kan fastna för länge i sina analyser.
+                </span>
+              </li>
+            </ul>
           </article>
         </div>
       </div>
@@ -511,7 +702,7 @@
 
     <section class="section" id="formats" aria-labelledby="formats-title">
       <div class="section-inner">
-        <div class="eyebrow">How it works</div>
+        <div class="eyebrow">Så fungerar det</div>
 
         <h2 id="formats-title">
           Formats
@@ -519,45 +710,45 @@
 
         <div class="copy">
           <p>
-            The matches are played over three days and 72 holes.
-            All matches are played with reduced playing handicap.
+            Matcherna spelas över tre dagar och totalt 72 hål.
+            Alla matcher spelas med reducerat spelhandicap.
           </p>
         </div>
 
         <div class="cards">
           <article class="card">
-            <h3>Day 1</h3>
+            <h3>Dag 1</h3>
             <p>
-              18 holes four-ball. The first points are on the line.
+              18 hål four-ball. De första poängen står på spel.
             </p>
           </article>
 
           <article class="card">
-            <h3>Day 2</h3>
+            <h3>Dag 2</h3>
             <p>
-              36 holes four-ball across two rounds. Double the golf,
-              double the opportunities to turn the match around.
+              36 hål four-ball över två rundor. Dubbelt så mycket golf
+              och dubbelt så många möjligheter att vända matchen.
             </p>
           </article>
 
           <article class="card">
-            <h3>Day 3</h3>
+            <h3>Dag 3</h3>
             <p>
-              18 holes singles. Everything can be decided shot by shot.
+              18 hål singelmatcher. Allt kan avgöras slag för slag.
             </p>
           </article>
         </div>
 
         <blockquote class="quote">
-          Three days. Twelve players. One title to fight for.
-          The rivalry is the same – but 2027 will be something special.
+          Tre dagar. Tolv spelare. En titel att kämpa för.
+          Rivaliteten är densamma – men 2027 blir något alldeles extra.
         </blockquote>
       </div>
     </section>
 
     <section class="section" id="schedule" aria-labelledby="schedule-title">
       <div class="section-inner">
-        <div class="eyebrow">Three days of competition</div>
+        <div class="eyebrow">Tre tävlingsdagar</div>
 
         <h2 id="schedule-title">
           Schedule
@@ -565,23 +756,23 @@
 
         <div class="cards">
           <article class="card">
-            <h3>Day 1</h3>
+            <h3>Dag 1</h3>
             <p>
-              First round · 18 holes four-ball
+              Första rundan · 18 hål four-ball
             </p>
           </article>
 
           <article class="card">
-            <h3>Day 2</h3>
+            <h3>Dag 2</h3>
             <p>
-              Two rounds · 36 holes four-ball
+              Två rundor · 36 hål four-ball
             </p>
           </article>
 
           <article class="card">
-            <h3>Day 3</h3>
+            <h3>Dag 3</h3>
             <p>
-              Final day · 18 holes singles
+              Finaldagen · 18 hål singelmatcher
             </p>
           </article>
         </div>
@@ -589,7 +780,7 @@
     </section>
 
     <footer>
-      Partille Goes... 2027 · 12 players · Three days of team competition
+      Partille Goes... 2027 · 12 spelare · Tre dagar av lagtävling
     </footer>
   </main>
 
