@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -20,10 +21,6 @@
       --red: #e85d5d;
       --neutral: #7f9187;
     }
-
-    /* =========================
-       GRUND
-    ========================= */
 
     * {
       box-sizing: border-box;
@@ -59,10 +56,6 @@
       outline: 3px solid var(--gold);
       outline-offset: 5px;
     }
-
-    /* =========================
-       SIDOMENY
-    ========================= */
 
     .sidebar {
       position: fixed;
@@ -135,17 +128,9 @@
       cursor: pointer;
     }
 
-    /* =========================
-       MAIN
-    ========================= */
-
     main {
       margin-left: var(--sidebar);
     }
-
-    /* =========================
-       HERO
-    ========================= */
 
     .hero {
       position: relative;
@@ -154,18 +139,9 @@
       align-items: center;
       padding: 85px clamp(24px, 6vw, 100px);
       overflow: hidden;
-
       background:
-        radial-gradient(
-          ellipse at 90% 15%,
-          #294b39 0%,
-          transparent 55%
-        ),
-        linear-gradient(
-          135deg,
-          #14251c,
-          #101a16 70%
-        );
+        radial-gradient(ellipse at 90% 15%, #294b39 0%, transparent 55%),
+        linear-gradient(135deg, #14251c, #101a16 70%);
     }
 
     .golf-ball {
@@ -177,16 +153,10 @@
       border-radius: 50%;
       opacity: .09;
       transform: rotate(-20deg);
-
       background:
-        radial-gradient(
-          circle,
-          #14251c 2px,
-          transparent 3px
-        )
+        radial-gradient(circle, #14251c 2px, transparent 3px)
         0 0 / 18px 18px,
         #fff;
-
       pointer-events: none;
     }
 
@@ -221,10 +191,6 @@
       font-size: clamp(17px, 2vw, 21px);
       line-height: 1.65;
     }
-
-    /* =========================
-       SEKTIONER
-    ========================= */
 
     .section {
       padding: 75px clamp(24px, 6vw, 100px);
@@ -272,6 +238,13 @@
       margin-top: 0;
     }
 
+    .copy h4 {
+      margin: 34px 0 14px;
+      color: var(--gold);
+      font-size: 23px;
+      line-height: 1.3;
+    }
+
     .copy ul {
       padding-left: 24px;
       margin: 12px 0 24px;
@@ -285,10 +258,6 @@
     .copy li:last-child {
       margin-bottom: 0;
     }
-
-    /* =========================
-       KORT
-    ========================= */
 
     .cards {
       display: grid;
@@ -325,9 +294,7 @@
       line-height: 1.4;
     }
 
-    /* =========================
-       LAGKORT
-    ========================= */
+    /* Lagkort */
 
     .team-card {
       position: relative;
@@ -341,8 +308,6 @@
       height: 7px;
     }
 
-    /* Team Blue */
-
     .team-card.blue {
       background:
         linear-gradient(
@@ -350,7 +315,6 @@
           rgba(16, 45, 71, .95),
           rgba(25, 39, 32, .98)
         );
-
       border-color: rgba(77, 157, 224, .65);
     }
 
@@ -362,8 +326,6 @@
       color: var(--blue);
     }
 
-    /* Team Red */
-
     .team-card.red {
       background:
         linear-gradient(
@@ -371,7 +333,6 @@
           rgba(72, 27, 32, .95),
           rgba(25, 39, 32, .98)
         );
-
       border-color: rgba(232, 93, 93, .65);
     }
 
@@ -383,18 +344,14 @@
       color: var(--red);
     }
 
-    /* To be announced */
-
     .team-card.neutral {
       grid-column: 1 / -1;
-
       background:
         linear-gradient(
           145deg,
           rgba(67, 84, 75, .65),
           rgba(25, 39, 32, .98)
         );
-
       border-color: rgba(180, 193, 184, .45);
     }
 
@@ -444,9 +401,56 @@
       color: var(--text);
     }
 
-    /* =========================
-       SCHEMA
-    ========================= */
+    /* Formats */
+
+    .format-cards {
+      margin-top: 20px;
+    }
+
+    .format-cards .card {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .format-cards .card h3 {
+      margin: 0;
+    }
+
+    .format-cards .card p {
+      margin: 0;
+    }
+
+    .handicap-copy {
+      margin-top: 38px;
+    }
+
+    .handicap-card {
+      max-width: 760px;
+      margin-top: 20px;
+    }
+
+    .handicap-list {
+      margin: 0 0 24px;
+      padding-left: 24px;
+      color: var(--muted);
+    }
+
+    .handicap-list li {
+      margin-bottom: 14px;
+      padding-left: 4px;
+    }
+
+    .handicap-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .handicap-card p {
+      margin: 24px 0 0;
+      color: var(--muted);
+    }
+
+    /* Schema */
 
     .schedule-grid {
       display: grid;
@@ -460,14 +464,12 @@
       overflow: hidden;
       min-height: 285px;
       padding: 0;
-
       background:
         linear-gradient(
           145deg,
           rgba(38, 61, 48, .95),
           rgba(25, 39, 32, .98)
         );
-
       border: 1px solid var(--border);
       border-radius: 14px;
     }
@@ -534,10 +536,6 @@
       font-weight: 700;
     }
 
-    /* =========================
-       OM PARTILLE GOES
-    ========================= */
-
     .about-link {
       display: inline-block;
       margin-top: 8px;
@@ -552,10 +550,6 @@
       text-decoration: underline;
     }
 
-    /* =========================
-       FOOTER
-    ========================= */
-
     footer {
       padding: 25px clamp(24px, 6vw, 100px);
       border-top: 1px solid var(--border);
@@ -563,19 +557,11 @@
       font-size: 13px;
     }
 
-    /* =========================
-       STORA SKÄRMAR
-    ========================= */
-
     @media (min-width: 1600px) {
       .hero {
         min-height: 780px;
       }
     }
-
-    /* =========================
-       MELLANSTORA SKÄRMAR
-    ========================= */
 
     @media (max-width: 950px) {
       .schedule-grid {
@@ -587,10 +573,6 @@
       }
     }
 
-    /* =========================
-       MOBIL
-    ========================= */
-
     @media (max-width: 800px) {
       html {
         scroll-padding-top: 100px;
@@ -600,11 +582,9 @@
         inset: 0 0 auto;
         width: 100%;
         padding: 16px 20px;
-
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-
         border-right: 0;
         border-bottom: 1px solid var(--border);
       }
@@ -628,15 +608,12 @@
 
       nav {
         display: none;
-
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
-
         margin: 0;
         padding: 15px 20px;
-
         background: #0b130f;
         border-bottom: 1px solid var(--border);
       }
@@ -673,7 +650,8 @@
         font-size: 17px;
       }
 
-      .copy h3 {
+      .copy h3,
+      .copy h4 {
         margin-top: 28px;
         font-size: 21px;
       }
@@ -698,11 +676,11 @@
       .schedule-list {
         padding: 20px 22px 24px;
       }
-    }
 
-    /* =========================
-       REDUCERAD RÖRELSE
-    ========================= */
+      .handicap-card {
+        margin-top: 16px;
+      }
+    }
 
     @media (prefers-reduced-motion: reduce) {
       html {
@@ -718,10 +696,6 @@
 </head>
 
 <body>
-
-  <!-- =========================
-       SIDOMENY
-  ========================= -->
 
   <aside class="sidebar" aria-label="Sidomeny">
 
@@ -783,9 +757,7 @@
 
   <main>
 
-    <!-- =========================
-         MAIN INFO
-    ========================= -->
+    <!-- MAIN INFO -->
 
     <section
       class="hero"
@@ -817,9 +789,7 @@
 
     </section>
 
-    <!-- =========================
-         LOCATION
-    ========================= -->
+    <!-- LOCATION -->
 
     <section
       class="section"
@@ -854,9 +824,7 @@
 
     </section>
 
-    <!-- =========================
-         TEAMS
-    ========================= -->
+    <!-- TEAMS -->
 
     <section
       class="section"
@@ -886,8 +854,6 @@
 
         <div class="cards">
 
-          <!-- TEAM BLUE -->
-
           <article class="card team-card blue">
 
             <h3>Team Blue</h3>
@@ -902,66 +868,44 @@
             <ul class="player-list">
 
               <li class="player">
-
-                <span class="player-name">
-                  Daniel
-                </span>
-
+                <span class="player-name">Daniel</span>
                 <span class="player-details">
                   <strong>Styrka:</strong> Stabil från tee och mycket jämn.
                   <br>
                   <strong>Svaghet:</strong> Tar ibland för få risker.
                 </span>
-
               </li>
 
               <li class="player">
-
-                <span class="player-name">
-                  Kristoffersson
-                </span>
-
+                <span class="player-name">Kristoffersson</span>
                 <span class="player-details">
                   <strong>Styrka:</strong> Vass puttare under press.
                   <br>
                   <strong>Svaghet:</strong> Kan bli otålig efter ett dåligt hål.
                 </span>
-
               </li>
 
               <li class="player">
-
-                <span class="player-name">
-                  Ahlstrand
-                </span>
-
+                <span class="player-name">Ahlstrand</span>
                 <span class="player-details">
                   <strong>Styrka:</strong> Strategisk och skicklig på inspel.
                   <br>
                   <strong>Svaghet:</strong> Övertänker ibland enkla slag.
                 </span>
-
               </li>
 
               <li class="player">
-
-                <span class="player-name">
-                  Köhnke
-                </span>
-
+                <span class="player-name">Köhnke</span>
                 <span class="player-details">
                   <strong>Styrka:</strong> Energisk lagspelare med starkt närspel.
                   <br>
                   <strong>Svaghet:</strong> Tempot kan bli ojämnt.
                 </span>
-
               </li>
 
             </ul>
 
           </article>
-
-          <!-- TEAM RED -->
 
           <article class="card team-card red">
 
@@ -977,66 +921,44 @@
             <ul class="player-list">
 
               <li class="player">
-
-                <span class="player-name">
-                  Örjan
-                </span>
-
+                <span class="player-name">Örjan</span>
                 <span class="player-details">
                   <strong>Styrka:</strong> Modig och stark när matchen hårdnar.
                   <br>
                   <strong>Svaghet:</strong> Kan gå för aggressivt ibland.
                 </span>
-
               </li>
 
               <li class="player">
-
-                <span class="player-name">
-                  Carlsson
-                </span>
-
+                <span class="player-name">Carlsson</span>
                 <span class="player-details">
                   <strong>Styrka:</strong> Pålitlig i långa järnslag.
                   <br>
                   <strong>Svaghet:</strong> Behöver hitta rytmen tidigt.
                 </span>
-
               </li>
 
               <li class="player">
-
-                <span class="player-name">
-                  Ingemar
-                </span>
-
+                <span class="player-name">Ingemar</span>
                 <span class="player-details">
                   <strong>Styrka:</strong> Kreativ runt greenerna.
                   <br>
                   <strong>Svaghet:</strong> Tar ibland onödiga chansningar.
                 </span>
-
               </li>
 
               <li class="player">
-
-                <span class="player-name">
-                  Magnus
-                </span>
-
+                <span class="player-name">Magnus</span>
                 <span class="player-details">
                   <strong>Styrka:</strong> Naturlig ledare med starkt psyke.
                   <br>
                   <strong>Svaghet:</strong> Lägger ibland för stor press på sig själv.
                 </span>
-
               </li>
 
             </ul>
 
           </article>
-
-          <!-- TO BE ANNOUNCED -->
 
           <article class="card team-card neutral">
 
@@ -1050,59 +972,39 @@
             <ul class="player-list">
 
               <li class="player">
-
-                <span class="player-name">
-                  Marcus
-                </span>
-
+                <span class="player-name">Marcus</span>
                 <span class="player-details">
                   <strong>Styrka:</strong> Explosiv bollträff och stor potential.
                   <br>
                   <strong>Svaghet:</strong> Resultaten kan variera från dag till dag.
                 </span>
-
               </li>
 
               <li class="player">
-
-                <span class="player-name">
-                  Millsjö
-                </span>
-
+                <span class="player-name">Millsjö</span>
                 <span class="player-details">
                   <strong>Styrka:</strong> Kall och metodisk i viktiga lägen.
                   <br>
                   <strong>Svaghet:</strong> Behöver ibland våga spela mer offensivt.
                 </span>
-
               </li>
 
               <li class="player">
-
-                <span class="player-name">
-                  Pelle
-                </span>
-
+                <span class="player-name">Pelle</span>
                 <span class="player-details">
                   <strong>Styrka:</strong> Positiv lagspelare med bra känsla.
                   <br>
                   <strong>Svaghet:</strong> Tappar ibland fokus efter motgångar.
                 </span>
-
               </li>
 
               <li class="player">
-
-                <span class="player-name">
-                  Harald
-                </span>
-
+                <span class="player-name">Harald</span>
                 <span class="player-details">
                   <strong>Styrka:</strong> Stark taktiker och duktig på att läsa banan.
                   <br>
                   <strong>Svaghet:</strong> Kan fastna för länge i sina analyser.
                 </span>
-
               </li>
 
             </ul>
@@ -1115,9 +1017,7 @@
 
     </section>
 
-    <!-- =========================
-         FORMATS
-    ========================= -->
+    <!-- FORMATS -->
 
     <section
       class="section"
@@ -1135,8 +1035,6 @@
           Formats
         </h2>
 
-        <!-- SPELFORM OCH HANDICAP -->
-
         <div class="copy">
 
           <h3>Spelform och handicap</h3>
@@ -1148,22 +1046,81 @@
             på hålet efter handicapjustering.
           </p>
 
-          <h3>Bästboll</h3>
+          <h4>Spelformer</h4>
 
-          <p>
-            I bästboll spelar två spelare tillsammans mot ett annat par.
-            Varje spelare spelar sin egen boll, och lagets bästa nettoscore
-            på varje hål räknas.
-          </p>
+        </div>
+
+        <div class="cards format-cards">
+
+          <article class="card">
+
+            <h3>Dag 1 · Bästboll</h3>
+
+            <p>
+              Dag 1 spelas 18 hål bästboll i stigande handicap.
+              Två spelare bildar ett par och möter ett annat par.
+              Varje spelare spelar sin egen boll och lagets bästa
+              nettoscore på varje hål räknas.
+            </p>
+
+            <p>
+              Matchen spelas som matchspel och är värd 1 poäng.
+            </p>
+
+          </article>
+
+          <article class="card">
+
+            <h3>Dag 2 · Bästboll</h3>
+
+            <p>
+              Dag 2 spelas 36 hål bästboll över två rundor.
+              Det är Captain Pick, vilket innebär att kaptenen,
+              i samråd med laget, sätter lagen till båda matcherna.
+            </p>
+
+            <p>
+              Matcherna spelas som matchspel och varje match
+              är värd 1 poäng.
+            </p>
+
+          </article>
+
+          <article class="card">
+
+            <h3>Sista dagen · Singlar</h3>
+
+            <p>
+              Sista dagen spelas avgörande singelmatcher över 18 hål.
+              Lagen går ut i fallande handicap och spelarna möts
+              direkt mot varandra.
+            </p>
+
+            <p>
+              Matcherna spelas som matchspel och varje singelmatch
+              är värd 2 poäng.
+            </p>
+
+          </article>
+
+        </div>
+
+        <div class="copy handicap-copy">
+
+          <h4>Handicap</h4>
 
           <p>
             Handicap beräknas enligt följande:
           </p>
 
-          <ul>
+        </div>
+
+        <div class="card handicap-card">
+
+          <ul class="handicap-list">
 
             <li>
-              Alla spelares spelhandicap (SHCP) reduceras med 90 %
+              Alla spelares spelhandicap, SHCP, reduceras med 90 %
               och avrundas till närmaste heltal.
             </li>
 
@@ -1174,82 +1131,17 @@
 
             <li>
               De erhållna slagen fördelas på banans hål enligt hålens
-              handicapindex (hcp-index).
+              handicapindex, hcp-index.
             </li>
 
           </ul>
 
-          <h3>Singel</h3>
-
           <p>
-            I singelmatcherna möts två spelare direkt mot varandra.
-            Spelarna använder sina respektive spelhandicap (SHCP).
+            I singelmatcherna använder spelarna sina respektive
+            spelhandicap. Samma nollställning tillämpas som i bästbollarna:
+            spelaren med matchens lägsta SHCP nollställs och övriga spelare
+            får sina slag reducerade med motsvarande antal slag.
           </p>
-
-          <p>
-            Samma nollställning tillämpas som i bästbollarna:
-          </p>
-
-          <ul>
-
-            <li>
-              Spelaren med matchens lägsta SHCP nollställs.
-            </li>
-
-            <li>
-              Övriga spelares SHCP reduceras med motsvarande antal slag.
-            </li>
-
-            <li>
-              De erhållna slagen fördelas på banans hål enligt hålens
-              handicapindex (hcp-index).
-            </li>
-
-          </ul>
-
-        </div>
-
-        <!-- MATCHER OCH POÄNG -->
-
-        <div class="cards">
-
-          <article class="card">
-
-            <h3>Bästboll</h3>
-
-            <p>
-              Dag 1 spelas 18 hål bästboll i stigande hcp.
-              Alla bästbollsmatcher är matchspel och varje match
-              är värd 1 poäng.
-            </p>
-
-          </article>
-
-          <article class="card">
-
-            <h3>Bästboll</h3>
-
-            <p>
-              Dag 2 spelas 36 hål bästboll över två rundor.
-              Det är Captain Pick – kaptenen, i samråd med laget,
-              sätter lagen till båda matcherna.
-              Alla matcher är matchspel och varje bästbollsmatch
-              ger 1 poäng.
-            </p>
-
-          </article>
-
-          <article class="card">
-
-            <h3>Singlar</h3>
-
-            <p>
-              Sista dagen spelas avgörande singelmatcher över 18 hål.
-              Lagen går ut i fallande hcp och matcherna är matchspel.
-              Varje singelmatch är värd 2 poäng.
-            </p>
-
-          </article>
 
         </div>
 
@@ -1262,9 +1154,7 @@
 
     </section>
 
-    <!-- =========================
-         SCHEDULE
-    ========================= -->
+    <!-- SCHEDULE -->
 
     <section
       class="section"
@@ -1284,235 +1174,143 @@
 
         <div class="schedule-grid">
 
-          <!-- DAG 1 -->
-
           <article class="schedule-card">
 
             <div class="schedule-header">
-
-              <span class="schedule-day">
-                Dag 1
-              </span>
-
-              <h3>
-                Lördag
-              </h3>
-
+              <span class="schedule-day">Dag 1</span>
+              <h3>Lördag</h3>
             </div>
 
             <ul class="schedule-list">
 
               <li class="schedule-item">
-
-                <span class="schedule-time">
-                  10:00
-                </span>
-
+                <span class="schedule-time">10:00</span>
                 <span class="schedule-event">
                   <strong>Samling</strong>
                   Gemensam start för tävlingshelgen
                 </span>
-
               </li>
 
               <li class="schedule-item">
-
-                <span class="schedule-time">
-                  11:30
-                </span>
-
+                <span class="schedule-time">11:30</span>
                 <span class="schedule-event">
                   <strong>Lunch</strong>
                   Uppladdning inför dagens matcher
                 </span>
-
               </li>
 
               <li class="schedule-item">
-
-                <span class="schedule-time">
-                  13:00
-                </span>
-
+                <span class="schedule-time">13:00</span>
                 <span class="schedule-event">
                   <strong>Pine</strong>
                   Starttider från kl. 13
                 </span>
-
               </li>
 
               <li class="schedule-item">
-
-                <span class="schedule-time">
-                  18:00
-                </span>
-
+                <span class="schedule-time">18:00</span>
                 <span class="schedule-event">
                   <strong>Prisutdelning</strong>
                   I baren
                 </span>
-
               </li>
 
               <li class="schedule-item">
-
-                <span class="schedule-time">
-                  19:30
-                </span>
-
+                <span class="schedule-time">19:30</span>
                 <span class="schedule-event">
                   <strong>Middag</strong>
                   Kvällens gemensamma middag
                 </span>
-
               </li>
 
             </ul>
 
           </article>
 
-          <!-- DAG 2 -->
-
           <article class="schedule-card">
 
             <div class="schedule-header">
-
-              <span class="schedule-day">
-                Dag 2
-              </span>
-
-              <h3>
-                Söndag
-              </h3>
-
+              <span class="schedule-day">Dag 2</span>
+              <h3>Söndag</h3>
             </div>
 
             <ul class="schedule-list">
 
               <li class="schedule-item">
-
-                <span class="schedule-time">
-                  07:00
-                </span>
-
+                <span class="schedule-time">07:00</span>
                 <span class="schedule-event">
                   <strong>Frukost</strong>
                   Gemensam frukost
                 </span>
-
               </li>
 
               <li class="schedule-item">
-
-                <span class="schedule-time">
-                  08:00
-                </span>
-
+                <span class="schedule-time">08:00</span>
                 <span class="schedule-event">
                   <strong>Ocean</strong>
                   Starttider från kl. 8
                 </span>
-
               </li>
 
               <li class="schedule-item">
-
-                <span class="schedule-time">
-                  13:00
-                </span>
-
+                <span class="schedule-time">13:00</span>
                 <span class="schedule-event">
                   <strong>Lunch och prisutdelning</strong>
                   Efter förmiddagens matcher
                 </span>
-
               </li>
 
               <li class="schedule-item">
-
-                <span class="schedule-time">
-                  14:00
-                </span>
-
+                <span class="schedule-time">14:00</span>
                 <span class="schedule-event">
                   <strong>Ocean</strong>
                   Starttider från kl. 14
                 </span>
-
               </li>
 
               <li class="schedule-item">
-
-                <span class="schedule-time">
-                  19:00
-                </span>
-
+                <span class="schedule-time">19:00</span>
                 <span class="schedule-event">
                   <strong>Prisutdelning</strong>
                   I baren
                 </span>
-
               </li>
 
               <li class="schedule-item">
-
-                <span class="schedule-time">
-                  20:00
-                </span>
-
+                <span class="schedule-time">20:00</span>
                 <span class="schedule-event">
                   <strong>Middag</strong>
                   Kvällens gemensamma middag
                 </span>
-
               </li>
 
             </ul>
 
           </article>
 
-          <!-- DAG 3 -->
-
           <article class="schedule-card">
 
             <div class="schedule-header">
-
-              <span class="schedule-day">
-                Dag 3
-              </span>
-
-              <h3>
-                Måndag
-              </h3>
-
+              <span class="schedule-day">Dag 3</span>
+              <h3>Måndag</h3>
             </div>
 
             <ul class="schedule-list">
 
               <li class="schedule-item">
-
-                <span class="schedule-time">
-                  07:00
-                </span>
-
+                <span class="schedule-time">07:00</span>
                 <span class="schedule-event">
                   <strong>Frukost</strong>
                   Gemensam frukost
                 </span>
-
               </li>
 
               <li class="schedule-item">
-
-                <span class="schedule-time">
-                  10:00
-                </span>
-
+                <span class="schedule-time">10:00</span>
                 <span class="schedule-event">
                   <strong>Pine</strong>
                   Start för de avgörande singelmatcherna
                 </span>
-
               </li>
 
             </ul>
@@ -1525,10 +1323,7 @@
 
     </section>
 
-    <!-- =========================
-         OM PARTILLE GOES
-         LIGGER SIST
-    ========================= -->
+    <!-- OM PARTILLE GOES -->
 
     <section
       class="section"
@@ -1576,39 +1371,22 @@
 
     </section>
 
-    <!-- =========================
-         FOOTER
-    ========================= -->
-
     <footer>
       Partille Goes... 2027 · 12 spelare · Tre dagar av lagtävling
     </footer>
 
   </main>
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
-
   <script>
     const menuButton = document.querySelector(".menu-toggle");
     const navigation = document.querySelector("#navigation");
     const navLinks = document.querySelectorAll("#navigation a");
 
-    /* Stäng mobilmenyn */
-
     function closeMenu() {
       navigation.classList.remove("open");
-
-      menuButton.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
+      menuButton.setAttribute("aria-expanded", "false");
       menuButton.textContent = "Meny ☰";
     }
-
-    /* Öppna och stäng mobilmenyn */
 
     menuButton.addEventListener("click", () => {
       const isOpen = navigation.classList.toggle("open");
@@ -1623,13 +1401,9 @@
         : "Meny ☰";
     });
 
-    /* Stäng menyn när en länk klickas */
-
     navLinks.forEach(link => {
       link.addEventListener("click", closeMenu);
     });
-
-    /* Stäng menyn med Escape */
 
     document.addEventListener("keydown", event => {
       if (
@@ -1641,8 +1415,6 @@
       }
     });
 
-    /* Stäng menyn när skärmen ändrar storlek */
-
     const mediaQuery = window.matchMedia("(min-width: 801px)");
 
     if (mediaQuery.addEventListener) {
@@ -1650,8 +1422,6 @@
     } else {
       mediaQuery.addListener(closeMenu);
     }
-
-    /* Markera aktiv menypunkt vid scroll */
 
     if ("IntersectionObserver" in window) {
 
@@ -1675,16 +1445,12 @@
               );
 
               if (isActive) {
-
                 link.setAttribute(
                   "aria-current",
                   "location"
                 );
-
               } else {
-
                 link.removeAttribute("aria-current");
-
               }
 
             });
@@ -1703,8 +1469,8 @@
         .forEach(section => observer.observe(section));
 
     }
-
   </script>
 
 </body>
 </html>
+```
