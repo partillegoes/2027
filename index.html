@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -343,6 +344,84 @@
       color: var(--text);
     }
 
+    /* Schedule */
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .schedule-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 285px;
+      padding: 0;
+      background:
+        linear-gradient(145deg, rgba(38, 61, 48, .95), rgba(25, 39, 32, .98));
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .schedule-card::before {
+      content: "";
+      display: block;
+      height: 7px;
+      background: var(--gold);
+    }
+
+    .schedule-header {
+      padding: 25px 26px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .schedule-day {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .schedule-header h3 {
+      margin: 0;
+      color: var(--text);
+      font-size: 28px;
+    }
+
+    .schedule-list {
+      display: grid;
+      gap: 13px;
+      margin: 0;
+      padding: 22px 26px 26px;
+      list-style: none;
+    }
+
+    .schedule-item {
+      display: grid;
+      grid-template-columns: 82px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .schedule-time {
+      color: var(--gold);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .schedule-event {
+      color: var(--muted);
+    }
+
+    .schedule-event strong {
+      display: block;
+      color: var(--text);
+      font-weight: 700;
+    }
+
     footer {
       padding: 25px clamp(24px, 6vw, 100px);
       border-top: 1px solid var(--border);
@@ -353,6 +432,16 @@
     @media (min-width: 1600px) {
       .hero {
         min-height: 780px;
+      }
+    }
+
+    @media (max-width: 950px) {
+      .schedule-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .schedule-card {
+        min-height: auto;
       }
     }
 
@@ -445,8 +534,7 @@
       }
 
       *,
-      *::before,
-      *::after {
+      *::before {
         transition: none !important;
       }
     }
@@ -527,17 +615,16 @@
       <div class="section-inner">
         <div class="eyebrow">Tävlingsplatsen</div>
 
-        <h2 id="location-title">
-          Location
-        </h2>
+        <h2 id="location-title">Location</h2>
 
         <div class="copy">
           <p>
             Partille Goes Barsebäck 2027 arrangeras på Barsebäck Resort.
             En klassisk miljö där varje slag, putt och match kan bli avgörande.
-            Boendet är i eget sovrum i villa på resorten, där man bor två spelare per villa.
-            I paketet ingår boende lördag - måndag, lunch lördag och söndag, frukost söndag och måndag,
-            middag lördag och söndag samt fria rangebollar.
+            Boendet är i eget sovrum i villa på resorten, där man bor två
+            spelare per villa. I paketet ingår boende lördag–måndag, lunch
+            lördag och söndag, frukost söndag och måndag, middag lördag och
+            söndag samt fria rangebollar.
           </p>
         </div>
       </div>
@@ -547,16 +634,13 @@
       <div class="section-inner">
         <div class="eyebrow">Två sidor. En titel.</div>
 
-        <h2 id="teams-title">
-          Teams
-        </h2>
+        <h2 id="teams-title">Teams</h2>
 
         <div class="copy">
           <p>
-            Tolv spelare gör upp över tre dagar. Lagen
-            består av förra årets spelare och spelarna
-            i kategorin To be announced kommer
-            senare placeras i Team Blue eller Team Red.
+            Tolv spelare gör upp över tre dagar. Lagen består av förra årets
+            spelare och spelarna i kategorin To be announced kommer senare
+            placeras i Team Blue eller Team Red.
           </p>
         </div>
 
@@ -566,6 +650,9 @@
 
             <p class="team-intro">
               Det blå laget står för lugn, precision och stark lagkänsla.
+              Efter fjolårets resultat finns det dessutom en tydlig känsla av
+              revansch – särskilt eftersom laget själva tycker att de hade mer
+              att få ut av den matchen.
             </p>
 
             <ul class="player-list">
@@ -611,7 +698,10 @@
             <h3>Team Red</h3>
 
             <p class="team-intro">
-              Det röda laget spelar med passion, mod och offensiv energi.
+              Det röda laget är regerande mästare och spelar med passion, mod
+              och offensiv energi. I år återstår att visa om fjolårets seger
+              var resultatet av skicklighet – eller om marginalerna råkade
+              falla lite väl mycket åt rätt håll.
             </p>
 
             <ul class="player-list">
@@ -707,9 +797,7 @@
       <div class="section-inner">
         <div class="eyebrow">Så fungerar det</div>
 
-        <h2 id="formats-title">
-          Formats
-        </h2>
+        <h2 id="formats-title">Formats</h2>
 
         <div class="copy">
           <p>
@@ -722,27 +810,26 @@
           <article class="card">
             <h3>Bästboll</h3>
             <p>
-              Dag 1 spelas 18 hål bästboll i stigande hcp.
-              Alla bästbollsmatcher är matchspel och varje match är värd 1 poäng.
+              Dag 1 spelas 18 hål bästboll i stigande hcp. Alla bästbollsmatcher
+              är matchspel och varje match är värd 1 poäng.
             </p>
           </article>
 
           <article class="card">
             <h3>Bästboll</h3>
             <p>
-              Dag 2 spelas 36 hål bästboll över två rundor.
-              Det är Captain Pick – kaptenen, i samråd med laget, sätter lagen
-              till båda matcherna. Alla matcher är matchspel och varje
-              bästbollsmatch ger 1 poäng.
+              Dag 2 spelas 36 hål bästboll över två rundor. Det är Captain Pick
+              – kaptenen, i samråd med laget, sätter lagen till båda matcherna.
+              Alla matcher är matchspel och varje bästbollsmatch ger 1 poäng.
             </p>
           </article>
 
           <article class="card">
             <h3>Singlar</h3>
             <p>
-              Sista dagen spelas avgörande singelmatcher över 18 hål.
-              Lagen går ut i fallande hcp och matcherna är matchspel.
-              Varje singelmatch är värd 2 poäng.
+              Sista dagen spelas avgörande singelmatcher över 18 hål. Lagen går
+              ut i fallande hcp och matcherna är matchspel. Varje singelmatch
+              är värd 2 poäng.
             </p>
           </article>
         </div>
@@ -758,38 +845,138 @@
       <div class="section-inner">
         <div class="eyebrow">Tre tävlingsdagar</div>
 
-        <h2 id="schedule-title">
-          Schedule
-        </h2>
+        <h2 id="schedule-title">Schedule</h2>
 
-        <div class="cards">
-          <article class="card">
-            <h3>Lördag</h3>
-            <p>
-              Pine · starttider från kl 13<br>
-              Prisutdelning kl 18 i baren<br>
-              Middag kl 19:30
-            </p>
+        <div class="schedule-grid">
+          <article class="schedule-card">
+            <div class="schedule-header">
+              <span class="schedule-day">Dag 1</span>
+              <h3>Lördag</h3>
+            </div>
+
+            <ul class="schedule-list">
+              <li class="schedule-item">
+                <span class="schedule-time">10:00</span>
+                <span class="schedule-event">
+                  <strong>Samling</strong>
+                  Gemensam start för tävlingshelgen
+                </span>
+              </li>
+
+              <li class="schedule-item">
+                <span class="schedule-time">11:30</span>
+                <span class="schedule-event">
+                  <strong>Lunch</strong>
+                  Uppladdning inför dagens matcher
+                </span>
+              </li>
+
+              <li class="schedule-item">
+                <span class="schedule-time">13:00</span>
+                <span class="schedule-event">
+                  <strong>Pine</strong>
+                  Starttider från kl. 13
+                </span>
+              </li>
+
+              <li class="schedule-item">
+                <span class="schedule-time">18:00</span>
+                <span class="schedule-event">
+                  <strong>Prisutdelning</strong>
+                  I baren
+                </span>
+              </li>
+
+              <li class="schedule-item">
+                <span class="schedule-time">19:30</span>
+                <span class="schedule-event">
+                  <strong>Middag</strong>
+                  Kvällens gemensamma middag
+                </span>
+              </li>
+            </ul>
           </article>
 
-          <article class="card">
-            <h3>Söndag</h3>
-            <p>
-              Frukost kl 7<br>
-              Ocean · starttider från kl 8<br>
-              Lunch och prisutdelning kl 13:00<br>
-              Ocean · starttider från kl 14<br>
-              Prisutdelning i baren kl 19<br>
-              Middag kl 20
-            </p>
+          <article class="schedule-card">
+            <div class="schedule-header">
+              <span class="schedule-day">Dag 2</span>
+              <h3>Söndag</h3>
+            </div>
+
+            <ul class="schedule-list">
+              <li class="schedule-item">
+                <span class="schedule-time">07:00</span>
+                <span class="schedule-event">
+                  <strong>Frukost</strong>
+                  Gemensam frukost
+                </span>
+              </li>
+
+              <li class="schedule-item">
+                <span class="schedule-time">08:00</span>
+                <span class="schedule-event">
+                  <strong>Ocean</strong>
+                  Starttider från kl. 8
+                </span>
+              </li>
+
+              <li class="schedule-item">
+                <span class="schedule-time">13:00</span>
+                <span class="schedule-event">
+                  <strong>Lunch och prisutdelning</strong>
+                  Efter förmiddagens matcher
+                </span>
+              </li>
+
+              <li class="schedule-item">
+                <span class="schedule-time">14:00</span>
+                <span class="schedule-event">
+                  <strong>Ocean</strong>
+                  Starttider från kl. 14
+                </span>
+              </li>
+
+              <li class="schedule-item">
+                <span class="schedule-time">19:00</span>
+                <span class="schedule-event">
+                  <strong>Prisutdelning</strong>
+                  I baren
+                </span>
+              </li>
+
+              <li class="schedule-item">
+                <span class="schedule-time">20:00</span>
+                <span class="schedule-event">
+                  <strong>Middag</strong>
+                  Kvällens gemensamma middag
+                </span>
+              </li>
+            </ul>
           </article>
 
-          <article class="card">
-            <h3>Måndag</h3>
-            <p>
-              Frukost kl 7<br>
-              Pine · starttider kl 10
-            </p>
+          <article class="schedule-card">
+            <div class="schedule-header">
+              <span class="schedule-day">Dag 3</span>
+              <h3>Måndag</h3>
+            </div>
+
+            <ul class="schedule-list">
+              <li class="schedule-item">
+                <span class="schedule-time">07:00</span>
+                <span class="schedule-event">
+                  <strong>Frukost</strong>
+                  Gemensam frukost
+                </span>
+              </li>
+
+              <li class="schedule-item">
+                <span class="schedule-time">10:00</span>
+                <span class="schedule-event">
+                  <strong>Pine</strong>
+                  Start för de avgörande singelmatcherna
+                </span>
+              </li>
+            </ul>
           </article>
         </div>
       </div>
@@ -881,3 +1068,4 @@
   </script>
 </body>
 </html>
+```
