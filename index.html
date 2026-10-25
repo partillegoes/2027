@@ -17,8 +17,8 @@
       --gold: #e6c889;
       --border: rgba(255, 255, 255, .12);
       --sidebar: 245px;
-      --blue: #4d9de0;
-      --red: #e85d5d;
+      --blue: #004b8d; /* Justerad för mer klassisk Ryder Cup-blå */
+      --red: #d11f26;  /* Justerad för mer klassisk Ryder Cup-röd */
       --neutral: #7f9187;
     }
 
@@ -307,13 +307,8 @@
     }
 
     .team-card.blue {
-      background:
-        linear-gradient(
-          145deg,
-          rgba(16, 45, 71, .95),
-          rgba(25, 39, 32, .98)
-        );
-      border-color: rgba(77, 157, 224, .65);
+      background: linear-gradient(145deg, rgba(0, 75, 141, .2), #192720);
+      border-color: var(--blue);
     }
 
     .team-card.blue::before {
@@ -325,13 +320,8 @@
     }
 
     .team-card.red {
-      background:
-        linear-gradient(
-          145deg,
-          rgba(72, 27, 32, .95),
-          rgba(25, 39, 32, .98)
-        );
-      border-color: rgba(232, 93, 93, .65);
+      background: linear-gradient(145deg, rgba(209, 31, 38, .2), #192720);
+      border-color: var(--red);
     }
 
     .team-card.red::before {
@@ -340,25 +330,6 @@
 
     .team-card.red h3 {
       color: var(--red);
-    }
-
-    .team-card.neutral {
-      grid-column: 1 / -1;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(67, 84, 75, .65),
-          rgba(25, 39, 32, .98)
-        );
-      border-color: rgba(180, 193, 184, .45);
-    }
-
-    .team-card.neutral::before {
-      background: var(--neutral);
-    }
-
-    .team-card.neutral h3 {
-      color: var(--muted);
     }
 
     .team-intro {
@@ -616,10 +587,10 @@
         padding-top: 81px;
       }
 
-.hero {
-  min-height: calc(100svh - 81px);
-  padding: 30px 24px 60px;
-}
+      .hero {
+        min-height: calc(100svh - 81px);
+        padding: 30px 24px 60px;
+      }
 
       h1 {
         letter-spacing: -2px;
@@ -646,10 +617,6 @@
 
       .cards {
         grid-template-columns: 1fr;
-      }
-
-      .team-card.neutral {
-        grid-column: auto;
       }
 
       .golf-ball {
@@ -833,9 +800,7 @@
         <div class="copy">
 
           <p>
-            Tolv spelare, två lag, en titel. Team Blue och Team Red består av samma
-            trupp som föregående år. Spelarna i kategorin To be announced kommer senare
-            placeras i Team Blue eller Team Red.
+            Tolv spelare, två lag, en titel. Spänningen stiger inför 2027 års uppgörelse.
           </p>
 
         </div>
@@ -848,44 +813,67 @@
             <p class="team-intro">
               Det blå laget står för lugn, precision och stark lagkänsla.
               Efter fjolårets resultat finns det dessutom en tydlig känsla av
-              revansch – särskilt eftersom laget själva tycker att de hade mer
-              att få ut.
+              revansch.
             </p>
 
             <ul class="player-list">
               <li class="player">
                 <span class="player-name">Daniel</span>
                 <span class="player-details">
-                  <strong>Styrka:</strong> Stabil från tee och mycket jämn.
-                  <br>
-                  <strong>Svaghet:</strong> Tar ibland för få risker.
+                  <strong>Styrka:</strong> Stabil från tee och mycket jämn.<br>
+                  <strong>Svaghet:</strong> Tar ibland för få risker.<br>
+                  <strong>Resultat:</strong> 0-0-0<br>
+                  <strong>Status:</strong> Appearances: 1
                 </span>
               </li>
 
               <li class="player">
                 <span class="player-name">Kristoffersson</span>
                 <span class="player-details">
-                  <strong>Styrka:</strong> Vass puttare under press.
-                  <br>
-                  <strong>Svaghet:</strong> Kan bli otålig efter ett dåligt hål.
+                  <strong>Styrka:</strong> Vass puttare under press.<br>
+                  <strong>Svaghet:</strong> Kan bli otålig efter ett dåligt hål.<br>
+                  <strong>Resultat:</strong> 0-0-0<br>
+                  <strong>Status:</strong> Appearances: 1
                 </span>
               </li>
 
               <li class="player">
                 <span class="player-name">Ahlstrand</span>
                 <span class="player-details">
-                  <strong>Styrka:</strong> Strategisk och skicklig på inspel.
-                  <br>
-                  <strong>Svaghet:</strong> Övertänker ibland enkla slag.
+                  <strong>Styrka:</strong> Strategisk och skicklig på inspel.<br>
+                  <strong>Svaghet:</strong> Övertänker ibland enkla slag.<br>
+                  <strong>Resultat:</strong> 0-0-0<br>
+                  <strong>Status:</strong> Appearances: 1
                 </span>
               </li>
 
               <li class="player">
                 <span class="player-name">Köhnke</span>
                 <span class="player-details">
-                  <strong>Styrka:</strong> Energisk lagspelare med starkt närspel.
-                  <br>
-                  <strong>Svaghet:</strong> Tempot kan bli ojämnt.
+                  <strong>Styrka:</strong> Energisk lagspelare med starkt närspel.<br>
+                  <strong>Svaghet:</strong> Tempot kan bli ojämnt.<br>
+                  <strong>Resultat:</strong> 0-0-0<br>
+                  <strong>Status:</strong> Appearances: 1
+                </span>
+              </li>
+
+              <li class="player">
+                <span class="player-name">Pelle</span>
+                <span class="player-details">
+                  <strong>Styrka:</strong> Positiv lagspelare med bra känsla.<br>
+                  <strong>Svaghet:</strong> Tappar ibland fokus efter motgångar.<br>
+                  <strong>Resultat:</strong> 0-0-0<br>
+                  <strong>Status:</strong> Rookie
+                </span>
+              </li>
+
+              <li class="player">
+                <span class="player-name">Marcus</span>
+                <span class="player-details">
+                  <strong>Styrka:</strong> Explosiv bollträff och stor potential.<br>
+                  <strong>Svaghet:</strong> Resultaten kan variera från dag till dag.<br>
+                  <strong>Resultat:</strong> 0-0-0<br>
+                  <strong>Status:</strong> Rookie
                 </span>
               </li>
             </ul>
@@ -896,92 +884,67 @@
 
             <p class="team-intro">
               Det röda laget är regerande mästare och spelar med passion, mod
-              och offensiv energi. I år återstår att visa om fjolårets seger
-              var resultatet av skicklighet – eller om marginalerna råkade
-              falla lite väl mycket åt rätt håll.
+              och offensiv energi.
             </p>
 
             <ul class="player-list">
               <li class="player">
                 <span class="player-name">Örjan</span>
                 <span class="player-details">
-                  <strong>Styrka:</strong> Modig och stark när matchen hårdnar.
-                  <br>
-                  <strong>Svaghet:</strong> Kan gå för aggressivt ibland.
+                  <strong>Styrka:</strong> Modig och stark när matchen hårdnar.<br>
+                  <strong>Svaghet:</strong> Kan gå för aggressivt ibland.<br>
+                  <strong>Resultat:</strong> 0-0-0<br>
+                  <strong>Status:</strong> Appearances: 1
                 </span>
               </li>
 
               <li class="player">
                 <span class="player-name">Carlsson</span>
                 <span class="player-details">
-                  <strong>Styrka:</strong> Pålitlig i långa järnslag.
-                  <br>
-                  <strong>Svaghet:</strong> Behöver hitta rytmen tidigt.
+                  <strong>Styrka:</strong> Pålitlig i långa järnslag.<br>
+                  <strong>Svaghet:</strong> Behöver hitta rytmen tidigt.<br>
+                  <strong>Resultat:</strong> 0-0-0<br>
+                  <strong>Status:</strong> Appearances: 1
                 </span>
               </li>
 
               <li class="player">
                 <span class="player-name">Ingemar</span>
                 <span class="player-details">
-                  <strong>Styrka:</strong> Kreativ runt greenerna.
-                  <br>
-                  <strong>Svaghet:</strong> Tar ibland onödiga chansningar.
+                  <strong>Styrka:</strong> Kreativ runt greenerna.<br>
+                  <strong>Svaghet:</strong> Tar ibland onödiga chansningar.<br>
+                  <strong>Resultat:</strong> 0-0-0<br>
+                  <strong>Status:</strong> Appearances: 1
                 </span>
               </li>
 
               <li class="player">
                 <span class="player-name">Magnus</span>
                 <span class="player-details">
-                  <strong>Styrka:</strong> Naturlig ledare med starkt psyke.
-                  <br>
-                  <strong>Svaghet:</strong> Lägger ibland för stor press på sig själv.
-                </span>
-              </li>
-            </ul>
-          </article>
-
-          <article class="card team-card neutral">
-            <h3>To be announced</h3>
-
-            <p class="team-intro">
-              Dessa spelare väntar på sin slutliga placering. Senare ansluter
-              de till Team Blue eller Team Red och kan bli avgörande för kampen.
-            </p>
-
-            <ul class="player-list">
-              <li class="player">
-                <span class="player-name">Marcus</span>
-                <span class="player-details">
-                  <strong>Styrka:</strong> Explosiv bollträff och stor potential.
-                  <br>
-                  <strong>Svaghet:</strong> Resultaten kan variera från dag till dag.
-                </span>
-              </li>
-
-              <li class="player">
-                <span class="player-name">Millsjö</span>
-                <span class="player-details">
-                  <strong>Styrka:</strong> Kall och metodisk i viktiga lägen.
-                  <br>
-                  <strong>Svaghet:</strong> Behöver ibland våga spela mer offensivt.
-                </span>
-              </li>
-
-              <li class="player">
-                <span class="player-name">Pelle</span>
-                <span class="player-details">
-                  <strong>Styrka:</strong> Positiv lagspelare med bra känsla.
-                  <br>
-                  <strong>Svaghet:</strong> Tappar ibland fokus efter motgångar.
+                  <strong>Styrka:</strong> Naturlig ledare med starkt psyke.<br>
+                  <strong>Svaghet:</strong> Lägger ibland för stor press på sig själv.<br>
+                  <strong>Resultat:</strong> 0-0-0<br>
+                  <strong>Status:</strong> Appearances: 1
                 </span>
               </li>
 
               <li class="player">
                 <span class="player-name">Harald</span>
                 <span class="player-details">
-                  <strong>Styrka:</strong> Stark taktiker och duktig på att läsa banan.
-                  <br>
-                  <strong>Svaghet:</strong> Kan fastna för länge i sina analyser.
+                  <strong>Styrka:</strong> Stark taktiker och duktig på att läsa banan.<br>
+                  <strong>Svaghet:</strong> Kan fastna för länge i sina analyser.<br>
+                  <strong>Resultat:</strong> 0-0-0<br>
+                  <strong>Status:</strong> Rookie
+                </span>
+              </li>
+
+              <li class="player">
+                <span class="player-name">Millsjö</span>
+                <span class="player-details">
+                  <strong>Styrka:</strong> Kall och metodisk i viktiga lägen.<br>
+                  <strong>Svaghet:</strong> Behöver ibland våga spela mer offensivt.<br>
+                  <strong>Resultat:</strong> 0-0-0<br>
+                  <strong>Status:</strong> Rookie
                 </span>
               </li>
             </ul>
@@ -1042,11 +1005,8 @@
             <h3>Dag 2 · Bästboll</h3>
 
             <p>
-              Dag 2 spelas 2 × 18 hål bästboll. Det är Captains Pick, 
-              vilket innebär att kaptenen, i samråd med laget. Laget till Bästboll Dag 2 
-              runda 1 presenteras redan kvällen Dag 1. Medan laget till Bästboll Dag 2 
-              runda 2 presenteras på lunchen Dag 2. Notera att båda lagen sätts upp 
-              blint inför motständarena.
+              Dag 2 spelas 2 × 18 hål bästboll. Det är Captains Pick. 
+              Laguppställningen presenteras kvällen innan respektive runda.
             </p>
 
             <p>
@@ -1306,11 +1266,6 @@
             Partille Goes är mer än en golftävling.
             Det är ett koncept som bygger på rivalitet, gemenskap
             och passionen för golf.
-          </p>
-
-          <p>
-            Vill du läsa mer om tävlingen och konceptet PGB?
-            Besök tävlingens hemsida för mer information.
           </p>
 
           <p>
