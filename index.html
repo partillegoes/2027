@@ -15,7 +15,7 @@
       --text: #f7f4e9;
       --muted: #b4c1b8;
       --gold: #e6c889;
-      --border: rgba(255, 255, 255, .12);
+      --border: rgba(255,255,255,.12);
       --sidebar: 245px;
       --blue: #004b8d;
       --red: #d11f26;
@@ -100,7 +100,7 @@
 
     nav a:hover,
     nav a.active {
-      background: rgba(230, 200, 137, .1);
+      background: rgba(230,200,137,.1);
       color: var(--gold);
     }
 
@@ -136,7 +136,7 @@
       min-height: 90svh;
       display: flex;
       align-items: center;
-      padding: 85px clamp(24px, 6vw, 100px);
+      padding: 85px clamp(24px,6vw,100px);
       overflow: hidden;
       background:
         radial-gradient(ellipse at 90% 15%, #294b39 0%, transparent 55%),
@@ -175,7 +175,7 @@
 
     h1 {
       margin: 22px 0;
-      font-size: clamp(48px, 7vw, 100px);
+      font-size: clamp(48px,7vw,100px);
       line-height: .98;
       letter-spacing: -3px;
     }
@@ -187,12 +187,12 @@
     .lead {
       max-width: 650px;
       color: var(--muted);
-      font-size: clamp(17px, 2vw, 21px);
+      font-size: clamp(17px,2vw,21px);
       line-height: 1.65;
     }
 
     .section {
-      padding: 75px clamp(24px, 6vw, 100px);
+      padding: 75px clamp(24px,6vw,100px);
       border-top: 1px solid var(--border);
     }
 
@@ -202,7 +202,7 @@
 
     h2 {
       margin: 12px 0 28px;
-      font-size: clamp(30px, 4vw, 48px);
+      font-size: clamp(30px,4vw,48px);
       line-height: 1.15;
       letter-spacing: -1px;
     }
@@ -231,7 +231,7 @@
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2,minmax(0,1fr));
       gap: 20px;
       margin-top: 32px;
     }
@@ -268,7 +268,7 @@
     }
 
     .team-card.blue {
-      background: linear-gradient(145deg, rgba(0, 75, 141, .2), #192720);
+      background: linear-gradient(145deg,rgba(0,75,141,.2),#192720);
       border-color: var(--blue);
     }
 
@@ -281,7 +281,7 @@
     }
 
     .team-card.red {
-      background: linear-gradient(145deg, rgba(209, 31, 38, .2), #192720);
+      background: linear-gradient(145deg,rgba(209,31,38,.2),#192720);
       border-color: var(--red);
     }
 
@@ -307,8 +307,8 @@
 
     .player {
       padding: 15px 16px;
-      background: rgba(0, 0, 0, .2);
-      border: 1px solid rgba(255, 255, 255, .1);
+      background: rgba(0,0,0,.2);
+      border: 1px solid rgba(255,255,255,.1);
       border-radius: 9px;
     }
 
@@ -331,22 +331,24 @@
       color: var(--text);
     }
 
-    .player-record {
-      display: inline;
-      margin: 0;
-      padding: 0;
-      border: 0;
-      background: transparent;
-      color: var(--text);
-      font: inherit;
-      line-height: inherit;
-      text-align: left;
+    /* Hela Ingemars ruta är klickbar */
+    .player-clickable {
       cursor: pointer;
+      transition:
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
     }
 
-    .player-record:hover {
-      color: var(--gold);
-      text-decoration: underline;
+    .player-clickable:hover {
+      background: rgba(230,200,137,.12);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .player-clickable:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 4px;
     }
 
     .format-cards {
@@ -379,14 +381,14 @@
       margin: 35px 0 0;
       padding-left: 22px;
       border-left: 3px solid var(--gold);
-      font-size: clamp(20px, 3vw, 29px);
+      font-size: clamp(20px,3vw,29px);
       font-weight: 700;
       line-height: 1.4;
     }
 
     .schedule-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(3,minmax(0,1fr));
       gap: 20px;
       margin-top: 32px;
     }
@@ -396,8 +398,7 @@
       overflow: hidden;
       min-height: 285px;
       padding: 0;
-      background:
-        linear-gradient(145deg, rgba(38, 61, 48, .95), rgba(25, 39, 32, .98));
+      background: linear-gradient(145deg,rgba(38,61,48,.95),rgba(25,39,32,.98));
       border: 1px solid var(--border);
       border-radius: 14px;
     }
@@ -428,7 +429,6 @@
       margin: 0;
       color: var(--text);
       font-size: 28px;
-      line-height: 1.3;
     }
 
     .schedule-list {
@@ -443,7 +443,6 @@
       display: grid;
       grid-template-columns: 82px 1fr;
       gap: 14px;
-      align-items: start;
     }
 
     .schedule-time {
@@ -474,28 +473,28 @@
     }
 
     footer {
-      padding: 25px clamp(24px, 6vw, 100px);
+      padding: 25px clamp(24px,6vw,100px);
       border-top: 1px solid var(--border);
       color: var(--muted);
       font-size: 13px;
     }
 
-    /* Statistikmodal */
+    /* Modal */
 
     .stats-modal {
-      width: min(680px, calc(100% - 32px));
-      max-height: min(760px, calc(100vh - 32px));
+      width: min(680px,calc(100% - 32px));
+      max-height: min(760px,calc(100vh - 32px));
       padding: 0;
       overflow: hidden;
       color: var(--text);
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 14px;
-      box-shadow: 0 24px 80px rgba(0, 0, 0, .55);
+      box-shadow: 0 24px 80px rgba(0,0,0,.55);
     }
 
     .stats-modal::backdrop {
-      background: rgba(0, 0, 0, .72);
+      background: rgba(0,0,0,.72);
     }
 
     .stats-modal-header {
@@ -512,11 +511,9 @@
       margin: 0;
       color: var(--gold);
       font-size: 28px;
-      line-height: 1.25;
     }
 
     .stats-modal-close {
-      flex: 0 0 auto;
       padding: 6px 11px;
       color: var(--text);
       background: transparent;
@@ -552,14 +549,14 @@
 
     .stats-match {
       padding: 17px;
-      background: rgba(255, 255, 255, .045);
+      background: rgba(255,255,255,.045);
       border: 1px solid var(--border);
       border-radius: 9px;
     }
 
     .stats-match-grid {
       display: grid;
-      grid-template-columns: minmax(90px, .7fr) minmax(0, 1.3fr);
+      grid-template-columns: minmax(90px,.7fr) minmax(0,1.3fr);
       gap: 8px 18px;
     }
 
@@ -581,10 +578,6 @@
     @media (max-width: 950px) {
       .schedule-grid {
         grid-template-columns: 1fr;
-      }
-
-      .schedule-card {
-        min-height: auto;
       }
     }
 
@@ -669,10 +662,7 @@
         height: 300px;
       }
 
-      .stats-modal-header {
-        padding: 20px;
-      }
-
+      .stats-modal-header,
       .stats-modal-body {
         padding: 20px;
       }
@@ -692,17 +682,6 @@
 
       .stats-label:first-child {
         margin-top: 0;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before {
-        transition: none !important;
       }
     }
   </style>
@@ -902,22 +881,20 @@
                 </span>
               </li>
 
-              <li class="player">
+              <!-- Hela rutan är klickbar -->
+              <li
+                class="player player-clickable"
+                data-player="Ingemar Andersson"
+                role="button"
+                tabindex="0"
+                aria-label="Visa statistik för Ingemar Andersson"
+              >
                 <span class="player-name">Ingemar</span>
+
                 <span class="player-details">
                   <strong>Styrka:</strong> Kreativ runt greenerna.<br>
                   <strong>Svaghet:</strong> Tar ibland onödiga chansningar.<br>
-
-                  <button
-                    type="button"
-                    class="player-record"
-                    data-player="Ingemar Andersson"
-                  >
-                    <strong>Record (W-L-T):</strong> 2-1-0
-                  </button>
-
-                  <br>
-
+                  <strong>Record (W-L-T):</strong> 2-1-0<br>
                   <strong>Appearances:</strong> 1
                 </span>
               </li>
@@ -999,9 +976,7 @@
               Lagen går ut i fallande handicap och spelarna möts direkt
               mot varandra.
             </p>
-            <p>
-              Varje singelmatch är värd 2 poäng.
-            </p>
+            <p>Varje singelmatch är värd 2 poäng.</p>
           </article>
         </div>
 
@@ -1218,8 +1193,6 @@
 
   </main>
 
-  <!-- Statistikmodal -->
-
   <dialog
     id="stats-modal"
     class="stats-modal"
@@ -1324,18 +1297,18 @@
         .forEach(section => observer.observe(section));
     }
 
-    /*
-      Statistikfunktion
-    */
-
     const statsCsvUrl =
       "https://partillegoes.github.io/start/stats.csv";
 
-    const statsModal = document.querySelector("#stats-modal");
+    const statsModal =
+      document.querySelector("#stats-modal");
+
     const statsModalTitle =
       document.querySelector("#stats-modal-title");
+
     const statsModalContent =
       document.querySelector("#stats-modal-content");
+
     const statsModalClose =
       document.querySelector("#stats-modal-close");
 
@@ -1347,10 +1320,6 @@
         .replaceAll('"', "&quot;")
         .replaceAll("'", "&#039;");
     }
-
-    /*
-      CSV-parser som klarar kommatecken inom citattecken.
-    */
 
     function parseCsvLine(line) {
       const values = [];
@@ -1386,7 +1355,6 @@
       }
 
       values.push(value.trim());
-
       return values;
     }
 
@@ -1435,47 +1403,41 @@
         return;
       }
 
-      const matchHtml = matches
-        .map(match => {
-          return `
-            <li class="stats-match">
-              <div class="stats-match-grid">
+      const matchHtml = matches.map(match => `
+        <li class="stats-match">
+          <div class="stats-match-grid">
+            <span class="stats-label">Runda</span>
+            <span class="stats-value">
+              ${escapeHtml(match["Runda"])}
+            </span>
 
-                <span class="stats-label">Runda</span>
-                <span class="stats-value">
-                  ${escapeHtml(match["Runda"])}
-                </span>
+            <span class="stats-label">År</span>
+            <span class="stats-value">
+              ${escapeHtml(match["År"])}
+            </span>
 
-                <span class="stats-label">År</span>
-                <span class="stats-value">
-                  ${escapeHtml(match["År"])}
-                </span>
+            <span class="stats-label">Spelformat</span>
+            <span class="stats-value">
+              ${escapeHtml(match["Spelformat"])}
+            </span>
 
-                <span class="stats-label">Spelformat</span>
-                <span class="stats-value">
-                  ${escapeHtml(match["Spelformat"])}
-                </span>
+            <span class="stats-label">Medspelare</span>
+            <span class="stats-value">
+              ${escapeHtml(match["Medspelare"])}
+            </span>
 
-                <span class="stats-label">Medspelare</span>
-                <span class="stats-value">
-                  ${escapeHtml(match["Medspelare"])}
-                </span>
+            <span class="stats-label">Motståndare</span>
+            <span class="stats-value">
+              ${escapeHtml(match["Motståndare"])}
+            </span>
 
-                <span class="stats-label">Motståndare</span>
-                <span class="stats-value">
-                  ${escapeHtml(match["Motståndare"])}
-                </span>
-
-                <span class="stats-label">Resultat</span>
-                <span class="stats-value stats-result">
-                  ${escapeHtml(match["Resultat"])}
-                </span>
-
-              </div>
-            </li>
-          `;
-        })
-        .join("");
+            <span class="stats-label">Resultat</span>
+            <span class="stats-value stats-result">
+              ${escapeHtml(match["Resultat"])}
+            </span>
+          </div>
+        </li>
+      `).join("");
 
       statsModalContent.innerHTML = `
         <ul class="stats-list">
@@ -1538,11 +1500,27 @@
       }
     }
 
+    /*
+      Hela Ingemars ruta öppnar statistiken.
+      Klick fungerar även på tangentbord:
+      Enter eller mellanslag.
+    */
+
     document
-      .querySelectorAll(".player-record")
-      .forEach(recordButton => {
-        recordButton.addEventListener("click", () => {
-          openPlayerStats(recordButton.dataset.player);
+      .querySelectorAll(".player-clickable")
+      .forEach(playerCard => {
+        playerCard.addEventListener("click", () => {
+          openPlayerStats(playerCard.dataset.player);
+        });
+
+        playerCard.addEventListener("keydown", event => {
+          if (
+            event.key === "Enter" ||
+            event.key === " "
+          ) {
+            event.preventDefault();
+            openPlayerStats(playerCard.dataset.player);
+          }
         });
       });
 
