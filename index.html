@@ -1443,8 +1443,8 @@
       return actualKey ? row[actualKey] : "";
     }
 
-    function formatRound(round) {
-      const value = String(round || "").trim();
+    function formatRunda(runda) {
+      const value = String(runda || "").trim();
 
       if (!value) {
         return "";
@@ -1572,7 +1572,7 @@
         const yearRows = rowsByYear[year];
 
         const tableRows = yearRows.map(row => {
-          const round = formatRound(
+          const runda = formatRunda(
             getColumn(row, "Rond")
           );
 
@@ -1583,7 +1583,7 @@
 
           return `
             <tr>
-              <td>${escapeHtml(round)}</td>
+              <td>${escapeHtml(runda)}</td>
               <td>${escapeHtml(format)}</td>
               <td>${escapeHtml(teammate)}</td>
               <td>${escapeHtml(opponent)}</td>
