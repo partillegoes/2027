@@ -325,7 +325,8 @@
     }
 
     .player {
-      padding: 15px 16px;
+      position: relative;
+      padding: 15px 104px 15px 16px;
       background: rgba(0,0,0,.2);
       border: 1px solid rgba(255,255,255,.1);
       border-radius: 9px;
@@ -356,6 +357,27 @@
 
     .player-details strong {
       color: var(--text);
+    }
+
+    .player-photo {
+      position: absolute;
+      top: 50%;
+      right: 14px;
+      width: 76px;
+      height: 76px;
+      object-fit: cover;
+      object-position: center;
+      transform: translateY(-50%);
+      border-radius: 8px;
+    }
+
+    .stats-player-photo {
+      display: block;
+      width: min(220px, 100%);
+      max-height: 220px;
+      margin: 0 0 24px;
+      object-fit: cover;
+      border-radius: 10px;
     }
 
     .format-cards .card {
@@ -688,6 +710,14 @@
         height: 300px;
       }
 
+      .player {
+        padding-right: 16px;
+      }
+
+      .player-photo {
+        display: none;
+      }
+
       .stats-modal {
         padding: 12px;
       }
@@ -844,6 +874,7 @@
                   data-player="Daniel Agnemar"
                   aria-label="Visa statistik för Daniel Agnemar">
                 <span class="player-name">Daniel Agnemar</span>
+                <img class="player-photo" src="Daniel Agnemar.jpg" alt="" aria-hidden="true">
                 <span class="player-details">
                   <strong>Styrka:</strong> Stabil från tee och mycket jämn.<br>
                   <strong>Svaghet:</strong> Tar ibland för få risker.<br>
@@ -856,6 +887,7 @@
                   data-player="Johan Kristofferson"
                   aria-label="Visa statistik för Johan Kristofferson">
                 <span class="player-name">Johan Kristofferson</span>
+                <img class="player-photo" src="Johan Kristofferson.jpg" alt="" aria-hidden="true">
                 <span class="player-details">
                   <strong>Styrka:</strong> Vass puttare under press.<br>
                   <strong>Svaghet:</strong> Kan bli otålig efter ett dåligt hål.<br>
@@ -868,6 +900,7 @@
                   data-player="Patrik Ahlstrand"
                   aria-label="Visa statistik för Patrik Ahlstrand">
                 <span class="player-name">Patrik Ahlstrand</span>
+                <img class="player-photo" src="Patrik Ahlstrand.jpg" alt="" aria-hidden="true">
                 <span class="player-details">
                   <strong>Styrka:</strong> Strategisk och skicklig på inspel.<br>
                   <strong>Svaghet:</strong> Övertänker ibland enkla slag.<br>
@@ -880,6 +913,7 @@
                   data-player="Johan Köhnke"
                   aria-label="Visa statistik för Johan Köhnke">
                 <span class="player-name">Johan Köhnke</span>
+                <img class="player-photo" src="Johan Köhnke.jpg" alt="" aria-hidden="true">
                 <span class="player-details">
                   <strong>Styrka:</strong> Energisk lagspelare med starkt närspel.<br>
                   <strong>Svaghet:</strong> Tempot kan bli ojämnt.<br>
@@ -892,6 +926,7 @@
                   data-player="Per Dahlberg"
                   aria-label="Visa statistik för Per Dahlberg">
                 <span class="player-name">Per Dahlberg</span>
+                <img class="player-photo" src="Per Dahlberg.jpg" alt="" aria-hidden="true">
                 <span class="player-details">
                   <strong>Styrka:</strong> Positiv lagspelare med bra känsla.<br>
                   <strong>Svaghet:</strong> Tappar ibland fokus efter motgångar.<br>
@@ -904,6 +939,7 @@
                   data-player="Marcus Hernqvist"
                   aria-label="Visa statistik för Marcus Hernqvist">
                 <span class="player-name">Marcus Hernqvist</span>
+                <img class="player-photo" src="Marcus Hernqvist.jpg" alt="" aria-hidden="true">
                 <span class="player-details">
                   <strong>Styrka:</strong> Explosiv bollträff och stor potential.<br>
                   <strong>Svaghet:</strong> Resultaten kan variera från dag till dag.<br>
@@ -927,6 +963,7 @@
                   data-player="Örjan Berg"
                   aria-label="Visa statistik för Örjan Berg">
                 <span class="player-name">Örjan Berg</span>
+                <img class="player-photo" src="Örjan Berg.jpg" alt="" aria-hidden="true">
                 <span class="player-details">
                   <strong>Styrka:</strong> Modig och stark när matchen hårdnar.<br>
                   <strong>Svaghet:</strong> Kan gå för aggressivt ibland.<br>
@@ -939,6 +976,7 @@
                   data-player="Johan S. Carlson"
                   aria-label="Visa statistik för Johan S. Carlson">
                 <span class="player-name">Johan S. Carlson</span>
+                <img class="player-photo" src="Johan S. Carlson.jpg" alt="" aria-hidden="true">
                 <span class="player-details">
                   <strong>Styrka:</strong> Pålitlig i långa järnslag.<br>
                   <strong>Svaghet:</strong> Behöver hitta rytmen tidigt.<br>
@@ -951,6 +989,7 @@
                   data-player="Ingemar Andersson"
                   aria-label="Visa statistik för Ingemar Andersson">
                 <span class="player-name">Ingemar Andersson</span>
+                <img class="player-photo" src="Ingemar Andersson.jpg" alt="" aria-hidden="true">
                 <span class="player-details">
                   <strong>Styrka:</strong> Kreativ runt greenerna.<br>
                   <strong>Svaghet:</strong> Tar ibland onödiga chansningar.<br>
@@ -963,6 +1002,7 @@
                   data-player="Magnus Boström"
                   aria-label="Visa statistik för Magnus Boström">
                 <span class="player-name">Magnus Boström</span>
+                <img class="player-photo" src="Magnus Boström.jpg" alt="" aria-hidden="true">
                 <span class="player-details">
                   <strong>Styrka:</strong> Naturlig ledare med starkt psyke.<br>
                   <strong>Svaghet:</strong> Lägger ibland för stor press på sig själv.<br>
@@ -975,6 +1015,7 @@
                   data-player="Harald Eliasson"
                   aria-label="Visa statistik för Harald Eliasson">
                 <span class="player-name">Harald Eliasson</span>
+                <img class="player-photo" src="Harald Eliasson.jpg" alt="" aria-hidden="true">
                 <span class="player-details">
                   <strong>Styrka:</strong> Stark taktiker och duktig på att läsa banan.<br>
                   <strong>Svaghet:</strong> Kan fastna för länge i sina analyser.<br>
@@ -987,6 +1028,7 @@
                   data-player="Patrik Millsjö"
                   aria-label="Visa statistik för Patrik Millsjö">
                 <span class="player-name">Patrik Millsjö</span>
+                <img class="player-photo" src="Patrik Millsjö.jpg" alt="" aria-hidden="true">
                 <span class="player-details">
                   <strong>Styrka:</strong> Kall och metodisk i viktiga lägen.<br>
                   <strong>Svaghet:</strong> Behöver ibland våga spela mer offensivt.<br>
@@ -1266,6 +1308,7 @@
 
       <h2 id="stats-modal-title">Spelarstatistik</h2>
       <p class="stats-subtitle" id="stats-modal-subtitle"></p>
+      <img class="stats-player-photo" id="stats-player-photo" alt="" hidden>
 
       <div id="stats-content">
         <p class="stats-message">Laddar statistik...</p>
@@ -1358,6 +1401,7 @@
     const statsClose = document.querySelector("#stats-close");
     const statsTitle = document.querySelector("#stats-modal-title");
     const statsSubtitle = document.querySelector("#stats-modal-subtitle");
+    const statsPlayerPhoto = document.querySelector("#stats-player-photo");
     const statsContent = document.querySelector("#stats-content");
     const playerCards = document.querySelectorAll(".player");
 
@@ -1467,6 +1511,10 @@
       lastFocusedPlayer = sourceElement;
 
       statsTitle.textContent = playerName;
+      statsPlayerPhoto.src = `${playerName}.jpg`;
+      statsPlayerPhoto.alt = `Profilbild på ${playerName}`;
+      statsPlayerPhoto.hidden = false;
+
       statsSubtitle.textContent = "Hämtar spelad matchstatistik...";
       statsContent.innerHTML =
         '<p class="stats-message">Laddar statistik...</p>';
@@ -1483,6 +1531,9 @@
       statsModal.classList.remove("open");
       statsModal.setAttribute("aria-hidden", "true");
       document.body.style.overflow = "";
+
+      statsPlayerPhoto.hidden = true;
+      statsPlayerPhoto.removeAttribute("src");
 
       if (lastFocusedPlayer) {
         lastFocusedPlayer.focus();
