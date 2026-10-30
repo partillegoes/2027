@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101a16">
-
   <title>Partille Goes... 2027 – Samma rivalitet. Ny kamp.</title>
 
   <style>
@@ -20,9 +19,7 @@
       --red: #d11f26;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html {
       scroll-behavior: smooth;
@@ -37,9 +34,7 @@
       line-height: 1.65;
     }
 
-    a {
-      color: inherit;
-    }
+    a { color: inherit; }
 
     button {
       font: inherit;
@@ -377,14 +372,36 @@
       text-decoration: none;
     }
 
+    .handicap-copy {
+      margin-top: 38px;
+    }
+
+    .handicap-card {
+      max-width: 760px;
+      margin-top: 20px;
+    }
+
+    .handicap-list {
+      margin: 0;
+      padding-left: 24px;
+      color: var(--muted);
+    }
+
+    .handicap-list li {
+      margin-bottom: 14px;
+      padding-left: 4px;
+    }
+
+    .handicap-list li:last-child {
+      margin-bottom: 0;
+    }
+
     footer {
       padding: 25px clamp(24px, 6vw, 100px);
       border-top: 1px solid var(--border);
       color: var(--muted);
       font-size: 13px;
     }
-
-    /* Statistikmodal */
 
     .stats-modal {
       position: fixed;
@@ -579,10 +596,6 @@
         font-size: 17px;
       }
 
-      /*
-        På mobil visas inga bilder i spelarens lilla ruta.
-        Bilden visas i stället i popupen när spelaren klickas.
-      */
       .player {
         display: block;
         min-height: 0;
@@ -785,6 +798,11 @@
 
             <ul class="player-list">
               <li class="player" tabindex="0" data-player="Daniel Agnemar">
+                <img
+                  class="player-image"
+                  src="https://raw.githubusercontent.com/partillegoes/2027/main/Johan%20S.%20Carlson.jpg"
+                  alt="Daniel Agnemar"
+                >
                 <div class="player-info">
                   <span class="player-name">Daniel Agnemar</span>
                   <span class="player-details">
@@ -864,6 +882,11 @@
               </li>
 
               <li class="player" tabindex="0" data-player="Johan S. Carlson">
+                <img
+                  class="player-image"
+                  src="https://raw.githubusercontent.com/partillegoes/2027/main/Johan%20S.%20Carlson.jpg"
+                  alt="Johan S. Carlson"
+                >
                 <div class="player-info">
                   <span class="player-name">Johan S. Carlson</span>
                   <span class="player-details">
@@ -954,6 +977,26 @@
               Avgörande singelmatcher över 18 hål. Varje match är värd 2 poäng.
             </p>
           </article>
+        </div>
+
+        <div class="copy handicap-copy">
+          <h3>Handicap</h3>
+
+          <p>
+            För att hålla tävlingen rättvis och jämn används handicap i
+            matchspel och laguppställning. Lagen sätts upp efter stigande
+            handicap på ankomstdagen, vilket ger en mer balanserad och
+            konkurrenskraftig start.
+          </p>
+
+          <div class="card handicap-card">
+            <ul class="handicap-list">
+              <li>Handicap används för att jämna ut skillnader mellan spelare.</li>
+              <li>Varje hål spelas med justering för att skapa rättvisa förutsättningar.</li>
+              <li>Resultatet blir en mer engagerande och jämn match där skicklighet och
+                  konsistens avgör mer än bara ren bollträff.</li>
+            </ul>
+          </div>
         </div>
 
         <blockquote class="quote">
@@ -1082,18 +1125,15 @@
       <div class="section-inner">
         <div class="eyebrow">Bakom tävlingen</div>
         <h2>Om Partille Goes</h2>
-
         <div class="copy">
           <p>
             Partille Goes är mer än en golftävling. Det är ett koncept som
             bygger på rivalitet, gemenskap och passionen för golf.
           </p>
-
-          <a
-            class="about-link"
-            href="https://partillegoes.github.io/start/"
-            target="_blank"
-            rel="noopener noreferrer">
+          <a class="about-link"
+             href="https://partillegoes.github.io/start/"
+             target="_blank"
+             rel="noopener noreferrer">
             Läs mer om Partille Goes →
           </a>
         </div>
@@ -1105,31 +1145,21 @@
     </footer>
   </main>
 
-  <!-- Statistikmodal -->
-  <div
-    class="stats-modal"
-    id="stats-modal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="stats-modal-title"
-    aria-hidden="true">
+  <div class="stats-modal" id="stats-modal"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="stats-modal-title"
+       aria-hidden="true">
 
     <div class="stats-dialog">
-      <button
-        class="stats-close"
-        id="stats-close"
-        type="button"
-        aria-label="Stäng statistik">
-        ×
-      </button>
+      <button class="stats-close" id="stats-close"
+              type="button" aria-label="Stäng statistik">×</button>
 
       <h2 id="stats-modal-title">Spelarstatistik</h2>
       <p class="stats-subtitle" id="stats-modal-subtitle"></p>
 
       <div id="stats-content">
-        <p class="stats-message">
-          Laddar statistik...
-        </p>
+        <p class="stats-message">Laddar statistik...</p>
       </div>
     </div>
   </div>
@@ -1146,64 +1176,16 @@
     }
 
     menuButton.addEventListener("click", () => {
-      const isOpen = navigation.classList.toggle("open");
-
-      menuButton.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-      );
-
-      menuButton.textContent = isOpen
-        ? "Stäng ✕"
-        : "Meny ☰";
+      const open = navigation.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(open));
+      menuButton.textContent = open ? "Stäng ✕" : "Meny ☰";
     });
 
     navLinks.forEach(link => {
       link.addEventListener("click", closeMenu);
     });
 
-    /*
-      Bilderna måste ligga i samma mapp som index.html.
-
-      Exempel:
-      Daniel Agnemar.jpg
-      Johan Kristofferson.jpg
-      Johan Köhnke.jpg
-      Örjan Berg.jpg
-    */
-    function getPlayerImageUrl(playerName) {
-      return `${encodeURIComponent(playerName)}.jpg`;
-    }
-
-    function addDesktopPlayerImages() {
-      const players = document.querySelectorAll(".player");
-
-      players.forEach(player => {
-        const playerName = player.dataset.player;
-
-        if (!playerName) {
-          return;
-        }
-
-        const image = document.createElement("img");
-
-        image.className = "player-image";
-        image.src = getPlayerImageUrl(playerName);
-        image.alt = `Porträtt av ${playerName}`;
-        image.loading = "lazy";
-
-        image.addEventListener("error", () => {
-          image.remove();
-        });
-
-        player.insertBefore(image, player.firstElementChild);
-      });
-    }
-
-    addDesktopPlayerImages();
-
-    const statsUrl =
-      "https://partillegoes.github.io/start/stats.csv";
+    const statsUrl = "https://partillegoes.github.io/start/stats.csv";
 
     const modal = document.querySelector("#stats-modal");
     const closeButton = document.querySelector("#stats-close");
@@ -1216,9 +1198,7 @@
     let statsCache = null;
 
     function normalize(value) {
-      return String(value || "")
-        .trim()
-        .toLocaleLowerCase("sv-SE");
+      return String(value || "").trim().toLocaleLowerCase("sv-SE");
     }
 
     function escapeHtml(value) {
@@ -1228,23 +1208,6 @@
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
-    }
-
-    function createProfileHtml(playerName) {
-      const imageUrl = getPlayerImageUrl(playerName);
-
-      return `
-        <div class="stats-profile">
-          <img
-            class="stats-profile-image"
-            src="${imageUrl}"
-            alt="Porträtt av ${escapeHtml(playerName)}">
-
-          <div class="stats-profile-name">
-            ${escapeHtml(playerName)}
-          </div>
-        </div>
-      `;
     }
 
     function parseCsvLine(line) {
@@ -1270,7 +1233,6 @@
       }
 
       values.push(value.trim());
-
       return values;
     }
 
@@ -1282,9 +1244,7 @@
         .split("\n")
         .filter(line => line.trim());
 
-      if (lines.length < 2) {
-        return [];
-      }
+      if (lines.length < 2) return [];
 
       const headers = parseCsvLine(lines[0]);
 
@@ -1310,28 +1270,14 @@
 
     function openModal(playerName, element) {
       lastFocusedPlayer = element;
-
       title.textContent = playerName;
       subtitle.textContent = "Hämtar spelad matchstatistik...";
-
-      content.innerHTML = `
-        ${createProfileHtml(playerName)}
-
-        <p class="stats-message">
-          Laddar statistik...
-        </p>
-      `;
-
-      const profileImage = content.querySelector(".stats-profile-image");
-
-      profileImage.addEventListener("error", () => {
-        profileImage.style.display = "none";
-      });
+      content.innerHTML =
+        '<p class="stats-message">Laddar statistik...</p>';
 
       modal.classList.add("open");
       modal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
-
       closeButton.focus();
 
       loadStats(playerName);
@@ -1342,9 +1288,7 @@
       modal.setAttribute("aria-hidden", "true");
       document.body.style.overflow = "";
 
-      if (lastFocusedPlayer) {
-        lastFocusedPlayer.focus();
-      }
+      if (lastFocusedPlayer) lastFocusedPlayer.focus();
     }
 
     async function loadStats(playerName) {
@@ -1355,147 +1299,86 @@
           });
 
           if (!response.ok) {
-            throw new Error("Kunde inte hämta CSV-filen.");
+            throw new Error("Kunne inte hämta statistik");
           }
 
-          const csvText = await response.text();
-          statsCache = parseCsv(csvText);
+          statsCache = parseCsv(await response.text());
         }
 
-        const rows = statsCache.filter(row => {
-          return normalize(getColumn(row, "Spelare")) ===
-            normalize(playerName);
+        const player = statsCache.find(row => {
+          const rowName = getColumn(row, "Name");
+          return normalize(rowName) === normalize(playerName);
         });
 
-        renderStats(playerName, rows);
-      } catch (error) {
-        subtitle.textContent = "";
-
-        content.innerHTML = `
-          ${createProfileHtml(playerName)}
-
-          <p class="stats-message">
-            Statistik kunde inte hämtas just nu.
-          </p>
-        `;
-      }
-    }
-
-    function renderStats(playerName, rows) {
-      const profileHtml = createProfileHtml(playerName);
-
-      if (!rows.length) {
-        subtitle.textContent = "";
-
-        content.innerHTML = `
-          ${profileHtml}
-
-          <p class="stats-message">
-            Det finns inga registrerade matcher för
-            ${escapeHtml(playerName)}.
-          </p>
-        `;
-
-        const profileImage =
-          content.querySelector(".stats-profile-image");
-
-        profileImage.addEventListener("error", () => {
-          profileImage.style.display = "none";
-        });
-
-        return;
-      }
-
-      subtitle.textContent =
-        `${rows.length} registrerad${rows.length === 1 ? "" : "e"} ` +
-        `match${rows.length === 1 ? "" : "er"}`;
-
-      const byYear = {};
-
-      rows.forEach(row => {
-        const year = getColumn(row, "År") || "Okänt år";
-
-        if (!byYear[year]) {
-          byYear[year] = [];
+        if (!player) {
+          throw new Error("Ingen statistik hittades för spelaren.");
         }
 
-        byYear[year].push(row);
-      });
+        const year = getColumn(player, "Year") || "2027";
+        const team = getColumn(player, "Team") || "";
+        const rounds = getColumn(player, "Rounds") || "";
+        const wins = getColumn(player, "Wins") || "";
+        const losses = getColumn(player, "Losses") || "";
+        const ties = getColumn(player, "Ties") || "";
+        const average = getColumn(player, "Average") || "";
+        const notes = getColumn(player, "Notes") || "";
 
-      const tablesHtml = Object.keys(byYear).map(year => {
-        const tableRows = byYear[year].map(row => {
-          return `
-            <tr>
-              <td>
-                ${escapeHtml(getColumn(row, "Runda"))}
-              </td>
+        subtitle.textContent = `${team} · ${year}`;
 
-              <td>
-                ${escapeHtml(getColumn(row, "Resultat"))}
-              </td>
-
-              <td>
-                ${escapeHtml(getColumn(row, "Spelformat"))}
-              </td>
-
-              <td>
-                ${escapeHtml(getColumn(row, "Motståndare"))}
-              </td>
-
-              <td>
-                ${escapeHtml(getColumn(row, "Medspelare"))}
-              </td>
-            </tr>
-          `;
-        }).join("");
-
-        return `
-          <h3 class="stats-year">
-            ${escapeHtml(year)}
-          </h3>
+        content.innerHTML = `
+          <div class="stats-profile">
+            <img
+              class="stats-profile-image"
+              src="https://raw.githubusercontent.com/partillegoes/2027/main/Johan%20S.%20Carlson.jpg"
+              alt="${escapeHtml(playerName)}"
+            >
+            <div class="stats-profile-name">${escapeHtml(playerName)}</div>
+          </div>
 
           <div class="stats-table-wrapper">
             <table class="stats-table">
               <thead>
                 <tr>
-                  <th>Rond</th>
-                  <th>Resultat</th>
-                  <th>Spelformat</th>
-                  <th>Motståndare</th>
-                  <th>Medspelare</th>
+                  <th>År</th>
+                  <th>Lag</th>
+                  <th>Rundor</th>
+                  <th>V-S-O</th>
+                  <th>Snitt</th>
                 </tr>
               </thead>
-
               <tbody>
-                ${tableRows}
+                <tr>
+                  <td>${escapeHtml(year)}</td>
+                  <td>${escapeHtml(team)}</td>
+                  <td>${escapeHtml(rounds)}</td>
+                  <td>${escapeHtml(`${wins}-${losses}-${ties}`)}</td>
+                  <td>${escapeHtml(average)}</td>
+                </tr>
               </tbody>
             </table>
           </div>
+
+          <div class="stats-year">Noteringar</div>
+          <p class="stats-message">${escapeHtml(notes || "Ingen ytterligare statistik tillgänglig.")}</p>
         `;
-      }).join("");
-
-      content.innerHTML = profileHtml + tablesHtml;
-
-      const profileImage =
-        content.querySelector(".stats-profile-image");
-
-      profileImage.addEventListener("error", () => {
-        profileImage.style.display = "none";
-      });
+      } catch (error) {
+        subtitle.textContent = "Statistik kunde inte laddas";
+        content.innerHTML =
+          '<p class="stats-message">Det gick inte att hämta statistik just nu.</p>';
+      }
     }
 
     players.forEach(player => {
-      player.addEventListener("click", () => {
-        openModal(
-          player.dataset.player,
-          player
-        );
-      });
+      const clickHandler = () => {
+        const playerName = player.dataset.player;
+        if (playerName) openModal(playerName, player);
+      };
 
+      player.addEventListener("click", clickHandler);
       player.addEventListener("keydown", event => {
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
-          player.click();
+          clickHandler();
         }
       });
     });
@@ -1503,20 +1386,12 @@
     closeButton.addEventListener("click", closeModal);
 
     modal.addEventListener("click", event => {
-      if (event.target === modal) {
-        closeModal();
-      }
+      if (event.target === modal) closeModal();
     });
 
     document.addEventListener("keydown", event => {
-      if (event.key === "Escape") {
-        if (modal.classList.contains("open")) {
-          closeModal();
-        }
-
-        if (navigation.classList.contains("open")) {
-          closeMenu();
-        }
+      if (event.key === "Escape" && modal.classList.contains("open")) {
+        closeModal();
       }
     });
   </script>
