@@ -694,24 +694,124 @@
 
 .stats-modal {
   align-items: center;
-  padding: 8px;
+  padding: 6px;
   overflow: hidden;
 }
 
 .stats-dialog {
   width: 100%;
   max-width: 100%;
-  max-height: calc(100svh - 16px);
-  padding: 18px 8px 12px;
+  max-height: calc(100svh - 12px);
+  padding: 16px 7px 10px;
   overflow-x: hidden;
   overflow-y: auto;
-  border-radius: 12px;
+  border-radius: 11px;
 }
 
 .stats-dialog h2 {
-  margin: 0 42px 4px 0;
-  font-size: 25px;
+  margin: 0 38px 2px 0;
+  font-size: 22px;
+  line-height: 1.1;
 }
+
+.stats-subtitle {
+  margin: 0 0 9px;
+  font-size: 10px;
+  line-height: 1.2;
+}
+
+.stats-close {
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  font-size: 19px;
+}
+
+.stats-year {
+  margin: 12px 0 5px;
+  font-size: 15px;
+  line-height: 1.1;
+}
+
+.stats-table-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 7px;
+}
+
+.stats-table {
+  width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 8px;
+  line-height: 1.15;
+}
+
+/* Kolumnbredder */
+.stats-table th:nth-child(1),
+.stats-table td:nth-child(1) {
+  width: 8%;
+}
+
+.stats-table th:nth-child(2),
+.stats-table td:nth-child(2) {
+  width: 11%;
+}
+
+.stats-table th:nth-child(3),
+.stats-table td:nth-child(3) {
+  width: 18%;
+}
+
+.stats-table th:nth-child(4),
+.stats-table td:nth-child(4) {
+  width: 39%;
+}
+
+.stats-table th:nth-child(5),
+.stats-table td:nth-child(5) {
+  width: 24%;
+}
+
+/* Högst två rader i varje fält */
+.stats-table th,
+.stats-table td {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  min-width: 0;
+  height: 22px;
+  padding: 3px 2px;
+  overflow: hidden;
+  text-align: left;
+  vertical-align: middle;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.stats-table th {
+  color: var(--gold);
+  font-size: 7px;
+  line-height: 1.1;
+  background: rgba(0,0,0,.18);
+}
+
+.stats-table td {
+  color: var(--muted);
+  font-size: 8px;
+}
+
+.stats-message {
+  padding: 14px 0;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1617,9 +1717,9 @@
             <table class="stats-table">
               <thead>
                 <tr>
-                  <th>Rond</th>
-                  <th>Resultat</th>
-                  <th>Spelformat</th>
+                  <th>Rnd</th>
+                  <th>Res</th>
+                  <th>Format</th>
                   <th>Motståndare</th>
                   <th>Medspelare</th>
                 </tr>
