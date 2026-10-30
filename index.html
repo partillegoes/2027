@@ -598,6 +598,33 @@
       }
 
       .stats-table th { font-size: 10px; line-height: 1.2; }
+
+      /* Håll Rd och Res så smala som rubrikerna tillåter. */
+      .stats-table th:nth-child(1),
+      .stats-table td:nth-child(1),
+      .stats-table th:nth-child(2),
+      .stats-table td:nth-child(2) {
+        width: 1%;
+        white-space: nowrap;
+      }
+
+      /* Låt Motståndare använda återstående bredd. */
+      .stats-table th:nth-child(4),
+      .stats-table td:nth-child(4) {
+        width: auto;
+      }
+
+      /* Begränsa Medspelare till en smal kolumn och högst två rader. */
+      .stats-table th:nth-child(5),
+      .stats-table td:nth-child(5) {
+        width: 16%;
+      }
+
+      .stats-table td:nth-child(5) {
+        line-height: 1.2;
+        max-height: 2.4em;
+        overflow: hidden;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1167,8 +1194,8 @@
               <td>${escapeHtml(runda)}</td>
               <td>${escapeHtml(result)}</td>
               <td>${escapeHtml(format)}</td>
-              <td>${escapeHtml(opponent)}</td>
-              <td>${escapeHtml(teammate)}</td>
+              <td>${escapeHtml(opponent).replace(/\//g, "/<wbr>")}</td>
+              <td>${escapeHtml(teammate).replace(/\s+/, "<br>")}</td>
             </tr>
           `;
         }).join("");
