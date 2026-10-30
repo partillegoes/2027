@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101a16">
-
   <title>Partille Goes... 2027 – Samma rivalitet. Ny kamp.</title>
 
   <style>
@@ -20,9 +19,7 @@
       --red: #d11f26;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html {
       scroll-behavior: smooth;
@@ -37,18 +34,9 @@
       line-height: 1.65;
     }
 
-    button,
-    a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    a {
-      color: inherit;
-    }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    a { color: inherit; }
 
     :focus-visible {
       outline: 3px solid var(--gold);
@@ -98,8 +86,7 @@
       transition: background .2s, color .2s;
     }
 
-    nav a:hover,
-    nav a.active {
+    nav a:hover, nav a.active {
       background: rgba(230,200,137,.1);
       color: var(--gold);
     }
@@ -127,9 +114,7 @@
       cursor: pointer;
     }
 
-    main {
-      margin-left: var(--sidebar);
-    }
+    main { margin-left: var(--sidebar); }
 
     .hero {
       position: relative;
@@ -179,9 +164,7 @@
       letter-spacing: -3px;
     }
 
-    h1 span {
-      color: var(--gold);
-    }
+    h1 span { color: var(--gold); }
 
     .lead {
       max-width: 650px;
@@ -195,9 +178,7 @@
       border-top: 1px solid var(--border);
     }
 
-    .section-inner {
-      max-width: 1100px;
-    }
+    .section-inner { max-width: 1100px; }
 
     h2 {
       margin: 12px 0 28px;
@@ -213,40 +194,20 @@
       line-height: 1.75;
     }
 
-    .copy p {
-      margin: 0 0 20px;
-    }
+    .copy p { margin: 0 0 20px; }
+    .copy p:last-child { margin-bottom: 0; }
+    .copy strong { color: var(--text); }
 
-    .copy p:last-child {
-      margin-bottom: 0;
-    }
-
-    .copy strong {
-      color: var(--text);
-    }
-
-    .copy h3,
-    .copy h4 {
+    .copy h3, .copy h4 {
       margin: 32px 0 12px;
       color: var(--gold);
       font-size: 23px;
       line-height: 1.3;
     }
 
-    .copy h3:first-child,
-    .copy h4:first-child {
-      margin-top: 0;
-    }
-
-    .copy ul {
-      margin: 12px 0 24px;
-      padding-left: 24px;
-    }
-
-    .copy li {
-      margin-bottom: 12px;
-      padding-left: 4px;
-    }
+    .copy h3:first-child, .copy h4:first-child { margin-top: 0; }
+    .copy ul { margin: 12px 0 24px; padding-left: 24px; }
+    .copy li { margin-bottom: 12px; padding-left: 4px; }
 
     .cards {
       display: grid;
@@ -269,15 +230,9 @@
       line-height: 1.3;
     }
 
-    .card p {
-      margin: 0;
-      color: var(--muted);
-    }
+    .card p { margin: 0; color: var(--muted); }
 
-    .team-card {
-      position: relative;
-      overflow: hidden;
-    }
+    .team-card { position: relative; overflow: hidden; }
 
     .team-card::before {
       content: "";
@@ -291,30 +246,17 @@
       border-color: var(--blue);
     }
 
-    .team-card.blue::before {
-      background: var(--blue);
-    }
-
-    .team-card.blue h3 {
-      color: var(--blue);
-    }
+    .team-card.blue::before { background: var(--blue); }
+    .team-card.blue h3 { color: var(--blue); }
 
     .team-card.red {
       background: linear-gradient(145deg, rgba(209,31,38,.2), #192720);
       border-color: var(--red);
     }
 
-    .team-card.red::before {
-      background: var(--red);
-    }
-
-    .team-card.red h3 {
-      color: var(--red);
-    }
-
-    .team-intro {
-      margin-bottom: 22px !important;
-    }
+    .team-card.red::before { background: var(--red); }
+    .team-card.red h3 { color: var(--red); }
+    .team-intro { margin-bottom: 22px !important; }
 
     .player-list {
       display: grid;
@@ -355,9 +297,7 @@
       line-height: 1.5;
     }
 
-    .player-details strong {
-      color: var(--text);
-    }
+    .player-details strong { color: var(--text); }
 
     .player-photo {
       position: absolute;
@@ -386,14 +326,8 @@
       gap: 14px;
     }
 
-    .format-cards .card h3,
-    .format-cards .card p {
-      margin: 0;
-    }
-
-    .handicap-copy {
-      margin-top: 38px;
-    }
+    .format-cards .card h3, .format-cards .card p { margin: 0; }
+    .handicap-copy { margin-top: 38px; }
 
     .handicap-card {
       max-width: 760px;
@@ -406,14 +340,8 @@
       color: var(--muted);
     }
 
-    .handicap-list li {
-      margin-bottom: 14px;
-      padding-left: 4px;
-    }
-
-    .handicap-list li:last-child {
-      margin-bottom: 0;
-    }
+    .handicap-list li { margin-bottom: 14px; padding-left: 4px; }
+    .handicap-list li:last-child { margin-bottom: 0; }
 
     .quote {
       margin: 35px 0 0;
@@ -491,10 +419,7 @@
       white-space: nowrap;
     }
 
-    .schedule-event {
-      color: var(--muted);
-      line-height: 1.5;
-    }
+    .schedule-event { color: var(--muted); line-height: 1.5; }
 
     .schedule-event strong {
       display: block;
@@ -517,8 +442,6 @@
       font-size: 13px;
     }
 
-    /* Statistikmodal */
-
     .stats-modal {
       position: fixed;
       inset: 0;
@@ -530,9 +453,7 @@
       background: rgba(0,0,0,.78);
     }
 
-    .stats-modal.open {
-      display: flex;
-    }
+    .stats-modal.open { display: flex; }
 
     .stats-dialog {
       position: relative;
@@ -552,10 +473,7 @@
       font-size: clamp(28px, 5vw, 42px);
     }
 
-    .stats-subtitle {
-      margin: 0 0 28px;
-      color: var(--muted);
-    }
+    .stats-subtitle { margin: 0 0 28px; color: var(--muted); }
 
     .stats-close {
       position: absolute;
@@ -577,11 +495,7 @@
       color: var(--gold);
     }
 
-    .stats-year {
-      margin: 30px 0 12px;
-      color: var(--gold);
-      font-size: 24px;
-    }
+    .stats-year { margin: 30px 0 12px; color: var(--gold); font-size: 24px; }
 
     .stats-table-wrapper {
       overflow-x: auto;
@@ -597,8 +511,7 @@
       font-size: 14px;
     }
 
-    .stats-table th,
-    .stats-table td {
+    .stats-table th, .stats-table td {
       padding: 12px 14px;
       border-bottom: 1px solid var(--border);
       text-align: left;
@@ -610,33 +523,17 @@
       background: rgba(0,0,0,.18);
     }
 
-    .stats-table tr:last-child td {
-      border-bottom: 0;
-    }
-
-    .stats-table td {
-      color: var(--muted);
-    }
-
-    .stats-message {
-      padding: 25px 0;
-      color: var(--muted);
-    }
+    .stats-table tr:last-child td { border-bottom: 0; }
+    .stats-table td { color: var(--muted); }
+    .stats-message { padding: 25px 0; color: var(--muted); }
 
     @media (max-width: 950px) {
-      .schedule-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .schedule-card {
-        min-height: auto;
-      }
+      .schedule-grid { grid-template-columns: 1fr; }
+      .schedule-card { min-height: auto; }
     }
 
     @media (max-width: 800px) {
-      html {
-        scroll-padding-top: 100px;
-      }
+      html { scroll-padding-top: 100px; }
 
       .sidebar {
         inset: 0 0 auto;
@@ -649,22 +546,10 @@
         border-bottom: 1px solid var(--border);
       }
 
-      .brand {
-        font-size: 18px;
-      }
-
-      .brand span {
-        margin-top: 5px;
-        font-size: 10px;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .sidebar-note {
-        display: none;
-      }
+      .brand { font-size: 18px; }
+      .brand span { margin-top: 5px; font-size: 10px; }
+      .menu-toggle { display: block; }
+      .sidebar-note { display: none; }
 
       nav {
         position: absolute;
@@ -678,64 +563,27 @@
         border-bottom: 1px solid var(--border);
       }
 
-      nav.open {
-        display: grid;
-      }
-
-      main {
-        margin-left: 0;
-        padding-top: 81px;
-      }
+      nav.open { display: grid; }
+      main { margin-left: 0; padding-top: 81px; }
 
       .hero {
         min-height: calc(100svh - 81px);
         padding: 30px 24px 60px;
       }
 
-      .section {
-        padding-top: 55px;
-        padding-bottom: 55px;
-      }
-
-      .copy {
-        font-size: 17px;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .golf-ball {
-        width: 300px;
-        height: 300px;
-      }
-
-      .player {
-        padding-right: 16px;
-      }
-
-      .player-photo {
-        display: none;
-      }
-
-      .stats-modal {
-        padding: 12px;
-      }
-
-      .stats-dialog {
-        padding: 25px 18px;
-      }
+      .section { padding-top: 55px; padding-bottom: 55px; }
+      .copy { font-size: 17px; }
+      .cards { grid-template-columns: 1fr; }
+      .golf-ball { width: 300px; height: 300px; }
+      .player { padding-right: 16px; }
+      .player-photo { display: none; }
+      .stats-modal { padding: 12px; }
+      .stats-dialog { padding: 25px 18px; }
     }
 
-    /* Kompakt tabell i statistik-popupen på små skärmar */
     @media (max-width: 600px) {
-      .stats-dialog {
-        padding: 22px 12px;
-      }
-
-      .stats-table-wrapper {
-        overflow-x: hidden;
-      }
+      .stats-dialog { padding: 22px 12px; }
+      .stats-table-wrapper { overflow-x: hidden; }
 
       .stats-table {
         width: 100%;
@@ -744,45 +592,29 @@
         font-size: 11px;
       }
 
-      .stats-table th,
-      .stats-table td {
+      .stats-table th, .stats-table td {
         padding: 8px 4px;
         overflow-wrap: anywhere;
       }
 
-      .stats-table th {
-        font-size: 10px;
-        line-height: 1.2;
-      }
+      .stats-table th { font-size: 10px; line-height: 1.2; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before {
-        transition: none !important;
-      }
+      html { scroll-behavior: auto; }
+      *, *::before { transition: none !important; }
     }
   </style>
 </head>
 
 <body>
-
   <aside class="sidebar" aria-label="Sidomeny">
     <a class="brand" href="#main-info">
       Partille Goes...
       <span>2027 · ROUND TWO</span>
     </a>
 
-    <button
-      class="menu-toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="navigation"
-    >
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">
       Meny ☰
     </button>
 
@@ -805,20 +637,11 @@
   </aside>
 
   <main>
-
     <section class="hero" id="main-info" aria-labelledby="hero-title">
       <div class="golf-ball" aria-hidden="true"></div>
-
       <div class="hero-content">
-        <div class="eyebrow">
-          Efter succén 2026 · Uppföljaren väntar
-        </div>
-
-        <h1 id="hero-title">
-          Samma rivalitet.<br>
-          <span>Ny kamp.</span>
-        </h1>
-
+        <div class="eyebrow">Efter succén 2026 · Uppföljaren väntar</div>
+        <h1 id="hero-title">Samma rivalitet.<br><span>Ny kamp.</span></h1>
         <p class="lead">
           Vi skrattade. Vi kämpade. Vi höll andan över puttar som plötsligt
           betydde allt. Partille Goes Barsebäck blev en resa att minnas –
@@ -832,7 +655,6 @@
       <div class="section-inner">
         <div class="eyebrow">Tävlingsplatsen</div>
         <h2 id="location-title">Location</h2>
-
         <div class="copy">
           <p>
             Partille Goes Barsebäck 2027 arrangeras på Barsebäck Resort.
@@ -850,7 +672,6 @@
       <div class="section-inner">
         <div class="eyebrow">Två sidor. En titel.</div>
         <h2 id="teams-title">Teams</h2>
-
         <div class="copy">
           <p>
             Tolv spelare, två lag, en titel. Klicka på en spelares ruta
@@ -859,10 +680,8 @@
         </div>
 
         <div class="cards">
-
           <article class="card team-card blue">
             <h3>Team Blue</h3>
-
             <p class="team-intro">
               Det blå laget står för lugn, precision och stark lagkänsla.
               Efter fjolårets resultat finns det dessutom en tydlig känsla
@@ -870,175 +689,79 @@
             </p>
 
             <ul class="player-list">
-              <li class="player" tabindex="0" role="button"
-                  data-player="Daniel Agnemar"
-                  aria-label="Visa statistik för Daniel Agnemar">
+              <li class="player" tabindex="0" role="button" data-player="Daniel Agnemar" aria-label="Visa statistik för Daniel Agnemar">
                 <span class="player-name">Daniel Agnemar</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details">
-                  <strong>Styrka:</strong> Stabil från tee och mycket jämn.<br>
-                  <strong>Svaghet:</strong> Tar ibland för få risker.<br>
-                  <strong>Record (W-L-T):</strong> 2-0-1<br>
-                  <strong>Appearances:</strong> 1
-                </span>
+                <span class="player-details"><strong>Styrka:</strong> Stabil från tee och mycket jämn.<br><strong>Svaghet:</strong> Tar ibland för få risker.<br><strong>Record (W-L-T):</strong> 2-0-1<br><strong>Appearances:</strong> 1</span>
               </li>
-
-              <li class="player" tabindex="0" role="button"
-                  data-player="Johan Kristofferson"
-                  aria-label="Visa statistik för Johan Kristofferson">
+              <li class="player" tabindex="0" role="button" data-player="Johan Kristofferson" aria-label="Visa statistik för Johan Kristofferson">
                 <span class="player-name">Johan Kristofferson</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details">
-                  <strong>Styrka:</strong> Vass puttare under press.<br>
-                  <strong>Svaghet:</strong> Kan bli otålig efter ett dåligt hål.<br>
-                  <strong>Record (W-L-T):</strong> 1-2-0<br>
-                  <strong>Appearances:</strong> 1
-                </span>
+                <span class="player-details"><strong>Styrka:</strong> Vass puttare under press.<br><strong>Svaghet:</strong> Kan bli otålig efter ett dåligt hål.<br><strong>Record (W-L-T):</strong> 1-2-0<br><strong>Appearances:</strong> 1</span>
               </li>
-
-              <li class="player" tabindex="0" role="button"
-                  data-player="Patrik Ahlstrand"
-                  aria-label="Visa statistik för Patrik Ahlstrand">
+              <li class="player" tabindex="0" role="button" data-player="Patrik Ahlstrand" aria-label="Visa statistik för Patrik Ahlstrand">
                 <span class="player-name">Patrik Ahlstrand</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details">
-                  <strong>Styrka:</strong> Strategisk och skicklig på inspel.<br>
-                  <strong>Svaghet:</strong> Övertänker ibland enkla slag.<br>
-                  <strong>Record (W-L-T):</strong> 1-2-0<br>
-                  <strong>Appearances:</strong> 1
-                </span>
+                <span class="player-details"><strong>Styrka:</strong> Strategisk och skicklig på inspel.<br><strong>Svaghet:</strong> Övertänker ibland enkla slag.<br><strong>Record (W-L-T):</strong> 1-2-0<br><strong>Appearances:</strong> 1</span>
               </li>
-
-              <li class="player" tabindex="0" role="button"
-                  data-player="Johan Köhnke"
-                  aria-label="Visa statistik för Johan Köhnke">
+              <li class="player" tabindex="0" role="button" data-player="Johan Köhnke" aria-label="Visa statistik för Johan Köhnke">
                 <span class="player-name">Johan Köhnke</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details">
-                  <strong>Styrka:</strong> Energisk lagspelare med starkt närspel.<br>
-                  <strong>Svaghet:</strong> Tempot kan bli ojämnt.<br>
-                  <strong>Record (W-L-T):</strong> 1-2-0<br>
-                  <strong>Appearances:</strong> 1
-                </span>
+                <span class="player-details"><strong>Styrka:</strong> Energisk lagspelare med starkt närspel.<br><strong>Svaghet:</strong> Tempot kan bli ojämnt.<br><strong>Record (W-L-T):</strong> 1-2-0<br><strong>Appearances:</strong> 1</span>
               </li>
-
-              <li class="player" tabindex="0" role="button"
-                  data-player="Per Dahlberg"
-                  aria-label="Visa statistik för Per Dahlberg">
+              <li class="player" tabindex="0" role="button" data-player="Per Dahlberg" aria-label="Visa statistik för Per Dahlberg">
                 <span class="player-name">Per Dahlberg</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details">
-                  <strong>Styrka:</strong> Positiv lagspelare med bra känsla.<br>
-                  <strong>Svaghet:</strong> Tappar ibland fokus efter motgångar.<br>
-                  <strong>Record (W-L-T):</strong> 0-0-0<br>
-                  <strong>Appearances:</strong> Rookie
-                </span>
+                <span class="player-details"><strong>Styrka:</strong> Positiv lagspelare med bra känsla.<br><strong>Svaghet:</strong> Tappar ibland fokus efter motgångar.<br><strong>Record (W-L-T):</strong> 0-0-0<br><strong>Appearances:</strong> Rookie</span>
               </li>
-
-              <li class="player" tabindex="0" role="button"
-                  data-player="Marcus Hernqvist"
-                  aria-label="Visa statistik för Marcus Hernqvist">
+              <li class="player" tabindex="0" role="button" data-player="Marcus Hernqvist" aria-label="Visa statistik för Marcus Hernqvist">
                 <span class="player-name">Marcus Hernqvist</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details">
-                  <strong>Styrka:</strong> Explosiv bollträff och stor potential.<br>
-                  <strong>Svaghet:</strong> Resultaten kan variera från dag till dag.<br>
-                  <strong>Record (W-L-T):</strong> 0-0-0<br>
-                  <strong>Appearances:</strong> Rookie
-                </span>
+                <span class="player-details"><strong>Styrka:</strong> Explosiv bollträff och stor potential.<br><strong>Svaghet:</strong> Resultaten kan variera från dag till dag.<br><strong>Record (W-L-T):</strong> 0-0-0<br><strong>Appearances:</strong> Rookie</span>
               </li>
             </ul>
           </article>
 
           <article class="card team-card red">
             <h3>Team Red</h3>
-
             <p class="team-intro">
               Det röda laget är regerande mästare och spelar med passion,
               mod och offensiv energi.
             </p>
 
             <ul class="player-list">
-              <li class="player" tabindex="0" role="button"
-                  data-player="Örjan Berg"
-                  aria-label="Visa statistik för Örjan Berg">
+              <li class="player" tabindex="0" role="button" data-player="Örjan Berg" aria-label="Visa statistik för Örjan Berg">
                 <span class="player-name">Örjan Berg</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details">
-                  <strong>Styrka:</strong> Modig och stark när matchen hårdnar.<br>
-                  <strong>Svaghet:</strong> Kan gå för aggressivt ibland.<br>
-                  <strong>Record (W-L-T):</strong> 2-0-1<br>
-                  <strong>Appearances:</strong> 1
-                </span>
+                <span class="player-details"><strong>Styrka:</strong> Modig och stark när matchen hårdnar.<br><strong>Svaghet:</strong> Kan gå för aggressivt ibland.<br><strong>Record (W-L-T):</strong> 2-0-1<br><strong>Appearances:</strong> 1</span>
               </li>
-
-              <li class="player" tabindex="0" role="button"
-                  data-player="Johan S. Carlson"
-                  aria-label="Visa statistik för Johan S. Carlson">
+              <li class="player" tabindex="0" role="button" data-player="Johan S. Carlson" aria-label="Visa statistik för Johan S. Carlson">
                 <span class="player-name">Johan S. Carlson</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details">
-                  <strong>Styrka:</strong> Pålitlig i långa järnslag.<br>
-                  <strong>Svaghet:</strong> Behöver hitta rytmen tidigt.<br>
-                  <strong>Record (W-L-T):</strong> 0-3-0<br>
-                  <strong>Appearances:</strong> 1
-                </span>
+                <span class="player-details"><strong>Styrka:</strong> Pålitlig i långa järnslag.<br><strong>Svaghet:</strong> Behöver hitta rytmen tidigt.<br><strong>Record (W-L-T):</strong> 0-3-0<br><strong>Appearances:</strong> 1</span>
               </li>
-
-              <li class="player" tabindex="0" role="button"
-                  data-player="Ingemar Andersson"
-                  aria-label="Visa statistik för Ingemar Andersson">
+              <li class="player" tabindex="0" role="button" data-player="Ingemar Andersson" aria-label="Visa statistik för Ingemar Andersson">
                 <span class="player-name">Ingemar Andersson</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details">
-                  <strong>Styrka:</strong> Kreativ runt greenerna.<br>
-                  <strong>Svaghet:</strong> Tar ibland onödiga chansningar.<br>
-                  <strong>Record (W-L-T):</strong> 2-1-0<br>
-                  <strong>Appearances:</strong> 1
-                </span>
+                <span class="player-details"><strong>Styrka:</strong> Kreativ runt greenerna.<br><strong>Svaghet:</strong> Tar ibland onödiga chansningar.<br><strong>Record (W-L-T):</strong> 2-1-0<br><strong>Appearances:</strong> 1</span>
               </li>
-
-              <li class="player" tabindex="0" role="button"
-                  data-player="Magnus Boström"
-                  aria-label="Visa statistik för Magnus Boström">
+              <li class="player" tabindex="0" role="button" data-player="Magnus Boström" aria-label="Visa statistik för Magnus Boström">
                 <span class="player-name">Magnus Boström</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details">
-                  <strong>Styrka:</strong> Naturlig ledare med starkt psyke.<br>
-                  <strong>Svaghet:</strong> Lägger ibland för stor press på sig själv.<br>
-                  <strong>Record (W-L-T):</strong> 2-1-0<br>
-                  <strong>Appearances:</strong> 1
-                </span>
+                <span class="player-details"><strong>Styrka:</strong> Naturlig ledare med starkt psyke.<br><strong>Svaghet:</strong> Lägger ibland för stor press på sig själv.<br><strong>Record (W-L-T):</strong> 2-1-0<br><strong>Appearances:</strong> 1</span>
               </li>
-
-              <li class="player" tabindex="0" role="button"
-                  data-player="Harald Eliasson"
-                  aria-label="Visa statistik för Harald Eliasson">
+              <li class="player" tabindex="0" role="button" data-player="Harald Eliasson" aria-label="Visa statistik för Harald Eliasson">
                 <span class="player-name">Harald Eliasson</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details">
-                  <strong>Styrka:</strong> Stark taktiker och duktig på att läsa banan.<br>
-                  <strong>Svaghet:</strong> Kan fastna för länge i sina analyser.<br>
-                  <strong>Record (W-L-T):</strong> 0-0-0<br>
-                  <strong>Appearances:</strong> Rookie
-                </span>
+                <span class="player-details"><strong>Styrka:</strong> Stark taktiker och duktig på att läsa banan.<br><strong>Svaghet:</strong> Kan fastna för länge i sina analyser.<br><strong>Record (W-L-T):</strong> 0-0-0<br><strong>Appearances:</strong> Rookie</span>
               </li>
-
-              <li class="player" tabindex="0" role="button"
-                  data-player="Patrik Millsjö"
-                  aria-label="Visa statistik för Patrik Millsjö">
+              <li class="player" tabindex="0" role="button" data-player="Patrik Millsjö" aria-label="Visa statistik för Patrik Millsjö">
                 <span class="player-name">Patrik Millsjö</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details">
-                  <strong>Styrka:</strong> Kall och metodisk i viktiga lägen.<br>
-                  <strong>Svaghet:</strong> Behöver ibland våga spela mer offensivt.<br>
-                  <strong>Record (W-L-T):</strong> 0-0-0<br>
-                  <strong>Appearances:</strong> Rookie
-                </span>
+                <span class="player-details"><strong>Styrka:</strong> Kall och metodisk i viktiga lägen.<br><strong>Svaghet:</strong> Behöver ibland våga spela mer offensivt.<br><strong>Record (W-L-T):</strong> 0-0-0<br><strong>Appearances:</strong> Rookie</span>
               </li>
             </ul>
           </article>
-
         </div>
       </div>
     </section>
@@ -1050,7 +773,6 @@
 
         <div class="copy">
           <h3>Spelformer</h3>
-
           <p>
             Samtliga rundor spelas som matchspel, där varje hål avgörs
             av vilket lag eller vilken spelare som har det bästa resultatet
@@ -1061,29 +783,17 @@
         <div class="cards format-cards">
           <article class="card">
             <h3>Dag 1 · Bästboll</h3>
-            <p>
-              Dag 1 spelas 18 hål bästboll, lagen sätts upp efter stigande
-              handicap på ankomstdagen.
-            </p>
+            <p>Dag 1 spelas 18 hål bästboll, lagen sätts upp efter stigande handicap på ankomstdagen.</p>
             <p>Matchen är värd 1 poäng.</p>
           </article>
-
           <article class="card">
             <h3>Dag 2 · Bästboll</h3>
-            <p>
-              Dag 2 spelas 2 × 18 hål bästboll. Det är Captains Pick.
-              Laguppställningen presenteras kvällen innan respektive runda.
-            </p>
+            <p>Dag 2 spelas 2 × 18 hål bästboll. Det är Captains Pick. Laguppställningen presenteras kvällen innan respektive runda.</p>
             <p>Varje match är värd 1 poäng.</p>
           </article>
-
           <article class="card">
             <h3>Sista dagen · Singlar</h3>
-            <p>
-              Sista dagen spelas avgörande singelmatcher över 18 hål.
-              Lagen går ut i fallande handicap och spelarna möts direkt
-              mot varandra.
-            </p>
+            <p>Sista dagen spelas avgörande singelmatcher över 18 hål. Lagen går ut i fallande handicap och spelarna möts direkt mot varandra.</p>
             <p>Varje singelmatch är värd 2 poäng.</p>
           </article>
         </div>
@@ -1096,27 +806,15 @@
         <div class="card handicap-card">
           <h3>Bästboll</h3>
           <ul class="handicap-list">
-            <li>
-              Alla spelares spelhandicap, SHCP, reduceras med 90 %
-              och avrundas till närmaste heltal.
-            </li>
-            <li>
-              Spelaren med matchens lägsta SHCP nollställs.
-              Övriga spelares SHCP reduceras med motsvarande antal slag.
-            </li>
-            <li>
-              De erhållna slagen fördelas på banans hål enligt hålens
-              handicapindex, hcp-index.
-            </li>
+            <li>Alla spelares spelhandicap, SHCP, reduceras med 90 % och avrundas till närmaste heltal.</li>
+            <li>Spelaren med matchens lägsta SHCP nollställs. Övriga spelares SHCP reduceras med motsvarande antal slag.</li>
+            <li>De erhållna slagen fördelas på banans hål enligt hålens handicapindex, hcp-index.</li>
           </ul>
         </div>
 
         <div class="card handicap-card">
           <h3>Singlar</h3>
-          <p>
-            I singelmatcherna använder spelarna sina respektive
-            spelhandicap. Samma nollställning tillämpas som i bästbollarna.
-          </p>
+          <p>I singelmatcherna använder spelarna sina respektive spelhandicap. Samma nollställning tillämpas som i bästbollarna.</p>
         </div>
 
         <blockquote class="quote">
@@ -1133,123 +831,33 @@
 
         <div class="schedule-grid">
           <article class="schedule-card">
-            <div class="schedule-header">
-              <span class="schedule-day">Dag 1</span>
-              <h3>Lördag</h3>
-            </div>
-
+            <div class="schedule-header"><span class="schedule-day">Dag 1</span><h3>Lördag</h3></div>
             <ul class="schedule-list">
-              <li class="schedule-item">
-                <span class="schedule-time">10:00</span>
-                <span class="schedule-event">
-                  <strong>Samling</strong>
-                  Samling vid parkeringen.
-                </span>
-              </li>
-              <li class="schedule-item">
-                <span class="schedule-time">11:30</span>
-                <span class="schedule-event">
-                  <strong>Lunch</strong>
-                  Uppladdning inför dagens matcher.
-                </span>
-              </li>
-              <li class="schedule-item">
-                <span class="schedule-time">13:00</span>
-                <span class="schedule-event">
-                  <strong>Pine</strong>
-                  Starttider från kl. 13:00.
-                </span>
-              </li>
-              <li class="schedule-item">
-                <span class="schedule-time">18:00</span>
-                <span class="schedule-event">
-                  <strong>Prisutdelning</strong>
-                  I baren.
-                </span>
-              </li>
-              <li class="schedule-item">
-                <span class="schedule-time">19:30</span>
-                <span class="schedule-event">
-                  <strong>Middag</strong>
-                  Kvällens gemensamma middag.
-                </span>
-              </li>
+              <li class="schedule-item"><span class="schedule-time">10:00</span><span class="schedule-event"><strong>Samling</strong>Samling vid parkeringen.</span></li>
+              <li class="schedule-item"><span class="schedule-time">11:30</span><span class="schedule-event"><strong>Lunch</strong>Uppladdning inför dagens matcher.</span></li>
+              <li class="schedule-item"><span class="schedule-time">13:00</span><span class="schedule-event"><strong>Pine</strong>Starttider från kl. 13:00.</span></li>
+              <li class="schedule-item"><span class="schedule-time">18:00</span><span class="schedule-event"><strong>Prisutdelning</strong>I baren.</span></li>
+              <li class="schedule-item"><span class="schedule-time">19:30</span><span class="schedule-event"><strong>Middag</strong>Kvällens gemensamma middag.</span></li>
             </ul>
           </article>
 
           <article class="schedule-card">
-            <div class="schedule-header">
-              <span class="schedule-day">Dag 2</span>
-              <h3>Söndag</h3>
-            </div>
-
+            <div class="schedule-header"><span class="schedule-day">Dag 2</span><h3>Söndag</h3></div>
             <ul class="schedule-list">
-              <li class="schedule-item">
-                <span class="schedule-time">07:00</span>
-                <span class="schedule-event">
-                  <strong>Frukost</strong>
-                  Frukosten öppnar kl. 7:00.
-                </span>
-              </li>
-              <li class="schedule-item">
-                <span class="schedule-time">08:05</span>
-                <span class="schedule-event">
-                  <strong>Ocean</strong>
-                  Starttider från kl. 8:05.
-                </span>
-              </li>
-              <li class="schedule-item">
-                <span class="schedule-time">13:00</span>
-                <span class="schedule-event">
-                  <strong>Lunch och prisutdelning</strong>
-                  Efter förmiddagens matcher.
-                </span>
-              </li>
-              <li class="schedule-item">
-                <span class="schedule-time">14:10</span>
-                <span class="schedule-event">
-                  <strong>Ocean</strong>
-                  Starttider från kl. 14:10.
-                </span>
-              </li>
-              <li class="schedule-item">
-                <span class="schedule-time">19:00</span>
-                <span class="schedule-event">
-                  <strong>Prisutdelning</strong>
-                  I baren.
-                </span>
-              </li>
-              <li class="schedule-item">
-                <span class="schedule-time">20:00</span>
-                <span class="schedule-event">
-                  <strong>Middag</strong>
-                  Kvällens gemensamma middag.
-                </span>
-              </li>
+              <li class="schedule-item"><span class="schedule-time">07:00</span><span class="schedule-event"><strong>Frukost</strong>Frukosten öppnar kl. 7:00.</span></li>
+              <li class="schedule-item"><span class="schedule-time">08:05</span><span class="schedule-event"><strong>Ocean</strong>Starttider från kl. 8:05.</span></li>
+              <li class="schedule-item"><span class="schedule-time">13:00</span><span class="schedule-event"><strong>Lunch och prisutdelning</strong>Efter förmiddagens matcher.</span></li>
+              <li class="schedule-item"><span class="schedule-time">14:10</span><span class="schedule-event"><strong>Ocean</strong>Starttider från kl. 14:10.</span></li>
+              <li class="schedule-item"><span class="schedule-time">19:00</span><span class="schedule-event"><strong>Prisutdelning</strong>I baren.</span></li>
+              <li class="schedule-item"><span class="schedule-time">20:00</span><span class="schedule-event"><strong>Middag</strong>Kvällens gemensamma middag.</span></li>
             </ul>
           </article>
 
           <article class="schedule-card">
-            <div class="schedule-header">
-              <span class="schedule-day">Dag 3</span>
-              <h3>Måndag</h3>
-            </div>
-
+            <div class="schedule-header"><span class="schedule-day">Dag 3</span><h3>Måndag</h3></div>
             <ul class="schedule-list">
-              <li class="schedule-item">
-                <span class="schedule-time">07:00</span>
-                <span class="schedule-event">
-                  <strong>Frukost</strong>
-                  Frukosten öppnar kl. 7:00.
-                </span>
-              </li>
-              <li class="schedule-item">
-                <span class="schedule-time">10:05</span>
-                <span class="schedule-event">
-                  <strong>Pine</strong>
-                  Starttider från kl. 10:05.
-                </span>
-              </li>
+              <li class="schedule-item"><span class="schedule-time">07:00</span><span class="schedule-event"><strong>Frukost</strong>Frukosten öppnar kl. 7:00.</span></li>
+              <li class="schedule-item"><span class="schedule-time">10:05</span><span class="schedule-event"><strong>Pine</strong>Starttider från kl. 10:05.</span></li>
             </ul>
           </article>
         </div>
@@ -1260,21 +868,10 @@
       <div class="section-inner">
         <div class="eyebrow">Bakom tävlingen</div>
         <h2 id="about-pgb-title">Om Partille Goes</h2>
-
         <div class="copy">
+          <p>Partille Goes är mer än en golftävling. Det är ett koncept som bygger på rivalitet, gemenskap och passionen för golf.</p>
           <p>
-            Partille Goes är mer än en golftävling.
-            Det är ett koncept som bygger på rivalitet, gemenskap
-            och passionen för golf.
-          </p>
-
-          <p>
-            <a
-              class="about-link"
-              href="https://partillegoes.github.io/start/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a class="about-link" href="https://partillegoes.github.io/start/" target="_blank" rel="noopener noreferrer">
               Läs mer om Partille Goes →
             </a>
           </p>
@@ -1282,37 +879,16 @@
       </div>
     </section>
 
-    <footer>
-      Partille Goes... 2027 · 12 spelare · Tre dagar av lagtävling
-    </footer>
+    <footer>Partille Goes... 2027 · 12 spelare · Tre dagar av lagtävling</footer>
   </main>
 
-  <!-- Modal för spelarstatistik -->
-  <div
-    class="stats-modal"
-    id="stats-modal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="stats-modal-title"
-    aria-hidden="true"
-  >
+  <div class="stats-modal" id="stats-modal" role="dialog" aria-modal="true" aria-labelledby="stats-modal-title" aria-hidden="true">
     <div class="stats-dialog">
-      <button
-        class="stats-close"
-        id="stats-close"
-        type="button"
-        aria-label="Stäng statistik"
-      >
-        ×
-      </button>
-
+      <button class="stats-close" id="stats-close" type="button" aria-label="Stäng statistik">×</button>
       <h2 id="stats-modal-title">Spelarstatistik</h2>
       <p class="stats-subtitle" id="stats-modal-subtitle"></p>
       <img class="stats-player-photo" id="stats-player-photo" alt="" hidden>
-
-      <div id="stats-content">
-        <p class="stats-message">Laddar statistik...</p>
-      </div>
+      <div id="stats-content"><p class="stats-message">Laddar statistik...</p></div>
     </div>
   </div>
 
@@ -1329,20 +905,14 @@
 
     menuButton.addEventListener("click", () => {
       const isOpen = navigation.classList.toggle("open");
-
       menuButton.setAttribute("aria-expanded", String(isOpen));
       menuButton.textContent = isOpen ? "Stäng ✕" : "Meny ☰";
     });
 
-    navLinks.forEach(link => {
-      link.addEventListener("click", closeMenu);
-    });
+    navLinks.forEach(link => link.addEventListener("click", closeMenu));
 
     document.addEventListener("keydown", event => {
-      if (
-        event.key === "Escape" &&
-        navigation.classList.contains("open")
-      ) {
+      if (event.key === "Escape" && navigation.classList.contains("open")) {
         closeMenu();
         menuButton.focus();
       }
@@ -1357,48 +927,48 @@
     }
 
     if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver(
-        entries => {
-          entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-              return;
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+
+          navLinks.forEach(link => {
+            const isActive = link.hash === "#" + entry.target.id;
+            link.classList.toggle("active", isActive);
+
+            if (isActive) {
+              link.setAttribute("aria-current", "location");
+            } else {
+              link.removeAttribute("aria-current");
             }
-
-            navLinks.forEach(link => {
-              const isActive = link.hash === "#" + entry.target.id;
-
-              link.classList.toggle("active", isActive);
-
-              if (isActive) {
-                link.setAttribute("aria-current", "location");
-              } else {
-                link.removeAttribute("aria-current");
-              }
-            });
           });
-        },
-        {
-          rootMargin: "-25% 0px -60% 0px",
-          threshold: 0
-        }
-      );
+        });
+      }, {
+        rootMargin: "-25% 0px -60% 0px",
+        threshold: 0
+      });
 
-      document
-        .querySelectorAll("main section")
-        .forEach(section => observer.observe(section));
+      document.querySelectorAll("main section").forEach(section => observer.observe(section));
     }
 
-    /*
-     * Bildsökvägar kodas för mellanslag och svenska tecken.
-     * Bilderna ska ligga i samma mapp som index.html.
-     */
     function playerImageUrl(playerName) {
       return encodeURIComponent(playerName.normalize("NFC")) + ".jpg";
     }
 
-    const statsUrl =
-      "https://partillegoes.github.io/start/stats.csv";
+    /*
+     * Om spelarens bild saknas används spelare.jpg.
+     * Reservbilden ska ligga i samma mapp som index.html.
+     */
+    function useFallbackImage(image) {
+      image.onerror = null;
 
+      if (image.id === "stats-player-photo") {
+        image.hidden = true;
+      }
+
+      image.src = "spelare.jpg";
+    }
+
+    const statsUrl = "https://partillegoes.github.io/start/stats.csv";
     const statsModal = document.querySelector("#stats-modal");
     const statsDialog = document.querySelector(".stats-dialog");
     const statsClose = document.querySelector("#stats-close");
@@ -1417,16 +987,12 @@
 
       if (photo) {
         photo.src = playerImageUrl(playerName);
-        photo.onerror = () => {
-          console.error("Kunde inte ladda spelarbild:", photo.src);
-        };
+        photo.onerror = () => useFallbackImage(photo);
       }
     });
 
     function normalizeText(value) {
-      return String(value || "")
-        .trim()
-        .toLocaleLowerCase("sv-SE");
+      return String(value || "").trim().toLocaleLowerCase("sv-SE");
     }
 
     function escapeHtml(value) {
@@ -1447,11 +1013,7 @@
         const character = line[index];
         const nextCharacter = line[index + 1];
 
-        if (
-          character === '"' &&
-          insideQuotes &&
-          nextCharacter === '"'
-        ) {
+        if (character === '"' && insideQuotes && nextCharacter === '"') {
           value += '"';
           index += 1;
         } else if (character === '"') {
@@ -1474,17 +1036,10 @@
         .replace(/\r\n/g, "\n")
         .replace(/\r/g, "\n");
 
-      const lines = cleanText
-        .split("\n")
-        .filter(line => line.trim() !== "");
+      const lines = cleanText.split("\n").filter(line => line.trim() !== "");
+      if (lines.length < 2) return [];
 
-      if (lines.length < 2) {
-        return [];
-      }
-
-      const headers = parseCsvLine(lines[0]).map(header =>
-        header.trim()
-      );
+      const headers = parseCsvLine(lines[0]).map(header => header.trim());
 
       return lines.slice(1).map(line => {
         const columns = parseCsvLine(line);
@@ -1499,8 +1054,8 @@
     }
 
     function getColumn(row, columnName) {
-      const actualKey = Object.keys(row).find(key =>
-        normalizeText(key) === normalizeText(columnName)
+      const actualKey = Object.keys(row).find(
+        key => normalizeText(key) === normalizeText(columnName)
       );
 
       return actualKey ? row[actualKey] : "";
@@ -1508,18 +1063,10 @@
 
     function formatRunda(runda) {
       const value = String(runda || "").trim();
-
-      if (!value) {
-        return "";
-      }
+      if (!value) return "";
 
       const match = value.match(/(\d+)/);
-
-      if (match) {
-        return `R${match[1]}`;
-      }
-
-      return value;
+      return match ? `R${match[1]}` : value;
     }
 
     function openStatsModal(playerName, sourceElement) {
@@ -1529,14 +1076,10 @@
       statsPlayerPhoto.src = playerImageUrl(playerName);
       statsPlayerPhoto.alt = `Profilbild på ${playerName}`;
       statsPlayerPhoto.hidden = false;
-      statsPlayerPhoto.onerror = () => {
-        console.error("Kunde inte ladda spelarbild:", statsPlayerPhoto.src);
-        statsPlayerPhoto.hidden = true;
-      };
+      statsPlayerPhoto.onerror = () => useFallbackImage(statsPlayerPhoto);
 
       statsSubtitle.textContent = "Hämtar spelad matchstatistik...";
-      statsContent.innerHTML =
-        '<p class="stats-message">Laddar statistik...</p>';
+      statsContent.innerHTML = '<p class="stats-message">Laddar statistik...</p>';
 
       statsModal.classList.add("open");
       statsModal.setAttribute("aria-hidden", "false");
@@ -1550,42 +1093,30 @@
       statsModal.classList.remove("open");
       statsModal.setAttribute("aria-hidden", "true");
       document.body.style.overflow = "";
-
       statsPlayerPhoto.hidden = true;
       statsPlayerPhoto.removeAttribute("src");
 
-      if (lastFocusedPlayer) {
-        lastFocusedPlayer.focus();
-      }
+      if (lastFocusedPlayer) lastFocusedPlayer.focus();
     }
 
     async function loadPlayerStats(playerName) {
       try {
         if (!statsCache) {
-          const response = await fetch(statsUrl, {
-            cache: "no-store"
-          });
+          const response = await fetch(statsUrl, { cache: "no-store" });
+          if (!response.ok) throw new Error("Kunde inte hämta statistikfilen.");
 
-          if (!response.ok) {
-            throw new Error("Kunde inte hämta statistikfilen.");
-          }
-
-          const csvText = await response.text();
-          statsCache = parseCsv(csvText);
+          statsCache = parseCsv(await response.text());
         }
 
         const playerRows = statsCache.filter(row => {
-          const player = getColumn(row, "Spelare");
-          return normalizeText(player) === normalizeText(playerName);
+          return normalizeText(getColumn(row, "Spelare")) === normalizeText(playerName);
         });
 
         renderPlayerStats(playerName, playerRows);
       } catch (error) {
         statsSubtitle.textContent = "";
         statsContent.innerHTML = `
-          <p class="stats-message">
-            Statistik kunde inte hämtas just nu.
-          </p>
+          <p class="stats-message">Statistik kunde inte hämtas just nu.</p>
         `;
       }
     }
@@ -1595,27 +1126,20 @@
         statsSubtitle.textContent = "";
         statsContent.innerHTML = `
           <p class="stats-message">
-            Det finns inga registrerade matcher för
-            ${escapeHtml(playerName)}.
+            Det finns inga registrerade matcher för ${escapeHtml(playerName)}.
           </p>
         `;
         return;
       }
 
       statsSubtitle.textContent =
-        `${rows.length} registrerad` +
-        `${rows.length === 1 ? "" : "e"}` +
-        ` match${rows.length === 1 ? "" : "er"}`;
+        `${rows.length} registrerad${rows.length === 1 ? "" : "e"} match${rows.length === 1 ? "" : "er"}`;
 
       const rowsByYear = {};
 
       rows.forEach(row => {
         const year = getColumn(row, "År") || "Okänt år";
-
-        if (!rowsByYear[year]) {
-          rowsByYear[year] = [];
-        }
-
+        if (!rowsByYear[year]) rowsByYear[year] = [];
         rowsByYear[year].push(row);
       });
 
@@ -1631,9 +1155,7 @@
       });
 
       statsContent.innerHTML = sortedYears.map(year => {
-        const yearRows = rowsByYear[year];
-
-        const tableRows = yearRows.map(row => {
+        const tableRows = rowsByYear[year].map(row => {
           const runda = formatRunda(getColumn(row, "Runda"));
           const format = getColumn(row, "Spelformat");
           const teammate = getColumn(row, "Medspelare");
@@ -1664,9 +1186,7 @@
                   <th>Medspelare</th>
                 </tr>
               </thead>
-              <tbody>
-                ${tableRows}
-              </tbody>
+              <tbody>${tableRows}</tbody>
             </table>
           </div>
         `;
@@ -1693,24 +1213,16 @@
     statsClose.addEventListener("click", closeStatsModal);
 
     statsModal.addEventListener("click", event => {
-      if (event.target === statsModal) {
-        closeStatsModal();
-      }
+      if (event.target === statsModal) closeStatsModal();
     });
 
-    statsDialog.addEventListener("click", event => {
-      event.stopPropagation();
-    });
+    statsDialog.addEventListener("click", event => event.stopPropagation());
 
     document.addEventListener("keydown", event => {
-      if (
-        event.key === "Escape" &&
-        statsModal.classList.contains("open")
-      ) {
+      if (event.key === "Escape" && statsModal.classList.contains("open")) {
         closeStatsModal();
       }
     });
   </script>
-
 </body>
 </html>
