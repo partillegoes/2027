@@ -193,10 +193,13 @@
       border-color:var(--gold);transform:translateY(-2px)
     }
 
-    .player-name{
-      display:block;margin-bottom:4px;color:var(--text);
-      font-weight:700;font-size:17px
-    }
+.player-name{
+  display:block;
+  margin-bottom:8px;
+  color:var(--text);
+  font-weight:700;
+  font-size:17px;
+}
 
     .captain-mark{
       color:var(--gold);
@@ -206,28 +209,46 @@
       white-space:nowrap
     }
 
-    .player-details{
-      display:grid;
-      gap:6px;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.5;
-    }
+.player-details{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 76px;
+  grid-template-areas:
+    "top photo"
+    "bottom bottom";
+  gap:10px 12px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.5;
+}
     
-    .player-top-stats,
-    .player-bottom-stats{
-      display:grid;
-      gap:6px;
-    }
+.player-top-stats{
+  grid-area:top;
+  display:grid;
+  align-content:start;
+  gap:6px;
+}
+
+.player-bottom-stats{
+  grid-area:bottom;
+  display:grid;
+  gap:6px;
+}
 
 
-    .player-details strong{color:var(--text)}
+.player-details strong{
+  color:var(--text);
+}
 
-    .player-photo{
-      position:absolute;top:50%;right:14px;width:76px;height:76px;
-      object-fit:cover;object-position:center;
-      transform:translateY(-50%);border-radius:8px
-    }
+.player-photo{
+  grid-area:photo;
+  display:block;
+  width:76px;
+  height:76px;
+  margin:0;
+  object-fit:cover;
+  object-position:center;
+  border-radius:8px;
+}
 
     .stats-player-photo{
       display:block;width:min(220px,100%);max-height:220px;
@@ -398,44 +419,6 @@
         padding:15px 14px;
       }
 
-.player-name {
-  position: static;
-  width: 100%;
-  min-height: 0;
-  margin-bottom: 8px;
-}
-
-.player-photo {
-  position: static;
-  display: block;
-  grid-area: photo;
-  width: 76px;
-  height: 76px;
-  margin: 0;
-  transform: none;
-}
-
-.player-details {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 76px;
-  grid-template-areas:
-    "top photo"
-    "bottom bottom";
-  gap: 10px 12px;
-}
-
-.player-top-stats {
-  grid-area: top;
-  display: grid;
-  align-content: start;
-  gap: 6px;
-}
-
-.player-bottom-stats {
-  grid-area: bottom;
-  display: grid;
-  gap: 6px;
-}
 
       .stats-modal{padding:12px}
       .stats-dialog{padding:25px 18px}
