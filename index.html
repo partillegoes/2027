@@ -398,39 +398,31 @@
         padding:15px 14px;
       }
 
-      .player-name{
-        position:relative;
-        z-index:1;
-        width:calc(100% - 100px);
-        min-height:24px;
-        margin-bottom:8px;
-      }
+.player-name {
+  position: static;
+  width: 100%;
+  min-height: 0;
+  margin-bottom: 8px;
+}
 
-      .player-photo{
-        display:block;
-        width:76px;
-        height:76px;
-        top:15px;
-        right:14px;
-        transform:none;
-      }
+.player-photo {
+  position: static;
+  display: block;
+  width: 76px;
+  height: 76px;
+  margin: 0 0 8px;
+  transform: none;
+}
 
-      .player-details{
-        display:grid;
-        grid-template-columns:minmax(0, 1fr) 90px;
-        grid-template-areas:
-          "top photo"
-          "bottom bottom";
-        gap:10px 12px;
-      }
+.player-details {
+  display: block;
+}
 
-      .player-top-stats{
-        grid-area:top;
-        display:grid;
-        align-content:start;
-        gap:6px;
-        padding-right:0;
-      }
+.player-top-stats,
+.player-bottom-stats {
+  display: grid;
+  gap: 6px;
+}
 
       .player-bottom-stats{
         grid-area:bottom;
