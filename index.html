@@ -1219,68 +1219,43 @@
       });
     }
 
-    function getMatchPoints(result) {
-  const value = normalizeText(result);
+    function loadPlayerPointPercentages() {
+  playerCards.forEach(playerCard => {
+    const recordElement = [...playerCard.querySelectorAll(".player-top-stats > span")]
+      .find(element => element.textContent.includes("Record (W-L-T):"));
 
-  // Lägg till fler varianter här om CSV-filen använder andra resultat.
-  if (["vinst", "win", "w", "1", "W"].includes(value)) return 1;
+    const output = playerCard.querySelector(".player-point-percent");
 
-  if (
-    ["delad", "delning", "oavgjord", "draw", "tie", "t", "AS", "0.5", "0,5"]
-      .includes(value)
-  ) {
-    return 0.5;
-  }
+    if (!recordElement || !output) return;
 
-  if (["förlust", "forlust", "loss", "l", "0", "L"].includes(value)) return 0;
+    const match = recordElement.textContent.match(
+      /Record \(W-L-T\):\s*(\d+)-(\d+)-(\d+)/
+    );
 
-  return null;
-}
-
-async function loadPlayerPointPercentages() {
-  try {
-    const response = await fetch(statsUrl, { cache: "no-store" });
-
-    if (!response.ok) {
-      throw new Error("Kunde inte hämta statistikfilen.");
+    if (!match) {
+      output.textContent = "—";
+      return;
     }
 
-    const rows = parseCsv(await response.text());
+    const wins = Number(match[1]);
+    const losses = Number(match[2]);
+    const ties = Number(match[3]);
+    const totalMatches = wins + losses + ties;
 
-    playerCards.forEach(playerCard => {
-      const playerName = playerCard.dataset.player;
+    if (totalMatches === 0) {
+      output.textContent = "—";
+      return;
+    }
 
-      const playerRows = rows.filter(row =>
-        normalizeText(getColumn(row, "Spelare")) ===
-        normalizeText(playerName)
-      );
+    const pointsEarned = wins + ties * 0.5;
+    const percentage = Math.round((pointsEarned / totalMatches) * 100);
 
-      const scoredMatches = playerRows
-        .map(row => getMatchPoints(getColumn(row, "Resultat")))
-        .filter(points => points !== null);
-
-      const output =
-        playerCard.querySelector(".player-point-percent");
-
-      if (!output || scoredMatches.length === 0) return;
-
-      const pointsEarned = scoredMatches.reduce(
-        (sum, points) => sum + points,
-        0
-      );
-
-      const percentage = Math.round(
-        (pointsEarned / scoredMatches.length) * 100
-      );
-
-      output.textContent = `${percentage}%`;
-    });
-  } catch (error) {
-    console.error("Kunde inte beräkna Point %.", error);
-  }
+    output.textContent = `${percentage}%`;
+  });
 }
 
 loadPlayerPointPercentages();
+
 
     
     function getColumn(row, columnName) {
