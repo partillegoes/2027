@@ -394,18 +394,30 @@
       .cards{grid-template-columns:1fr}
       .golf-ball{width:300px;height:300px}
 
-      .player{
+ .player{
         padding:15px 14px;
       }
 
+      .player-name{
+        position:relative;
+        z-index:1;
+        width:calc(100% - 100px);
+        min-height:24px;
+        margin-bottom:8px;
+      }
+
       .player-photo{
-        display:block;width:76px;height:76px;
-        top:14px;right:14px;transform:none
+        display:block;
+        width:76px;
+        height:76px;
+        top:15px;
+        right:14px;
+        transform:none;
       }
 
       .player-details{
         display:grid;
-        grid-template-columns:minmax(0, 2fr) minmax(0, 1fr);
+        grid-template-columns:minmax(0, 1fr) 90px;
         grid-template-areas:
           "top photo"
           "bottom bottom";
@@ -417,7 +429,7 @@
         display:grid;
         align-content:start;
         gap:6px;
-        padding-right:4px;
+        padding-right:0;
       }
 
       .player-bottom-stats{
