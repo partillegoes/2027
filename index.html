@@ -420,20 +420,54 @@
       .stats-dialog{padding:25px 18px}
     }
 
-    @media(max-width:600px){
-      .stats-dialog{padding:22px 12px}
-      .stats-table-wrapper{overflow-x:hidden}
+@media(max-width:600px){
+  .stats-dialog{
+    padding:22px 12px
+  }
 
-      .stats-table{
-        width:100%;min-width:0;table-layout:fixed;font-size:11px
-      }
+  .stats-table-wrapper{
+    overflow-x:hidden
+  }
 
-      .stats-table th,.stats-table td{
-        padding:8px 4px;overflow-wrap:anywhere
-      }
+  .stats-table{
+    width:100%;
+    min-width:0;
+    table-layout:fixed;
+    font-size:11px
+  }
 
-      .stats-table th{font-size:10px;line-height:1.2}
-    }
+  .stats-table th,
+  .stats-table td{
+    padding:8px 4px;
+    overflow-wrap:anywhere
+  }
+
+  .stats-table th{
+    font-size:10px;
+    line-height:1.2
+  }
+
+  /* Kolumnbredder på mobil */
+  .stats-table th:nth-child(1),
+  .stats-table td:nth-child(1),
+  .stats-table th:nth-child(2),
+  .stats-table td:nth-child(2){
+    width:10%
+  }
+
+  .stats-table th:nth-child(3),
+  .stats-table td:nth-child(3),
+  .stats-table th:nth-child(5),
+  .stats-table td:nth-child(5){
+    width:20%
+  }
+
+  .stats-table th:nth-child(4),
+  .stats-table td:nth-child(4){
+    width:40%
+  }
+}
+
 
     @media(prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}
