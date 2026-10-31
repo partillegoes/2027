@@ -375,12 +375,36 @@
       .cards{grid-template-columns:1fr}
       .golf-ball{width:300px;height:300px}
 
-      /* Profilbild visas även i mobilversionen. */
-      .player{padding-right:104px}
+      .player{
+        padding:15px 14px;
+      }
 
       .player-photo{
         display:block;width:76px;height:76px;
         top:14px;right:14px;transform:none
+      }
+
+      .player-details{
+        display:grid;
+        grid-template-columns:minmax(0, 2fr) minmax(0, 1fr);
+        grid-template-areas:
+          "top photo"
+          "bottom bottom";
+        gap:10px 12px;
+      }
+
+      .player-top-stats{
+        grid-area:top;
+        display:grid;
+        align-content:start;
+        gap:6px;
+        padding-right:4px;
+      }
+
+      .player-bottom-stats{
+        grid-area:bottom;
+        display:grid;
+        gap:6px;
       }
 
       .stats-modal{padding:12px}
@@ -498,10 +522,14 @@
                 <span class="player-name">Daniel Agnemar</span>
                 <img class="player-photo" alt="" aria-hidden="true">
                 <span class="player-details">
-                  <strong>Appearances:</strong> 1<br>
-                  <strong>Record (W-L-T):</strong> 2-0-1<br>
-                  <strong>Styrka:</strong> Stabil från tee och mycket jämn.<br>
-                  <strong>Svaghet:</strong> Tar ibland för få risker.
+                  <span class="player-top-stats">
+                    <span><strong>Appearances:</strong> 1</span>
+                    <span><strong>Record (W-L-T):</strong> 2-0-1</span>
+                  </span>
+                  <span class="player-bottom-stats">
+                    <span><strong>Styrka:</strong> Stabil från tee och mycket jämn.</span>
+                    <span><strong>Svaghet:</strong> Tar ibland för få risker.</span>
+                  </span>
                 </span>
               </li>
 
@@ -511,10 +539,14 @@
                 <span class="player-name">Johan Kristofferson</span>
                 <img class="player-photo" alt="" aria-hidden="true">
                 <span class="player-details">
-                  <strong>Appearances:</strong> 1<br>
-                  <strong>Record (W-L-T):</strong> 1-2-0<br>
-                  <strong>Styrka:</strong> Vass puttare under press.<br>
-                  <strong>Svaghet:</strong> Kan bli otålig efter ett dåligt hål.
+                  <span class="player-top-stats">
+                    <span><strong>Appearances:</strong> 1</span>
+                    <span><strong>Record (W-L-T):</strong> 1-2-0</span>
+                  </span>
+                  <span class="player-bottom-stats">
+                    <span><strong>Styrka:</strong> Vass puttare under press.</span>
+                    <span><strong>Svaghet:</strong> Kan bli otålig efter ett dåligt hål.</span>
+                  </span>
                 </span>
               </li>
 
@@ -524,10 +556,14 @@
                 <span class="player-name">Patrik Ahlstrand</span>
                 <img class="player-photo" alt="" aria-hidden="true">
                 <span class="player-details">
-                  <strong>Appearances:</strong> 1<br>
-                  <strong>Record (W-L-T):</strong> 1-2-0<br>
-                  <strong>Styrka:</strong> Strategisk och skicklig på inspel.<br>
-                  <strong>Svaghet:</strong> Övertänker ibland enkla slag.
+                  <span class="player-top-stats">
+                    <span><strong>Appearances:</strong> 1</span>
+                    <span><strong>Record (W-L-T):</strong> 1-2-0</span>
+                  </span>
+                  <span class="player-bottom-stats">
+                    <span><strong>Styrka:</strong> Strategisk och skicklig på inspel.</span>
+                    <span><strong>Svaghet:</strong> Övertänker ibland enkla slag.</span>
+                  </span>
                 </span>
               </li>
 
@@ -537,10 +573,14 @@
                 <span class="player-name">Johan Köhnke</span>
                 <img class="player-photo" alt="" aria-hidden="true">
                 <span class="player-details">
-                  <strong>Appearances:</strong> 1<br>
-                  <strong>Record (W-L-T):</strong> 1-2-0<br>
-                  <strong>Styrka:</strong> Energisk lagspelare med starkt närspel.<br>
-                  <strong>Svaghet:</strong> Tempot kan bli ojämnt.
+                  <span class="player-top-stats">
+                    <span><strong>Appearances:</strong> 1</span>
+                    <span><strong>Record (W-L-T):</strong> 1-2-0</span>
+                  </span>
+                  <span class="player-bottom-stats">
+                    <span><strong>Styrka:</strong> Energisk lagspelare med starkt närspel.</span>
+                    <span><strong>Svaghet:</strong> Tempot kan bli ojämnt.</span>
+                  </span>
                 </span>
               </li>
 
@@ -550,10 +590,14 @@
                 <span class="player-name">Per Dahlberg</span>
                 <img class="player-photo" alt="" aria-hidden="true">
                 <span class="player-details">
-                  <strong>Appearances:</strong> Rookie<br>
-                  <strong>Record (W-L-T):</strong> 0-0-0<br>
-                  <strong>Styrka:</strong> Positiv lagspelare med bra känsla.<br>
-                  <strong>Svaghet:</strong> Tappar ibland fokus efter motgångar.
+                  <span class="player-top-stats">
+                    <span><strong>Appearances:</strong> Rookie</span>
+                    <span><strong>Record (W-L-T):</strong> 0-0-0</span>
+                  </span>
+                  <span class="player-bottom-stats">
+                    <span><strong>Styrka:</strong> Positiv lagspelare med bra känsla.</span>
+                    <span><strong>Svaghet:</strong> Tappar ibland fokus efter motgångar.</span>
+                  </span>
                 </span>
               </li>
 
@@ -563,10 +607,14 @@
                 <span class="player-name">Marcus Hernqvist</span>
                 <img class="player-photo" alt="" aria-hidden="true">
                 <span class="player-details">
-                  <strong>Appearances:</strong> Rookie<br>
-                  <strong>Record (W-L-T):</strong> 0-0-0<br>
-                  <strong>Styrka:</strong> Explosiv bollträff och stor potential.<br>
-                  <strong>Svaghet:</strong> Resultaten kan variera från dag till dag.
+                  <span class="player-top-stats">
+                    <span><strong>Appearances:</strong> Rookie</span>
+                    <span><strong>Record (W-L-T):</strong> 0-0-0</span>
+                  </span>
+                  <span class="player-bottom-stats">
+                    <span><strong>Styrka:</strong> Explosiv bollträff och stor potential.</span>
+                    <span><strong>Svaghet:</strong> Resultaten kan variera från dag till dag.</span>
+                  </span>
                 </span>
               </li>
             </ul>
@@ -586,10 +634,14 @@
                 <span class="player-name">Örjan Berg</span>
                 <img class="player-photo" alt="" aria-hidden="true">
                 <span class="player-details">
-                  <strong>Appearances:</strong> 1<br>
-                  <strong>Record (W-L-T):</strong> 2-0-1<br>
-                  <strong>Styrka:</strong> Modig och stark när matchen hårdnar.<br>
-                  <strong>Svaghet:</strong> Kan gå för aggressivt ibland.
+                  <span class="player-top-stats">
+                    <span><strong>Appearances:</strong> 1</span>
+                    <span><strong>Record (W-L-T):</strong> 2-0-1</span>
+                  </span>
+                  <span class="player-bottom-stats">
+                    <span><strong>Styrka:</strong> Modig och stark när matchen hårdnar.</span>
+                    <span><strong>Svaghet:</strong> Kan gå för aggressivt ibland.</span>
+                  </span>
                 </span>
               </li>
 
@@ -599,10 +651,14 @@
                 <span class="player-name">Johan S. Carlson</span>
                 <img class="player-photo" alt="" aria-hidden="true">
                 <span class="player-details">
-                  <strong>Appearances:</strong> 1<br>
-                  <strong>Record (W-L-T):</strong> 0-3-0<br>
-                  <strong>Styrka:</strong> Pålitlig i långa järnslag.<br>
-                  <strong>Svaghet:</strong> Behöver hitta rytmen tidigt.
+                  <span class="player-top-stats">
+                    <span><strong>Appearances:</strong> 1</span>
+                    <span><strong>Record (W-L-T):</strong> 0-3-0</span>
+                  </span>
+                  <span class="player-bottom-stats">
+                    <span><strong>Styrka:</strong> Pålitlig i långa järnslag.</span>
+                    <span><strong>Svaghet:</strong> Behöver hitta rytmen tidigt.</span>
+                  </span>
                 </span>
               </li>
 
@@ -612,10 +668,14 @@
                 <span class="player-name">Ingemar Andersson</span>
                 <img class="player-photo" alt="" aria-hidden="true">
                 <span class="player-details">
-                  <strong>Appearances:</strong> 1<br>
-                  <strong>Record (W-L-T):</strong> 2-1-0<br>
-                  <strong>Styrka:</strong> Kreativ runt greenerna.<br>
-                  <strong>Svaghet:</strong> Tar ibland onödiga chansningar.
+                  <span class="player-top-stats">
+                    <span><strong>Appearances:</strong> 1</span>
+                    <span><strong>Record (W-L-T):</strong> 2-1-0</span>
+                  </span>
+                  <span class="player-bottom-stats">
+                    <span><strong>Styrka:</strong> Kreativ runt greenerna.</span>
+                    <span><strong>Svaghet:</strong> Tar ibland onödiga chansningar.</span>
+                  </span>
                 </span>
               </li>
 
@@ -625,10 +685,14 @@
                 <span class="player-name">Magnus Boström</span>
                 <img class="player-photo" alt="" aria-hidden="true">
                 <span class="player-details">
-                  <strong>Appearances:</strong> 1<br>
-                  <strong>Record (W-L-T):</strong> 2-1-0<br>
-                  <strong>Styrka:</strong> Naturlig ledare med starkt psyke.<br>
-                  <strong>Svaghet:</strong> Lägger ibland för stor press på sig själv.
+                  <span class="player-top-stats">
+                    <span><strong>Appearances:</strong> 1</span>
+                    <span><strong>Record (W-L-T):</strong> 2-1-0</span>
+                  </span>
+                  <span class="player-bottom-stats">
+                    <span><strong>Styrka:</strong> Naturlig ledare med starkt psyke.</span>
+                    <span><strong>Svaghet:</strong> Lägger ibland för stor press på sig själv.</span>
+                  </span>
                 </span>
               </li>
 
@@ -638,10 +702,14 @@
                 <span class="player-name">Harald Eliasson</span>
                 <img class="player-photo" alt="" aria-hidden="true">
                 <span class="player-details">
-                  <strong>Appearances:</strong> Rookie<br>
-                  <strong>Record (W-L-T):</strong> 0-0-0<br>
-                  <strong>Styrka:</strong> Stark taktiker och duktig på att läsa banan.<br>
-                  <strong>Svaghet:</strong> Kan fastna för länge i sina analyser.
+                  <span class="player-top-stats">
+                    <span><strong>Appearances:</strong> Rookie</span>
+                    <span><strong>Record (W-L-T):</strong> 0-0-0</span>
+                  </span>
+                  <span class="player-bottom-stats">
+                    <span><strong>Styrka:</strong> Stark taktiker och duktig på att läsa banan.</span>
+                    <span><strong>Svaghet:</strong> Kan fastna för länge i sina analyser.</span>
+                  </span>
                 </span>
               </li>
 
@@ -651,10 +719,14 @@
                 <span class="player-name">Patrik Millsjö</span>
                 <img class="player-photo" alt="" aria-hidden="true">
                 <span class="player-details">
-                  <strong>Appearances:</strong> Rookie<br>
-                  <strong>Record (W-L-T):</strong> 0-0-0<br>
-                  <strong>Styrka:</strong> Kall och metodisk i viktiga lägen.<br>
-                  <strong>Svaghet:</strong> Behöver ibland våga spela mer offensivt.
+                  <span class="player-top-stats">
+                    <span><strong>Appearances:</strong> Rookie</span>
+                    <span><strong>Record (W-L-T):</strong> 0-0-0</span>
+                  </span>
+                  <span class="player-bottom-stats">
+                    <span><strong>Styrka:</strong> Kall och metodisk i viktiga lägen.</span>
+                    <span><strong>Svaghet:</strong> Behöver ibland våga spela mer offensivt.</span>
+                  </span>
                 </span>
               </li>
             </ul>
