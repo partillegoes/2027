@@ -8,601 +8,403 @@
 
   <style>
     :root {
-      --bg: #101a16;
-      --panel: #192720;
-      --text: #f7f4e9;
-      --muted: #b4c1b8;
-      --gold: #e6c889;
-      --border: rgba(255,255,255,.12);
-      --sidebar: 245px;
-      --blue: #004b8d;
-      --red: #d11f26;
+      --bg:#101a16;--panel:#192720;--text:#f7f4e9;--muted:#b4c1b8;
+      --gold:#e6c889;--border:rgba(255,255,255,.12);--sidebar:245px;
+      --blue:#004b8d;--red:#d11f26
     }
 
-    * { box-sizing: border-box; }
+    *{box-sizing:border-box}
 
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 32px;
+    html{scroll-behavior:smooth;scroll-padding-top:32px}
+
+    body{
+      margin:0;background:var(--bg);color:var(--text);
+      font-family:Arial,Helvetica,sans-serif;line-height:1.65
     }
 
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.65;
+    button,a{-webkit-tap-highlight-color:transparent}
+    button{font:inherit}
+    a{color:inherit}
+
+    :focus-visible{
+      outline:3px solid var(--gold);
+      outline-offset:5px
     }
 
-    button, a { -webkit-tap-highlight-color: transparent; }
-    button { font: inherit; }
-    a { color: inherit; }
-
-    :focus-visible {
-      outline: 3px solid var(--gold);
-      outline-offset: 5px;
+    .sidebar{
+      position:fixed;inset:0 auto 0 0;width:var(--sidebar);
+      padding:38px 26px;background:#0b130f;
+      border-right:1px solid var(--border);
+      display:flex;flex-direction:column;z-index:20
     }
 
-    .sidebar {
-      position: fixed;
-      inset: 0 auto 0 0;
-      width: var(--sidebar);
-      padding: 38px 26px;
-      background: #0b130f;
-      border-right: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      z-index: 20;
+    .brand{
+      color:var(--text);text-decoration:none;font-size:23px;
+      font-weight:900;line-height:1.2;letter-spacing:-.5px
     }
 
-    .brand {
-      color: var(--text);
-      text-decoration: none;
-      font-size: 23px;
-      font-weight: 900;
-      line-height: 1.2;
-      letter-spacing: -.5px;
+    .brand span{
+      display:block;margin-top:9px;color:var(--gold);
+      font-size:12px;letter-spacing:4px
     }
 
-    .brand span {
-      display: block;
-      margin-top: 9px;
-      color: var(--gold);
-      font-size: 12px;
-      letter-spacing: 4px;
+    nav{display:grid;gap:10px;margin-top:60px}
+
+    nav a{
+      padding:12px 14px;border-radius:8px;color:var(--muted);
+      text-decoration:none;transition:background .2s,color .2s
     }
 
-    nav {
-      display: grid;
-      gap: 10px;
-      margin-top: 60px;
+    nav a:hover,nav a.active{
+      background:rgba(230,200,137,.1);color:var(--gold)
     }
 
-    nav a {
-      padding: 12px 14px;
-      border-radius: 8px;
-      color: var(--muted);
-      text-decoration: none;
-      transition: background .2s, color .2s;
+    .sidebar-note{
+      margin-top:auto;color:var(--muted);font-size:12px;line-height:1.7
     }
 
-    nav a:hover, nav a.active {
-      background: rgba(230,200,137,.1);
-      color: var(--gold);
+    .sidebar-note strong{
+      display:block;margin-bottom:5px;color:var(--text)
     }
 
-    .sidebar-note {
-      margin-top: auto;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.7;
+    .menu-toggle{
+      display:none;padding:8px 12px;border:1px solid var(--border);
+      border-radius:8px;background:transparent;color:var(--text);cursor:pointer
     }
 
-    .sidebar-note strong {
-      display: block;
-      margin-bottom: 5px;
-      color: var(--text);
+    main{margin-left:var(--sidebar)}
+
+    .hero{
+      position:relative;min-height:90svh;display:flex;align-items:center;
+      padding:85px clamp(24px,6vw,100px);overflow:hidden;
+      background:radial-gradient(ellipse at 90% 15%,#294b39 0%,transparent 55%),
+      linear-gradient(135deg,#14251c,#101a16 70%)
     }
 
-    .menu-toggle {
-      display: none;
-      padding: 8px 12px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: transparent;
-      color: var(--text);
-      cursor: pointer;
+    .golf-ball{
+      position:absolute;right:-95px;bottom:-90px;width:420px;height:420px;
+      border-radius:50%;opacity:.09;transform:rotate(-20deg);
+      background:radial-gradient(circle,#14251c 2px,transparent 3px) 0 0/18px 18px,#fff;
+      pointer-events:none
     }
 
-    main { margin-left: var(--sidebar); }
+    .hero-content{position:relative;z-index:1;max-width:850px}
 
-    .hero {
-      position: relative;
-      min-height: 90svh;
-      display: flex;
-      align-items: center;
-      padding: 85px clamp(24px, 6vw, 100px);
-      overflow: hidden;
-      background:
-        radial-gradient(ellipse at 90% 15%, #294b39 0%, transparent 55%),
-        linear-gradient(135deg, #14251c, #101a16 70%);
+    .eyebrow{
+      color:var(--gold);font-size:12px;font-weight:700;
+      letter-spacing:3px;text-transform:uppercase
     }
 
-    .golf-ball {
-      position: absolute;
-      right: -95px;
-      bottom: -90px;
-      width: 420px;
-      height: 420px;
-      border-radius: 50%;
-      opacity: .09;
-      transform: rotate(-20deg);
-      background:
-        radial-gradient(circle, #14251c 2px, transparent 3px) 0 0 / 18px 18px,
-        #fff;
-      pointer-events: none;
+    h1{
+      margin:22px 0;font-size:clamp(48px,7vw,100px);
+      line-height:.98;letter-spacing:-3px
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 850px;
+    h1 span{color:var(--gold)}
+
+    .lead{
+      max-width:650px;color:var(--muted);
+      font-size:clamp(17px,2vw,21px);line-height:1.65
     }
 
-    .eyebrow {
-      color: var(--gold);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
+    .section{
+      padding:75px clamp(24px,6vw,100px);
+      border-top:1px solid var(--border)
     }
 
-    h1 {
-      margin: 22px 0;
-      font-size: clamp(48px, 7vw, 100px);
-      line-height: .98;
-      letter-spacing: -3px;
+    .section-inner{max-width:1100px}
+
+    h2{
+      margin:12px 0 28px;font-size:clamp(30px,4vw,48px);
+      line-height:1.15;letter-spacing:-1px
     }
 
-    h1 span { color: var(--gold); }
-
-    .lead {
-      max-width: 650px;
-      color: var(--muted);
-      font-size: clamp(17px, 2vw, 21px);
-      line-height: 1.65;
+    .copy{
+      max-width:760px;color:var(--muted);
+      font-size:18px;line-height:1.75
     }
 
-    .section {
-      padding: 75px clamp(24px, 6vw, 100px);
-      border-top: 1px solid var(--border);
+    .copy p{margin:0 0 20px}
+    .copy p:last-child{margin-bottom:0}
+    .copy strong{color:var(--text)}
+
+    .copy h3,.copy h4{
+      margin:32px 0 12px;color:var(--gold);
+      font-size:23px;line-height:1.3
     }
 
-    .section-inner { max-width: 1100px; }
+    .copy h3:first-child,.copy h4:first-child{margin-top:0}
+    .copy ul{margin:12px 0 24px;padding-left:24px}
+    .copy li{margin-bottom:12px;padding-left:4px}
 
-    h2 {
-      margin: 12px 0 28px;
-      font-size: clamp(30px, 4vw, 48px);
-      line-height: 1.15;
-      letter-spacing: -1px;
+    .cards{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:20px;margin-top:32px
     }
 
-    .copy {
-      max-width: 760px;
-      color: var(--muted);
-      font-size: 18px;
-      line-height: 1.75;
+    .card{
+      padding:30px;background:var(--panel);
+      border:1px solid var(--border);border-radius:14px
     }
 
-    .copy p { margin: 0 0 20px; }
-    .copy p:last-child { margin-bottom: 0; }
-    .copy strong { color: var(--text); }
-
-    .copy h3, .copy h4 {
-      margin: 32px 0 12px;
-      color: var(--gold);
-      font-size: 23px;
-      line-height: 1.3;
+    .card h3{
+      margin:0 0 12px;color:var(--gold);
+      font-size:24px;line-height:1.3
     }
 
-    .copy h3:first-child, .copy h4:first-child { margin-top: 0; }
-    .copy ul { margin: 12px 0 24px; padding-left: 24px; }
-    .copy li { margin-bottom: 12px; padding-left: 4px; }
+    .card p{margin:0;color:var(--muted)}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-      margin-top: 32px;
+    .team-card{position:relative;overflow:hidden}
+    .team-card:before{
+      content:"";position:absolute;inset:0 0 auto;height:7px
     }
 
-    .card {
-      padding: 30px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 14px;
+    .team-card.blue{
+      background:linear-gradient(145deg,rgba(0,75,141,.2),#192720);
+      border-color:var(--blue)
     }
 
-    .card h3 {
-      margin: 0 0 12px;
-      color: var(--gold);
-      font-size: 24px;
-      line-height: 1.3;
+    .team-card.blue:before{background:var(--blue)}
+    .team-card.blue h3{color:var(--blue)}
+
+    .team-card.red{
+      background:linear-gradient(145deg,rgba(209,31,38,.2),#192720);
+      border-color:var(--red)
     }
 
-    .card p { margin: 0; color: var(--muted); }
+    .team-card.red:before{background:var(--red)}
+    .team-card.red h3{color:var(--red)}
+    .team-intro{margin-bottom:22px!important}
 
-    .team-card { position: relative; overflow: hidden; }
-
-    .team-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto;
-      height: 7px;
+    .player-list{
+      display:grid;gap:12px;margin:24px 0 0;padding:0;list-style:none
     }
 
-    .team-card.blue {
-      background: linear-gradient(145deg, rgba(0,75,141,.2), #192720);
-      border-color: var(--blue);
+    .player{
+      position:relative;padding:15px 104px 15px 16px;
+      background:rgba(0,0,0,.2);
+      border:1px solid rgba(255,255,255,.1);border-radius:9px;
+      cursor:pointer;transition:background .2s,border-color .2s,transform .2s
     }
 
-    .team-card.blue::before { background: var(--blue); }
-    .team-card.blue h3 { color: var(--blue); }
-
-    .team-card.red {
-      background: linear-gradient(145deg, rgba(209,31,38,.2), #192720);
-      border-color: var(--red);
+    .player:hover{
+      background:rgba(230,200,137,.12);
+      border-color:var(--gold);transform:translateY(-2px)
     }
 
-    .team-card.red::before { background: var(--red); }
-    .team-card.red h3 { color: var(--red); }
-    .team-intro { margin-bottom: 22px !important; }
-
-    .player-list {
-      display: grid;
-      gap: 12px;
-      margin: 24px 0 0;
-      padding: 0;
-      list-style: none;
+    .player-name{
+      display:block;margin-bottom:4px;color:var(--text);
+      font-weight:700;font-size:17px
     }
 
-    .player {
-      position: relative;
-      padding: 15px 104px 15px 16px;
-      background: rgba(0,0,0,.2);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 9px;
-      cursor: pointer;
-      transition: background .2s, border-color .2s, transform .2s;
+    .player-details{
+      display:block;color:var(--muted);
+      font-size:14px;line-height:1.5
     }
 
-    .player:hover {
-      background: rgba(230,200,137,.12);
-      border-color: var(--gold);
-      transform: translateY(-2px);
+    .player-details strong{color:var(--text)}
+
+    .player-photo{
+      position:absolute;top:50%;right:14px;width:76px;height:76px;
+      object-fit:cover;object-position:center;
+      transform:translateY(-50%);border-radius:8px
     }
 
-    .player-name {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--text);
-      font-weight: 700;
-      font-size: 17px;
+    .stats-player-photo{
+      display:block;width:min(220px,100%);max-height:220px;
+      margin:0 0 24px;object-fit:cover;border-radius:10px
     }
 
-    .player-details {
-      display: block;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.5;
+    .format-cards .card{display:flex;flex-direction:column;gap:14px}
+    .format-cards .card h3,.format-cards .card p{margin:0}
+    .handicap-copy{margin-top:38px}
+    .handicap-card{max-width:760px;margin-top:20px}
+
+    .handicap-list{
+      margin:0;padding-left:24px;color:var(--muted)
     }
 
-    .player-details strong { color: var(--text); }
+    .handicap-list li{margin-bottom:14px;padding-left:4px}
+    .handicap-list li:last-child{margin-bottom:0}
 
-    .player-photo {
-      position: absolute;
-      top: 50%;
-      right: 14px;
-      width: 76px;
-      height: 76px;
-      object-fit: cover;
-      object-position: center;
-      transform: translateY(-50%);
-      border-radius: 8px;
+    .quote{
+      margin:35px 0 0;padding-left:22px;border-left:3px solid var(--gold);
+      font-size:clamp(20px,3vw,29px);font-weight:700;line-height:1.4
     }
 
-    .stats-player-photo {
-      display: block;
-      width: min(220px, 100%);
-      max-height: 220px;
-      margin: 0 0 24px;
-      object-fit: cover;
-      border-radius: 10px;
+    .schedule-grid{
+      display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:20px;margin-top:32px
     }
 
-    .format-cards .card {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
+    .schedule-card{
+      position:relative;overflow:hidden;min-height:285px;padding:0;
+      background:linear-gradient(145deg,rgba(38,61,48,.95),rgba(25,39,32,.98));
+      border:1px solid var(--border);border-radius:14px
     }
 
-    .format-cards .card h3, .format-cards .card p { margin: 0; }
-    .handicap-copy { margin-top: 38px; }
-
-    .handicap-card {
-      max-width: 760px;
-      margin-top: 20px;
+    .schedule-card:before{
+      content:"";display:block;height:7px;background:var(--gold)
     }
 
-    .handicap-list {
-      margin: 0;
-      padding-left: 24px;
-      color: var(--muted);
+    .schedule-header{
+      padding:25px 26px 18px;border-bottom:1px solid var(--border)
     }
 
-    .handicap-list li { margin-bottom: 14px; padding-left: 4px; }
-    .handicap-list li:last-child { margin-bottom: 0; }
-
-    .quote {
-      margin: 35px 0 0;
-      padding-left: 22px;
-      border-left: 3px solid var(--gold);
-      font-size: clamp(20px, 3vw, 29px);
-      font-weight: 700;
-      line-height: 1.4;
+    .schedule-day{
+      display:block;margin-bottom:5px;color:var(--gold);
+      font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase
     }
 
-    .schedule-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-      margin-top: 32px;
+    .schedule-header h3{
+      margin:0;color:var(--text);font-size:28px;line-height:1.3
     }
 
-    .schedule-card {
-      position: relative;
-      overflow: hidden;
-      min-height: 285px;
-      padding: 0;
-      background: linear-gradient(145deg, rgba(38,61,48,.95), rgba(25,39,32,.98));
-      border: 1px solid var(--border);
-      border-radius: 14px;
+    .schedule-list{
+      display:grid;gap:13px;margin:0;padding:22px 26px 26px;list-style:none
     }
 
-    .schedule-card::before {
-      content: "";
-      display: block;
-      height: 7px;
-      background: var(--gold);
+    .schedule-item{
+      display:grid;grid-template-columns:82px 1fr;
+      gap:14px;align-items:start
     }
 
-    .schedule-header {
-      padding: 25px 26px 18px;
-      border-bottom: 1px solid var(--border);
+    .schedule-time{color:var(--gold);font-weight:700;white-space:nowrap}
+    .schedule-event{color:var(--muted);line-height:1.5}
+    .schedule-event strong{display:block;margin-bottom:3px;color:var(--text)}
+
+    .about-link{
+      display:inline-block;margin-top:8px;color:var(--gold);
+      font-weight:700;text-decoration:none
     }
 
-    .schedule-day {
-      display: block;
-      margin-bottom: 5px;
-      color: var(--gold);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+    footer{
+      padding:25px clamp(24px,6vw,100px);
+      border-top:1px solid var(--border);color:var(--muted);font-size:13px
     }
 
-    .schedule-header h3 {
-      margin: 0;
-      color: var(--text);
-      font-size: 28px;
-      line-height: 1.3;
+    .stats-modal{
+      position:fixed;inset:0;z-index:100;display:none;
+      align-items:center;justify-content:center;padding:24px;
+      background:rgba(0,0,0,.78)
     }
 
-    .schedule-list {
-      display: grid;
-      gap: 13px;
-      margin: 0;
-      padding: 22px 26px 26px;
-      list-style: none;
+    .stats-modal.open{display:flex}
+
+    .stats-dialog{
+      position:relative;width:min(900px,100%);
+      max-height:min(850px,90svh);overflow-y:auto;padding:34px;
+      background:var(--panel);border:1px solid var(--border);
+      border-radius:16px;box-shadow:0 20px 80px rgba(0,0,0,.45)
     }
 
-    .schedule-item {
-      display: grid;
-      grid-template-columns: 82px 1fr;
-      gap: 14px;
-      align-items: start;
+    .stats-dialog h2{
+      margin:0 50px 8px 0;color:var(--gold);
+      font-size:clamp(28px,5vw,42px)
     }
 
-    .schedule-time {
-      color: var(--gold);
-      font-weight: 700;
-      white-space: nowrap;
+    .stats-subtitle{margin:0 0 28px;color:var(--muted)}
+
+    .stats-close{
+      position:absolute;top:18px;right:18px;width:42px;height:42px;
+      border:1px solid var(--border);border-radius:50%;
+      background:transparent;color:var(--text);font-size:24px;
+      line-height:1;cursor:pointer
     }
 
-    .schedule-event { color: var(--muted); line-height: 1.5; }
-
-    .schedule-event strong {
-      display: block;
-      margin-bottom: 3px;
-      color: var(--text);
+    .stats-close:hover{
+      background:rgba(230,200,137,.12);color:var(--gold)
     }
 
-    .about-link {
-      display: inline-block;
-      margin-top: 8px;
-      color: var(--gold);
-      font-weight: 700;
-      text-decoration: none;
+    .stats-year{margin:30px 0 12px;color:var(--gold);font-size:24px}
+
+    .stats-table-wrapper{
+      overflow-x:auto;border:1px solid var(--border);border-radius:10px
     }
 
-    footer {
-      padding: 25px clamp(24px, 6vw, 100px);
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 13px;
+    .stats-table{
+      width:100%;min-width:600px;border-collapse:collapse;
+      color:var(--text);font-size:14px
     }
 
-    .stats-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      background: rgba(0,0,0,.78);
+    .stats-table th,.stats-table td{
+      padding:12px 14px;border-bottom:1px solid var(--border);
+      text-align:left;vertical-align:top
     }
 
-    .stats-modal.open { display: flex; }
+    .stats-table th{color:var(--gold);background:rgba(0,0,0,.18)}
+    .stats-table tr:last-child td{border-bottom:0}
+    .stats-table td{color:var(--muted)}
+    .stats-message{padding:25px 0;color:var(--muted)}
 
-    .stats-dialog {
-      position: relative;
-      width: min(900px, 100%);
-      max-height: min(850px, 90svh);
-      overflow-y: auto;
-      padding: 34px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      box-shadow: 0 20px 80px rgba(0,0,0,.45);
+    @media(max-width:950px){
+      .schedule-grid{grid-template-columns:1fr}
+      .schedule-card{min-height:auto}
     }
 
-    .stats-dialog h2 {
-      margin: 0 50px 8px 0;
-      color: var(--gold);
-      font-size: clamp(28px, 5vw, 42px);
-    }
+    @media(max-width:800px){
+      html{scroll-padding-top:100px}
 
-    .stats-subtitle { margin: 0 0 28px; color: var(--muted); }
-
-    .stats-close {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      width: 42px;
-      height: 42px;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      background: transparent;
-      color: var(--text);
-      font-size: 24px;
-      line-height: 1;
-      cursor: pointer;
-    }
-
-    .stats-close:hover {
-      background: rgba(230,200,137,.12);
-      color: var(--gold);
-    }
-
-    .stats-year { margin: 30px 0 12px; color: var(--gold); font-size: 24px; }
-
-    .stats-table-wrapper {
-      overflow-x: auto;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-    }
-
-    .stats-table {
-      width: 100%;
-      min-width: 600px;
-      border-collapse: collapse;
-      color: var(--text);
-      font-size: 14px;
-    }
-
-    .stats-table th, .stats-table td {
-      padding: 12px 14px;
-      border-bottom: 1px solid var(--border);
-      text-align: left;
-      vertical-align: top;
-    }
-
-    .stats-table th {
-      color: var(--gold);
-      background: rgba(0,0,0,.18);
-    }
-
-    .stats-table tr:last-child td { border-bottom: 0; }
-    .stats-table td { color: var(--muted); }
-    .stats-message { padding: 25px 0; color: var(--muted); }
-
-    @media (max-width: 950px) {
-      .schedule-grid { grid-template-columns: 1fr; }
-      .schedule-card { min-height: auto; }
-    }
-
-    @media (max-width: 800px) {
-      html { scroll-padding-top: 100px; }
-
-      .sidebar {
-        inset: 0 0 auto;
-        width: 100%;
-        padding: 16px 20px;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        border-right: 0;
-        border-bottom: 1px solid var(--border);
+      .sidebar{
+        inset:0 0 auto;width:100%;padding:16px 20px;
+        flex-direction:row;align-items:center;justify-content:space-between;
+        border-right:0;border-bottom:1px solid var(--border)
       }
 
-      .brand { font-size: 18px; }
-      .brand span { margin-top: 5px; font-size: 10px; }
-      .menu-toggle { display: block; }
-      .sidebar-note { display: none; }
+      .brand{font-size:18px}
+      .brand span{margin-top:5px;font-size:10px}
+      .menu-toggle{display:block}
+      .sidebar-note{display:none}
 
-      nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        display: none;
-        margin: 0;
-        padding: 15px 20px;
-        background: #0b130f;
-        border-bottom: 1px solid var(--border);
+      nav{
+        position:absolute;top:100%;left:0;right:0;display:none;
+        margin:0;padding:15px 20px;background:#0b130f;
+        border-bottom:1px solid var(--border)
       }
 
-      nav.open { display: grid; }
-      main { margin-left: 0; padding-top: 81px; }
+      nav.open{display:grid}
+      main{margin-left:0;padding-top:81px}
 
-      .hero {
-        min-height: calc(100svh - 81px);
-        padding: 30px 24px 60px;
+      .hero{
+        min-height:calc(100svh - 81px);
+        padding:30px 24px 60px
       }
 
-      .section { padding-top: 55px; padding-bottom: 55px; }
-      .copy { font-size: 17px; }
-      .cards { grid-template-columns: 1fr; }
-      .golf-ball { width: 300px; height: 300px; }
-      .player { padding-right: 16px; }
-      .player-photo { display: none; }
-      .stats-modal { padding: 12px; }
-      .stats-dialog { padding: 25px 18px; }
+      .section{padding-top:55px;padding-bottom:55px}
+      .copy{font-size:17px}
+      .cards{grid-template-columns:1fr}
+      .golf-ball{width:300px;height:300px}
+
+      /* Profilbild visas även i mobilversionen. */
+      .player{padding-right:104px}
+
+      .player-photo{
+        display:block;width:76px;height:76px;
+        top:14px;right:14px;transform:none
+      }
+
+      .stats-modal{padding:12px}
+      .stats-dialog{padding:25px 18px}
     }
 
-    @media (max-width: 600px) {
-      .stats-dialog { padding: 22px 12px; }
-      .stats-table-wrapper { overflow-x: hidden; }
+    @media(max-width:600px){
+      .stats-dialog{padding:22px 12px}
+      .stats-table-wrapper{overflow-x:hidden}
 
-      .stats-table {
-        width: 100%;
-        min-width: 0;
-        table-layout: fixed;
-        font-size: 11px;
+      .stats-table{
+        width:100%;min-width:0;table-layout:fixed;font-size:11px
       }
 
-      .stats-table th, .stats-table td {
-        padding: 8px 4px;
-        overflow-wrap: anywhere;
+      .stats-table th,.stats-table td{
+        padding:8px 4px;overflow-wrap:anywhere
       }
 
-      .stats-table th { font-size: 10px; line-height: 1.2; }
+      .stats-table th{font-size:10px;line-height:1.2}
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before { transition: none !important; }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before{transition:none!important}
     }
   </style>
 </head>
@@ -672,6 +474,7 @@
       <div class="section-inner">
         <div class="eyebrow">Två sidor. En titel.</div>
         <h2 id="teams-title">Teams</h2>
+
         <div class="copy">
           <p>
             Tolv spelare, två lag, en titel. Klicka på en spelares ruta
@@ -689,35 +492,82 @@
             </p>
 
             <ul class="player-list">
-              <li class="player" tabindex="0" role="button" data-player="Daniel Agnemar" aria-label="Visa statistik för Daniel Agnemar">
+              <li class="player" tabindex="0" role="button"
+                  data-player="Daniel Agnemar"
+                  aria-label="Visa statistik för Daniel Agnemar">
                 <span class="player-name">Daniel Agnemar</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details"><strong>Styrka:</strong> Stabil från tee och mycket jämn.<br><strong>Svaghet:</strong> Tar ibland för få risker.<br><strong>Record (W-L-T):</strong> 2-0-1<br><strong>Appearances:</strong> 1</span>
+                <span class="player-details">
+                  <strong>Appearances:</strong> 1<br>
+                  <strong>Record (W-L-T):</strong> 2-0-1<br>
+                  <strong>Styrka:</strong> Stabil från tee och mycket jämn.<br>
+                  <strong>Svaghet:</strong> Tar ibland för få risker.
+                </span>
               </li>
-              <li class="player" tabindex="0" role="button" data-player="Johan Kristofferson" aria-label="Visa statistik för Johan Kristofferson">
+
+              <li class="player" tabindex="0" role="button"
+                  data-player="Johan Kristofferson"
+                  aria-label="Visa statistik för Johan Kristofferson">
                 <span class="player-name">Johan Kristofferson</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details"><strong>Styrka:</strong> Vass puttare under press.<br><strong>Svaghet:</strong> Kan bli otålig efter ett dåligt hål.<br><strong>Record (W-L-T):</strong> 1-2-0<br><strong>Appearances:</strong> 1</span>
+                <span class="player-details">
+                  <strong>Appearances:</strong> 1<br>
+                  <strong>Record (W-L-T):</strong> 1-2-0<br>
+                  <strong>Styrka:</strong> Vass puttare under press.<br>
+                  <strong>Svaghet:</strong> Kan bli otålig efter ett dåligt hål.
+                </span>
               </li>
-              <li class="player" tabindex="0" role="button" data-player="Patrik Ahlstrand" aria-label="Visa statistik för Patrik Ahlstrand">
+
+              <li class="player" tabindex="0" role="button"
+                  data-player="Patrik Ahlstrand"
+                  aria-label="Visa statistik för Patrik Ahlstrand">
                 <span class="player-name">Patrik Ahlstrand</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details"><strong>Styrka:</strong> Strategisk och skicklig på inspel.<br><strong>Svaghet:</strong> Övertänker ibland enkla slag.<br><strong>Record (W-L-T):</strong> 1-2-0<br><strong>Appearances:</strong> 1</span>
+                <span class="player-details">
+                  <strong>Appearances:</strong> 1<br>
+                  <strong>Record (W-L-T):</strong> 1-2-0<br>
+                  <strong>Styrka:</strong> Strategisk och skicklig på inspel.<br>
+                  <strong>Svaghet:</strong> Övertänker ibland enkla slag.
+                </span>
               </li>
-              <li class="player" tabindex="0" role="button" data-player="Johan Köhnke" aria-label="Visa statistik för Johan Köhnke">
+
+              <li class="player" tabindex="0" role="button"
+                  data-player="Johan Köhnke"
+                  aria-label="Visa statistik för Johan Köhnke">
                 <span class="player-name">Johan Köhnke</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details"><strong>Styrka:</strong> Energisk lagspelare med starkt närspel.<br><strong>Svaghet:</strong> Tempot kan bli ojämnt.<br><strong>Record (W-L-T):</strong> 1-2-0<br><strong>Appearances:</strong> 1</span>
+                <span class="player-details">
+                  <strong>Appearances:</strong> 1<br>
+                  <strong>Record (W-L-T):</strong> 1-2-0<br>
+                  <strong>Styrka:</strong> Energisk lagspelare med starkt närspel.<br>
+                  <strong>Svaghet:</strong> Tempot kan bli ojämnt.
+                </span>
               </li>
-              <li class="player" tabindex="0" role="button" data-player="Per Dahlberg" aria-label="Visa statistik för Per Dahlberg">
+
+              <li class="player" tabindex="0" role="button"
+                  data-player="Per Dahlberg"
+                  aria-label="Visa statistik för Per Dahlberg">
                 <span class="player-name">Per Dahlberg</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details"><strong>Styrka:</strong> Positiv lagspelare med bra känsla.<br><strong>Svaghet:</strong> Tappar ibland fokus efter motgångar.<br><strong>Record (W-L-T):</strong> 0-0-0<br><strong>Appearances:</strong> Rookie</span>
+                <span class="player-details">
+                  <strong>Appearances:</strong> Rookie<br>
+                  <strong>Record (W-L-T):</strong> 0-0-0<br>
+                  <strong>Styrka:</strong> Positiv lagspelare med bra känsla.<br>
+                  <strong>Svaghet:</strong> Tappar ibland fokus efter motgångar.
+                </span>
               </li>
-              <li class="player" tabindex="0" role="button" data-player="Marcus Hernqvist" aria-label="Visa statistik för Marcus Hernqvist">
+
+              <li class="player" tabindex="0" role="button"
+                  data-player="Marcus Hernqvist"
+                  aria-label="Visa statistik för Marcus Hernqvist">
                 <span class="player-name">Marcus Hernqvist</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details"><strong>Styrka:</strong> Explosiv bollträff och stor potential.<br><strong>Svaghet:</strong> Resultaten kan variera från dag till dag.<br><strong>Record (W-L-T):</strong> 0-0-0<br><strong>Appearances:</strong> Rookie</span>
+                <span class="player-details">
+                  <strong>Appearances:</strong> Rookie<br>
+                  <strong>Record (W-L-T):</strong> 0-0-0<br>
+                  <strong>Styrka:</strong> Explosiv bollträff och stor potential.<br>
+                  <strong>Svaghet:</strong> Resultaten kan variera från dag till dag.
+                </span>
               </li>
             </ul>
           </article>
@@ -730,35 +580,82 @@
             </p>
 
             <ul class="player-list">
-              <li class="player" tabindex="0" role="button" data-player="Örjan Berg" aria-label="Visa statistik för Örjan Berg">
+              <li class="player" tabindex="0" role="button"
+                  data-player="Örjan Berg"
+                  aria-label="Visa statistik för Örjan Berg">
                 <span class="player-name">Örjan Berg</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details"><strong>Styrka:</strong> Modig och stark när matchen hårdnar.<br><strong>Svaghet:</strong> Kan gå för aggressivt ibland.<br><strong>Record (W-L-T):</strong> 2-0-1<br><strong>Appearances:</strong> 1</span>
+                <span class="player-details">
+                  <strong>Appearances:</strong> 1<br>
+                  <strong>Record (W-L-T):</strong> 2-0-1<br>
+                  <strong>Styrka:</strong> Modig och stark när matchen hårdnar.<br>
+                  <strong>Svaghet:</strong> Kan gå för aggressivt ibland.
+                </span>
               </li>
-              <li class="player" tabindex="0" role="button" data-player="Johan S. Carlson" aria-label="Visa statistik för Johan S. Carlson">
+
+              <li class="player" tabindex="0" role="button"
+                  data-player="Johan S. Carlson"
+                  aria-label="Visa statistik för Johan S. Carlson">
                 <span class="player-name">Johan S. Carlson</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details"><strong>Styrka:</strong> Pålitlig i långa järnslag.<br><strong>Svaghet:</strong> Behöver hitta rytmen tidigt.<br><strong>Record (W-L-T):</strong> 0-3-0<br><strong>Appearances:</strong> 1</span>
+                <span class="player-details">
+                  <strong>Appearances:</strong> 1<br>
+                  <strong>Record (W-L-T):</strong> 0-3-0<br>
+                  <strong>Styrka:</strong> Pålitlig i långa järnslag.<br>
+                  <strong>Svaghet:</strong> Behöver hitta rytmen tidigt.
+                </span>
               </li>
-              <li class="player" tabindex="0" role="button" data-player="Ingemar Andersson" aria-label="Visa statistik för Ingemar Andersson">
+
+              <li class="player" tabindex="0" role="button"
+                  data-player="Ingemar Andersson"
+                  aria-label="Visa statistik för Ingemar Andersson">
                 <span class="player-name">Ingemar Andersson</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details"><strong>Styrka:</strong> Kreativ runt greenerna.<br><strong>Svaghet:</strong> Tar ibland onödiga chansningar.<br><strong>Record (W-L-T):</strong> 2-1-0<br><strong>Appearances:</strong> 1</span>
+                <span class="player-details">
+                  <strong>Appearances:</strong> 1<br>
+                  <strong>Record (W-L-T):</strong> 2-1-0<br>
+                  <strong>Styrka:</strong> Kreativ runt greenerna.<br>
+                  <strong>Svaghet:</strong> Tar ibland onödiga chansningar.
+                </span>
               </li>
-              <li class="player" tabindex="0" role="button" data-player="Magnus Boström" aria-label="Visa statistik för Magnus Boström">
+
+              <li class="player" tabindex="0" role="button"
+                  data-player="Magnus Boström"
+                  aria-label="Visa statistik för Magnus Boström">
                 <span class="player-name">Magnus Boström</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details"><strong>Styrka:</strong> Naturlig ledare med starkt psyke.<br><strong>Svaghet:</strong> Lägger ibland för stor press på sig själv.<br><strong>Record (W-L-T):</strong> 2-1-0<br><strong>Appearances:</strong> 1</span>
+                <span class="player-details">
+                  <strong>Appearances:</strong> 1<br>
+                  <strong>Record (W-L-T):</strong> 2-1-0<br>
+                  <strong>Styrka:</strong> Naturlig ledare med starkt psyke.<br>
+                  <strong>Svaghet:</strong> Lägger ibland för stor press på sig själv.
+                </span>
               </li>
-              <li class="player" tabindex="0" role="button" data-player="Harald Eliasson" aria-label="Visa statistik för Harald Eliasson">
+
+              <li class="player" tabindex="0" role="button"
+                  data-player="Harald Eliasson"
+                  aria-label="Visa statistik för Harald Eliasson">
                 <span class="player-name">Harald Eliasson</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details"><strong>Styrka:</strong> Stark taktiker och duktig på att läsa banan.<br><strong>Svaghet:</strong> Kan fastna för länge i sina analyser.<br><strong>Record (W-L-T):</strong> 0-0-0<br><strong>Appearances:</strong> Rookie</span>
+                <span class="player-details">
+                  <strong>Appearances:</strong> Rookie<br>
+                  <strong>Record (W-L-T):</strong> 0-0-0<br>
+                  <strong>Styrka:</strong> Stark taktiker och duktig på att läsa banan.<br>
+                  <strong>Svaghet:</strong> Kan fastna för länge i sina analyser.
+                </span>
               </li>
-              <li class="player" tabindex="0" role="button" data-player="Patrik Millsjö" aria-label="Visa statistik för Patrik Millsjö">
+
+              <li class="player" tabindex="0" role="button"
+                  data-player="Patrik Millsjö"
+                  aria-label="Visa statistik för Patrik Millsjö">
                 <span class="player-name">Patrik Millsjö</span>
                 <img class="player-photo" alt="" aria-hidden="true">
-                <span class="player-details"><strong>Styrka:</strong> Kall och metodisk i viktiga lägen.<br><strong>Svaghet:</strong> Behöver ibland våga spela mer offensivt.<br><strong>Record (W-L-T):</strong> 0-0-0<br><strong>Appearances:</strong> Rookie</span>
+                <span class="player-details">
+                  <strong>Appearances:</strong> Rookie<br>
+                  <strong>Record (W-L-T):</strong> 0-0-0<br>
+                  <strong>Styrka:</strong> Kall och metodisk i viktiga lägen.<br>
+                  <strong>Svaghet:</strong> Behöver ibland våga spela mer offensivt.
+                </span>
               </li>
             </ul>
           </article>
@@ -786,16 +683,24 @@
             <p>Dag 1 spelas 18 hål bästboll, lagen sätts upp efter stigande handicap på ankomstdagen.</p>
             <p>Matchen är värd 1 poäng.</p>
           </article>
+
           <article class="card">
             <h3>Dag 2 · Bästboll</h3>
-            <p>Dag 2 spelas 2 × 18 hål bästboll. Det är Captains Pick. Laguppställningen presenteras 
-            kvällen innan för bästboll 1 och på andra dagens lunch för böstboll 2.</p>
+            <p>
+              Dag 2 spelas 2 × 18 hål bästboll. Det är Captains Pick.
+              Laguppställningen presenteras kvällen innan för bästboll 1
+              och på andra dagens lunch för bästboll 2.
+            </p>
             <p>Varje match är värd 1 poäng.</p>
           </article>
+
           <article class="card">
             <h3>Sista dagen · Singlar</h3>
-            <p>Sista dagen spelas avgörande singelmatcher över 18 hål. Lagen går ut i fallande handicap 
-              med vissa justeringar för att inte gå i likadana bollar som dag 1</p>
+            <p>
+              Sista dagen spelas avgörande singelmatcher över 18 hål.
+              Lagen går ut i fallande handicap med vissa justeringar för
+              att inte gå i likadana bollar som dag 1.
+            </p>
             <p>Varje singelmatch är värd 2 poäng.</p>
           </article>
         </div>
@@ -816,7 +721,10 @@
 
         <div class="card handicap-card">
           <h3>Singlar</h3>
-          <p>I singelmatcherna använder spelarna sina respektive spelhandicap. Samma nollställning tillämpas som i bästbollarna.</p>
+          <p>
+            I singelmatcherna använder spelarna sina respektive spelhandicap.
+            Samma nollställning tillämpas som i bästbollarna.
+          </p>
         </div>
 
         <blockquote class="quote">
@@ -833,33 +741,84 @@
 
         <div class="schedule-grid">
           <article class="schedule-card">
-            <div class="schedule-header"><span class="schedule-day">Dag 1</span><h3>Lördag</h3></div>
+            <div class="schedule-header">
+              <span class="schedule-day">Dag 1</span>
+              <h3>Lördag</h3>
+            </div>
+
             <ul class="schedule-list">
-              <li class="schedule-item"><span class="schedule-time">10:00</span><span class="schedule-event"><strong>Samling</strong>Samling vid parkeringen.</span></li>
-              <li class="schedule-item"><span class="schedule-time">11:30</span><span class="schedule-event"><strong>Lunch</strong>Uppladdning inför dagens matcher.</span></li>
-              <li class="schedule-item"><span class="schedule-time">13:00</span><span class="schedule-event"><strong>Pine Course</strong>Starttider från kl. 13:00.</span></li>
-              <li class="schedule-item"><span class="schedule-time">18:00</span><span class="schedule-event"><strong>Prisutdelning</strong>I baren.</span></li>
-              <li class="schedule-item"><span class="schedule-time">19:30</span><span class="schedule-event"><strong>Middag</strong>Kvällens gemensamma middag.</span></li>
+              <li class="schedule-item">
+                <span class="schedule-time">10:00</span>
+                <span class="schedule-event"><strong>Samling</strong>Samling vid parkeringen.</span>
+              </li>
+              <li class="schedule-item">
+                <span class="schedule-time">11:30</span>
+                <span class="schedule-event"><strong>Lunch</strong>Uppladdning inför dagens matcher.</span>
+              </li>
+              <li class="schedule-item">
+                <span class="schedule-time">13:00</span>
+                <span class="schedule-event"><strong>Pine Course</strong>Starttider från kl. 13:00.</span>
+              </li>
+              <li class="schedule-item">
+                <span class="schedule-time">18:00</span>
+                <span class="schedule-event"><strong>Prisutdelning</strong>I baren.</span>
+              </li>
+              <li class="schedule-item">
+                <span class="schedule-time">19:30</span>
+                <span class="schedule-event"><strong>Middag</strong>Kvällens gemensamma middag.</span>
+              </li>
             </ul>
           </article>
 
           <article class="schedule-card">
-            <div class="schedule-header"><span class="schedule-day">Dag 2</span><h3>Söndag</h3></div>
+            <div class="schedule-header">
+              <span class="schedule-day">Dag 2</span>
+              <h3>Söndag</h3>
+            </div>
+
             <ul class="schedule-list">
-              <li class="schedule-item"><span class="schedule-time">07:00</span><span class="schedule-event"><strong>Frukost</strong>Frukosten öppnar kl. 7:00.</span></li>
-              <li class="schedule-item"><span class="schedule-time">08:05</span><span class="schedule-event"><strong>Pine Course</strong>Starttider från kl. 8:05.</span></li>
-              <li class="schedule-item"><span class="schedule-time">13:00</span><span class="schedule-event"><strong>Lunch och prisutdelning</strong>Prisutdelningvid lunchbordet.</span></li>
-              <li class="schedule-item"><span class="schedule-time">14:10</span><span class="schedule-event"><strong>Ocean Course</strong>Starttider från kl. 14:10.</span></li>
-              <li class="schedule-item"><span class="schedule-time">19:00</span><span class="schedule-event"><strong>Prisutdelning</strong>I baren.</span></li>
-              <li class="schedule-item"><span class="schedule-time">20:00</span><span class="schedule-event"><strong>Middag</strong>Kvällens gemensamma middag.</span></li>
+              <li class="schedule-item">
+                <span class="schedule-time">07:00</span>
+                <span class="schedule-event"><strong>Frukost</strong>Frukosten öppnar kl. 7:00.</span>
+              </li>
+              <li class="schedule-item">
+                <span class="schedule-time">08:05</span>
+                <span class="schedule-event"><strong>Pine Course</strong>Starttider från kl. 8:05.</span>
+              </li>
+              <li class="schedule-item">
+                <span class="schedule-time">13:00</span>
+                <span class="schedule-event"><strong>Lunch och prisutdelning</strong>Prisutdelning vid lunchbordet.</span>
+              </li>
+              <li class="schedule-item">
+                <span class="schedule-time">14:10</span>
+                <span class="schedule-event"><strong>Ocean Course</strong>Starttider från kl. 14:10.</span>
+              </li>
+              <li class="schedule-item">
+                <span class="schedule-time">19:00</span>
+                <span class="schedule-event"><strong>Prisutdelning</strong>I baren.</span>
+              </li>
+              <li class="schedule-item">
+                <span class="schedule-time">20:00</span>
+                <span class="schedule-event"><strong>Middag</strong>Kvällens gemensamma middag.</span>
+              </li>
             </ul>
           </article>
 
           <article class="schedule-card">
-            <div class="schedule-header"><span class="schedule-day">Dag 3</span><h3>Måndag</h3></div>
+            <div class="schedule-header">
+              <span class="schedule-day">Dag 3</span>
+              <h3>Måndag</h3>
+            </div>
+
             <ul class="schedule-list">
-              <li class="schedule-item"><span class="schedule-time">07:00</span><span class="schedule-event"><strong>Frukost</strong>Frukosten öppnar kl. 7:00.</span></li>
-              <li class="schedule-item"><span class="schedule-time">10:05</span><span class="schedule-event"><strong>Pine Course</strong>Starttider från kl. 10:05.</span></li>
+              <li class="schedule-item">
+                <span class="schedule-time">07:00</span>
+                <span class="schedule-event"><strong>Frukost</strong>Frukosten öppnar kl. 7:00.</span>
+              </li>
+              <li class="schedule-item">
+                <span class="schedule-time">10:05</span>
+                <span class="schedule-event"><strong>Pine Course</strong>Starttider från kl. 10:05.</span>
+              </li>
             </ul>
           </article>
         </div>
@@ -870,10 +829,18 @@
       <div class="section-inner">
         <div class="eyebrow">Bakom tävlingen</div>
         <h2 id="about-pgb-title">Om Partille Goes</h2>
+
         <div class="copy">
-          <p>Partille Goes är mer än en golftävling. Det är ett koncept som bygger på rivalitet, gemenskap och passionen för golf.</p>
           <p>
-            <a class="about-link" href="https://partillegoes.github.io/start/" target="_blank" rel="noopener noreferrer">
+            Partille Goes är mer än en golftävling. Det är ett koncept som
+            bygger på rivalitet, gemenskap och passionen för golf.
+          </p>
+
+          <p>
+            <a class="about-link"
+               href="https://partillegoes.github.io/start/"
+               target="_blank"
+               rel="noopener noreferrer">
               Läs mer om Partille Goes →
             </a>
           </p>
@@ -881,16 +848,37 @@
       </div>
     </section>
 
-    <footer>Partille Goes... 2027 · 12 spelare · Tre dagar av lagtävling</footer>
+    <footer>
+      Partille Goes... 2027 · 12 spelare · Tre dagar av lagtävling
+    </footer>
   </main>
 
-  <div class="stats-modal" id="stats-modal" role="dialog" aria-modal="true" aria-labelledby="stats-modal-title" aria-hidden="true">
+  <div class="stats-modal"
+       id="stats-modal"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="stats-modal-title"
+       aria-hidden="true">
+
     <div class="stats-dialog">
-      <button class="stats-close" id="stats-close" type="button" aria-label="Stäng statistik">×</button>
+      <button class="stats-close"
+              id="stats-close"
+              type="button"
+              aria-label="Stäng statistik">
+        ×
+      </button>
+
       <h2 id="stats-modal-title">Spelarstatistik</h2>
       <p class="stats-subtitle" id="stats-modal-subtitle"></p>
-      <img class="stats-player-photo" id="stats-player-photo" alt="" hidden>
-      <div id="stats-content"><p class="stats-message">Laddar statistik...</p></div>
+
+      <img class="stats-player-photo"
+           id="stats-player-photo"
+           alt=""
+           hidden>
+
+      <div id="stats-content">
+        <p class="stats-message">Laddar statistik...</p>
+      </div>
     </div>
   </div>
 
@@ -949,17 +937,15 @@
         threshold: 0
       });
 
-      document.querySelectorAll("main section").forEach(section => observer.observe(section));
+      document
+        .querySelectorAll("main section")
+        .forEach(section => observer.observe(section));
     }
 
     function playerImageUrl(playerName) {
       return encodeURIComponent(playerName.normalize("NFC")) + ".jpg";
     }
 
-    /*
-     * Om spelarens bild saknas används spelare.jpg.
-     * Reservbilden ska ligga i samma mapp som index.html.
-     */
     function useFallbackImage(image) {
       image.onerror = null;
 
@@ -970,13 +956,16 @@
       image.src = "spelare.jpg";
     }
 
-    const statsUrl = "https://partillegoes.github.io/start/stats.csv";
+    const statsUrl =
+      "https://partillegoes.github.io/start/stats.csv";
+
     const statsModal = document.querySelector("#stats-modal");
     const statsDialog = document.querySelector(".stats-dialog");
     const statsClose = document.querySelector("#stats-close");
     const statsTitle = document.querySelector("#stats-modal-title");
     const statsSubtitle = document.querySelector("#stats-modal-subtitle");
-    const statsPlayerPhoto = document.querySelector("#stats-player-photo");
+    const statsPlayerPhoto =
+      document.querySelector("#stats-player-photo");
     const statsContent = document.querySelector("#stats-content");
     const playerCards = document.querySelectorAll(".player");
 
@@ -1038,10 +1027,14 @@
         .replace(/\r\n/g, "\n")
         .replace(/\r/g, "\n");
 
-      const lines = cleanText.split("\n").filter(line => line.trim() !== "");
+      const lines = cleanText
+        .split("\n")
+        .filter(line => line.trim() !== "");
+
       if (lines.length < 2) return [];
 
-      const headers = parseCsvLine(lines[0]).map(header => header.trim());
+      const headers = parseCsvLine(lines[0])
+        .map(header => header.trim());
 
       return lines.slice(1).map(line => {
         const columns = parseCsvLine(line);
@@ -1078,10 +1071,14 @@
       statsPlayerPhoto.src = playerImageUrl(playerName);
       statsPlayerPhoto.alt = `Profilbild på ${playerName}`;
       statsPlayerPhoto.hidden = false;
-      statsPlayerPhoto.onerror = () => useFallbackImage(statsPlayerPhoto);
+      statsPlayerPhoto.onerror =
+        () => useFallbackImage(statsPlayerPhoto);
 
-      statsSubtitle.textContent = "Hämtar spelad matchstatistik...";
-      statsContent.innerHTML = '<p class="stats-message">Laddar statistik...</p>';
+      statsSubtitle.textContent =
+        "Hämtar spelad matchstatistik...";
+
+      statsContent.innerHTML =
+        '<p class="stats-message">Laddar statistik...</p>';
 
       statsModal.classList.add("open");
       statsModal.setAttribute("aria-hidden", "false");
@@ -1098,27 +1095,37 @@
       statsPlayerPhoto.hidden = true;
       statsPlayerPhoto.removeAttribute("src");
 
-      if (lastFocusedPlayer) lastFocusedPlayer.focus();
+      if (lastFocusedPlayer) {
+        lastFocusedPlayer.focus();
+      }
     }
 
     async function loadPlayerStats(playerName) {
       try {
         if (!statsCache) {
-          const response = await fetch(statsUrl, { cache: "no-store" });
-          if (!response.ok) throw new Error("Kunde inte hämta statistikfilen.");
+          const response = await fetch(statsUrl, {
+            cache: "no-store"
+          });
+
+          if (!response.ok) {
+            throw new Error("Kunde inte hämta statistikfilen.");
+          }
 
           statsCache = parseCsv(await response.text());
         }
 
         const playerRows = statsCache.filter(row => {
-          return normalizeText(getColumn(row, "Spelare")) === normalizeText(playerName);
+          return normalizeText(getColumn(row, "Spelare")) ===
+            normalizeText(playerName);
         });
 
         renderPlayerStats(playerName, playerRows);
       } catch (error) {
         statsSubtitle.textContent = "";
         statsContent.innerHTML = `
-          <p class="stats-message">Statistik kunde inte hämtas just nu.</p>
+          <p class="stats-message">
+            Statistik kunde inte hämtas just nu.
+          </p>
         `;
       }
     }
@@ -1128,20 +1135,29 @@
         statsSubtitle.textContent = "";
         statsContent.innerHTML = `
           <p class="stats-message">
-            Det finns inga registrerade matcher för ${escapeHtml(playerName)}.
+            Det finns inga registrerade matcher för
+            ${escapeHtml(playerName)}.
           </p>
         `;
         return;
       }
 
       statsSubtitle.textContent =
-        `${rows.length} registrerad${rows.length === 1 ? "" : "e"} match${rows.length === 1 ? "" : "er"}`;
+        `${rows.length} registrerad${
+          rows.length === 1 ? "" : "e"
+        } match${
+          rows.length === 1 ? "" : "er"
+        }`;
 
       const rowsByYear = {};
 
       rows.forEach(row => {
         const year = getColumn(row, "År") || "Okänt år";
-        if (!rowsByYear[year]) rowsByYear[year] = [];
+
+        if (!rowsByYear[year]) {
+          rowsByYear[year] = [];
+        }
+
         rowsByYear[year].push(row);
       });
 
@@ -1199,7 +1215,9 @@
       playerCard.addEventListener("click", () => {
         const playerName =
           playerCard.dataset.player ||
-          playerCard.querySelector(".player-name").textContent.trim();
+          playerCard.querySelector(".player-name")
+            .textContent
+            .trim();
 
         openStatsModal(playerName, playerCard);
       });
@@ -1215,13 +1233,20 @@
     statsClose.addEventListener("click", closeStatsModal);
 
     statsModal.addEventListener("click", event => {
-      if (event.target === statsModal) closeStatsModal();
+      if (event.target === statsModal) {
+        closeStatsModal();
+      }
     });
 
-    statsDialog.addEventListener("click", event => event.stopPropagation());
+    statsDialog.addEventListener("click", event => {
+      event.stopPropagation();
+    });
 
     document.addEventListener("keydown", event => {
-      if (event.key === "Escape" && statsModal.classList.contains("open")) {
+      if (
+        event.key === "Escape" &&
+        statsModal.classList.contains("open")
+      ) {
         closeStatsModal();
       }
     });
