@@ -584,6 +584,7 @@
                   <span class="player-top-stats">
                     <span><strong>Appearances:</strong> 1</span>
                     <span><strong>Record (W-L-T):</strong> 2-0-1</span>
+                    <span><strong>Point %:</strong> <span class="point-percent">–</span></span>
                   </span>
 
                   <span class="player-bottom-stats">
@@ -603,6 +604,7 @@
                   <span class="player-top-stats">
                     <span><strong>Appearances:</strong> 1</span>
                     <span><strong>Record (W-L-T):</strong> 1-2-0</span>
+                    span><strong>Point %:</strong> <span class="point-percent">–</span></span>
                   </span>
 
                   <span class="player-bottom-stats">
@@ -622,6 +624,7 @@
                   <span class="player-top-stats">
                     <span><strong>Appearances:</strong> 1</span>
                     <span><strong>Record (W-L-T):</strong> 1-2-0</span>
+                    span><strong>Point %:</strong> <span class="point-percent">–</span></span>
                   </span>
 
                   <span class="player-bottom-stats">
@@ -641,6 +644,7 @@
                   <span class="player-top-stats">
                     <span><strong>Appearances:</strong> 1</span>
                     <span><strong>Record (W-L-T):</strong> 1-2-0</span>
+                    span><strong>Point %:</strong> <span class="point-percent">–</span></span>
                   </span>
 
                   <span class="player-bottom-stats">
@@ -660,6 +664,7 @@
                   <span class="player-top-stats">
                     <span><strong>Appearances:</strong> Rookie</span>
                     <span><strong>Record (W-L-T):</strong> 0-0-0</span>
+                    span><strong>Point %:</strong> <span class="point-percent">–</span></span>
                   </span>
 
                   <span class="player-bottom-stats">
@@ -679,6 +684,7 @@
                   <span class="player-top-stats">
                     <span><strong>Appearances:</strong> Rookie</span>
                     <span><strong>Record (W-L-T):</strong> 0-0-0</span>
+                    span><strong>Point %:</strong> <span class="point-percent">–</span></span>
                   </span>
 
                   <span class="player-bottom-stats">
@@ -710,6 +716,7 @@
                   <span class="player-top-stats">
                     <span><strong>Appearances:</strong> 1</span>
                     <span><strong>Record (W-L-T):</strong> 2-0-1</span>
+                    span><strong>Point %:</strong> <span class="point-percent">–</span></span>
                   </span>
 
                   <span class="player-bottom-stats">
@@ -729,6 +736,7 @@
                   <span class="player-top-stats">
                     <span><strong>Appearances:</strong> 1</span>
                     <span><strong>Record (W-L-T):</strong> 0-3-0</span>
+                    span><strong>Point %:</strong> <span class="point-percent">–</span></span>
                   </span>
 
                   <span class="player-bottom-stats">
@@ -748,6 +756,7 @@
                   <span class="player-top-stats">
                     <span><strong>Appearances:</strong> 1</span>
                     <span><strong>Record (W-L-T):</strong> 2-1-0</span>
+                    span><strong>Point %:</strong> <span class="point-percent">–</span></span>
                   </span>
 
                   <span class="player-bottom-stats">
@@ -767,6 +776,7 @@
                   <span class="player-top-stats">
                     <span><strong>Appearances:</strong> 1</span>
                     <span><strong>Record (W-L-T):</strong> 2-1-0</span>
+                    span><strong>Point %:</strong> <span class="point-percent">–</span></span>
                   </span>
 
                   <span class="player-bottom-stats">
@@ -786,6 +796,7 @@
                   <span class="player-top-stats">
                     <span><strong>Appearances:</strong> Rookie</span>
                     <span><strong>Record (W-L-T):</strong> 0-0-0</span>
+                    span><strong>Point %:</strong> <span class="point-percent">–</span></span>
                   </span>
 
                   <span class="player-bottom-stats">
@@ -805,6 +816,7 @@
                   <span class="player-top-stats">
                     <span><strong>Appearances:</strong> Rookie</span>
                     <span><strong>Record (W-L-T):</strong> 0-0-0</span>
+                    span><strong>Point %:</strong> <span class="point-percent">–</span></span>
                   </span>
 
                   <span class="player-bottom-stats">
@@ -1207,6 +1219,77 @@
       });
     }
 
+    async function loadStatsCache() {
+  if (!statsCache) {
+    const response = await fetch(statsUrl, {
+      cache: "no-store"
+    });
+
+    if (!response.ok) {
+      throw new Error("Kunde inte hämta statistikfilen.");
+    }
+
+    statsCache = parseCsv(await response.text());
+  }
+
+  return statsCache;
+}
+
+function getMatchPoints(result) {
+  const normalizedResult = normalizeText(result);
+
+  if (
+    normalizedResult.includes("vinst") ||
+    normalizedResult === "v" ||
+    normalizedResult === "win" ||
+    normalizedResult.includes("won")
+  ) {
+    return 1;
+  }
+
+  if (
+    normalizedResult.includes("delad") ||
+    normalizedResult.includes("oavgjord") ||
+    normalizedResult.includes("draw") ||
+    normalizedResult === "t"
+  ) {
+    return 0.5;
+  }
+
+  return 0;
+}
+
+function calculatePointPercent(rows) {
+  if (!rows.length) {
+    return null;
+  }
+
+  const totalPoints = rows.reduce((sum, row) => {
+    return sum + getMatchPoints(getColumn(row, "Resultat"));
+  }, 0);
+
+  const percentage = (totalPoints / rows.length) * 100;
+
+  return Math.round(percentage);
+}
+
+async function updatePointPercentages() {
+  try {
+    const rows = await loadStatsCache();
+
+    playerCards.forEach(playerCard => {
+      const playerName = playerCard.dataset.player;
+
+      const playerRows = rows.filter(row => {
+        return normalizeText(getColumn(row, "Spelare")) ===
+          normalizeText(playerName);
+      });
+
+      const pointPercent = calculatePointPercent(playerRows);
+      const pointElement = playerCard.querySelector(".point-percent");
+
+
+    
     function getColumn(row, columnName) {
       const actualKey = Object.keys(row).find(
         key => normalizeText(key) === normalizeText(columnName)
