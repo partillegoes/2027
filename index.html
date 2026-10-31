@@ -1140,6 +1140,9 @@
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
     }
+    function formatOpponent(value) {
+    return escapeHtml(value).replace(/\/\s*/g, '/&nbsp;<br>');
+    }
 
     function parseCsvLine(line) {
       const values = [];
@@ -1331,7 +1334,7 @@
               <td>${escapeHtml(runda)}</td>
               <td>${escapeHtml(result)}</td>
               <td>${escapeHtml(format)}</td>
-              <td>${escapeHtml(opponent)}</td>
+              <td>${formatOpponent(opponent)}</td>
               <td>${escapeHtml(teammate)}</td>
             </tr>
           `;
