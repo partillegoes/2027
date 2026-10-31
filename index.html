@@ -408,27 +408,34 @@
 .player-photo {
   position: static;
   display: block;
+  grid-area: photo;
   width: 76px;
   height: 76px;
-  margin: 0 0 8px;
+  margin: 0;
   transform: none;
 }
 
 .player-details {
-  display: block;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 76px;
+  grid-template-areas:
+    "top photo"
+    "bottom bottom";
+  gap: 10px 12px;
 }
 
-.player-top-stats,
-.player-bottom-stats {
+.player-top-stats {
+  grid-area: top;
   display: grid;
+  align-content: start;
   gap: 6px;
 }
 
-      .player-bottom-stats{
-        grid-area:bottom;
-        display:grid;
-        gap:6px;
-      }
+.player-bottom-stats {
+  grid-area: bottom;
+  display: grid;
+  gap: 6px;
+}
 
       .stats-modal{padding:12px}
       .stats-dialog{padding:25px 18px}
