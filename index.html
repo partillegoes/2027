@@ -197,13 +197,6 @@
       font-weight:700;font-size:17px
     }
 
-    .captain-mark {
-      color: var(--gold);
-      font-size: .85em;
-      white-space: nowrap;
-      margin-left: 4px;
-    }
-
     .player-details{
       display:block;color:var(--muted);
       font-size:14px;line-height:1.5
@@ -431,23 +424,6 @@
       }
 
       .stats-table th{font-size:10px;line-height:1.2}
-
-      /* Rd and Res columns as narrow as possible */
-      .stats-table th:nth-child(1),
-      .stats-table td:nth-child(1),
-      .stats-table th:nth-child(2),
-      .stats-table td:nth-child(2) {
-        width: 35px;
-        padding-left: 2px;
-        padding-right: 2px;
-        text-align: center;
-      }
-
-      /* Extra space to Opponent (Motståndare) */
-      .stats-table th:nth-child(4),
-      .stats-table td:nth-child(4) {
-        width: 40%;
-      }
     }
 
     @media(prefers-reduced-motion:reduce){
@@ -543,7 +519,7 @@
               <li class="player" tabindex="0" role="button"
                   data-player="Daniel Agnemar"
                   aria-label="Visa statistik för Daniel Agnemar">
-                <span class="player-name">Daniel Agnemar <span class="captain-mark">(K)</span></span>
+                <span class="player-name">Daniel Agnemar</span>
                 <img class="player-photo" alt="" aria-hidden="true">
                 <span class="player-details">
                   <span class="player-top-stats">
@@ -655,7 +631,7 @@
               <li class="player" tabindex="0" role="button"
                   data-player="Örjan Berg"
                   aria-label="Visa statistik för Örjan Berg">
-                <span class="player-name">Örjan Berg <span class="captain-mark">(K)</span></span>
+                <span class="player-name">Örjan Berg</span>
                 <img class="player-photo" alt="" aria-hidden="true">
                 <span class="player-details">
                   <span class="player-top-stats">
@@ -783,7 +759,7 @@
           <article class="card">
             <h3>Dag 2 · Bästboll</h3>
             <p>
-              Dag 2 spelas 2 × 18 hål bästboll. Det är Captains Pick. Med kaptenens veto sätter laget tillsammans ihop bollarna för dag 2.
+              Dag 2 spelas 2 × 18 hål bästboll. Det är Captains Pick.
               Laguppställningen presenteras kvällen innan för bästboll 1
               och på andra dagens lunch för bästboll 2.
             </p>
@@ -1120,16 +1096,11 @@
     function parseCsv(csvText) {
       const cleanText = csvText
         .replace(/^\uFEFF/, "")
-        .replace(/
-/g, "
-")
-        .replace(/
-/g, "
-");
+        .replace(/\r\n/g, "\n")
+        .replace(/\r/g, "\n");
 
       const lines = cleanText
-        .split("
-")
+        .split("\n")
         .filter(line => line.trim() !== "");
 
       if (lines.length < 2) return [];
@@ -1314,7 +1285,12 @@
 
     playerCards.forEach(playerCard => {
       playerCard.addEventListener("click", () => {
-        const playerName = playerCard.dataset.player;
+        const playerName =
+          playerCard.dataset.player ||
+          playerCard.querySelector(".player-name")
+            .textContent
+            .trim();
+
         openStatsModal(playerName, playerCard);
       });
 
