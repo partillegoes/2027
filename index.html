@@ -48,6 +48,11 @@
       font-size:12px;letter-spacing:4px
     }
 
+    .brand-break {
+  display: inline;
+}
+
+   
     nav{display:grid;gap:10px;margin-top:60px}
 
     nav a{
@@ -416,6 +421,15 @@
       .cards{grid-template-columns:1fr}
       .golf-ball{width:300px;height:300px}
 
+      
+    .brand {
+  white-space: nowrap;
+}
+
+.brand-break {
+  display: none;
+}
+      
  .player{
         padding:15px 14px;
       }
@@ -487,7 +501,7 @@
 <body>
   <aside class="sidebar" aria-label="Sidomeny">
     <a class="brand" href="#main-info">
-      Partille Goes<br>Barsebäck
+      Partille Goes<br class="brand-break"> Barsebäck
       <span>2027 · ROUND TWO</span>
     </a>
 
